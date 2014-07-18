@@ -1,0 +1,23 @@
+hybrid (1:0.1~precise) precise; urgency=low
+
+  * Automatic updates
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 18 Jul 2014 05:42:41 +0200
+
+hybrid (140714~ppa3~precise) precise; urgency=low
+
+  * Fix dependencies
+
+ -- Marshall Banana <djcj@gmx.de>  Thu, 17 Jul 2014 07:11:12 +0200
+
+hybrid (140714~ppa2~precise) precise; urgency=low
+
+  * Improve starter scripts
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 16 Jul 2014 18:34:19 +0200
+
+hybrid (140714~ppa1~precise) precise; urgency=low
+
+  * Initial release
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 16 Jul 2014 17:19:27 +0200

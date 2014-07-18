@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Hybrid (Qt5)
+GenericName=Video encoder
+Comment=Multi platform Qt based encoding frontend
+Icon=hybrid-encoder
+Exec=hybrid-qt5 %F
+Terminal=false
+Categories=AudioVideo;AudioVideoEditing;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Hybrid (Qt 4.6)
+GenericName=Video encoder
+Comment=Multi platform Qt based encoding frontend
+Icon=hybrid-encoder
+Exec=hybrid-qt46 %F
+Terminal=false
+Categories=AudioVideo;AudioVideoEditing;

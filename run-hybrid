@@ -1,0 +1,27 @@
+hybrid="$HOME/.hybrid-bin/Hybrid-$QT"
+URL=http://www.selur.de/sites/default/files/hybrid_downloads
+
+install_hybrid=/usr/share/hybrid-common/install-hybrid.sh
+title="Install Hybrid (Qt $QT)"
+
+current_ver=$("$hybrid" -version | cut -d' ' -f3)
+current_ver_np=$(echo $current_ver | sed -e 's/\.//g')
+
+available_ver=$(wget -q -O - $URL/version.txt)
+available_ver_np=$(echo $available_ver | sed -e 's/\.//g')
+
+
+if [ -f "$hybrid" ] ; then
+    if [ -z $available_ver ] ; then
+        echo "No Internet connection?"
+    else
+        if [ $available_ver_np -gt $current_ver_np ] ; then
+            rm -f "$hybrid"
+            xterm -title "$title" -e $install_hybrid $QT
+        fi
+    fi
+    "$hybrid" "$@"
+else
+    xterm -title "$title" -e $install_hybrid $QT &&
+    "$hybrid" "$@"
+fi

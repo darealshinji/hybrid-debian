@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+DEB_HOST_ARCH_BITS = $(shell dpkg-architecture -qDEB_HOST_ARCH_BITS)
+
+
+%:
+	dh ${@} --parallel
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f install-hybrid.sh
+
+override_dh_auto_configure:
+	dh_auto_configure
+	sed -e 's/@DEB_HOST_ARCH_BITS@/$(DEB_HOST_ARCH_BITS)/;' \
+		install-hybrid.sh.in > install-hybrid.sh
+
+override_dh_auto_install:
+	install -m755 -d debian/tmp/usr/bin
+	install -m755 -d debian/tmp/usr/share/applications
+	install -m755 -d debian/tmp/usr/share/hybrid-common
+	install -m755 -d debian/tmp/usr/share/icons
+	install -m755 -D framecounter        debian/tmp/usr/bin
+	install -m755 -D hybrid              debian/tmp/usr/bin
+	install -m755 -D hybrid-qt46         debian/tmp/usr/bin
+	install -m755 -D hybrid-qt5          debian/tmp/usr/bin
+	install -m755 -D install-hybrid.sh   debian/tmp/usr/share/hybrid-common
+	install -m644 -D run-hybrid          debian/tmp/usr/share/hybrid-common
+	install -m644 -D hybrid.desktop      debian/tmp/usr/share/applications
+	install -m644 -D hybrid-qt46.desktop debian/tmp/usr/share/applications
+	install -m644 -D hybrid-qt5.desktop  debian/tmp/usr/share/applications
+

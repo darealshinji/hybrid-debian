@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+QT=48
+
+if [ "$1" = "purge" ]; then
+   find "/home/*/.hybrid-bin/" -name "Hybrid-$QT" -delete
+fi
+
+#DEBHELPER#
