@@ -11,7 +11,7 @@ DD=$(echo $available_ver | cut -d'.' -f3)
 _REV=$(echo $available_ver | cut -d'.' -f4)
 
 if [ $_REV != 1 ] ; then
-   REV=$_REV
+   REV=_$_REV
 fi
 
 VER=$YY$MM$DD$REV
