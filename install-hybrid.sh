@@ -16,7 +16,7 @@ fi
 
 VER=$YY$MM$DD$REV
 
-BITS=@DEB_HOST_ARCH_BITS@
+BITS=$(getconf LONG_BIT)
 ZIP="Hybrid_${VER}_${BITS}bit_binary_qt${QT}.zip"
 
 mkdir -p "$HOME/.hybrid-bin"

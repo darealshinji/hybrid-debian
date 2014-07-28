@@ -6,7 +6,7 @@ Files: Hybrid
 Copyright: 2011-2014 Georg Pelz <hybrid@selur.de>
 License: other-1
 
-Files: debian/*
+Files: *
 Copyright: 2014 djcj <djcj@gmx.de>
 License: MIT
 

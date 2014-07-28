@@ -1,3 +1,13 @@
+hybrid (1:0.3~precise) precise; urgency=low
+
+  * Add manpage
+  * Fix icon sizes
+  * Build and install via Makefile
+  * Remove maintainer scripts
+  * Update installation script
+
+ -- Marshall Banana <djcj@gmx.de>  Mon, 28 Jul 2014 14:45:11 +0200
+
 hybrid (1:0.2~precise) precise; urgency=low
 
   * Fix install-hybrid.sh.in

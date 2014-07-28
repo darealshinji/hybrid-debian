@@ -1,0 +1,2 @@
+# the manpage will be installed via hybrid-common package
+hybrid binary: binary-without-manpage usr/bin/hybrid

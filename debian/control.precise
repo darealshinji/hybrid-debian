@@ -32,8 +32,8 @@ Description: Multi platform Qt based encoding frontend
  a Blu-ray or an AVCHD structure.
  .
  Here's a general feature list:
-  * extensive ability to configure x264s setting (with dependency checks)
-  * ability to configure x265s setting
+  * extensive ability to configure x264's setting (with dependency checks)
+  * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
   * subtitle suppot for mkv/mp4/Blu-ray
@@ -82,8 +82,8 @@ Description: Multi platform Qt based encoding frontend (Qt 4.6)
  a Blu-ray or an AVCHD structure.
  .
  Here's a general feature list:
-  * extensive ability to configure x264s setting (with dependency checks)
-  * ability to configure x265s setting
+  * extensive ability to configure x264's setting (with dependency checks)
+  * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
   * subtitle suppot for mkv/mp4/Blu-ray
@@ -134,8 +134,8 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
  a Blu-ray or an AVCHD structure.
  .
  Here's a general feature list:
-  * extensive ability to configure x264s setting (with dependency checks)
-  * ability to configure x265s setting
+  * extensive ability to configure x264's setting (with dependency checks)
+  * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
   * subtitle suppot for mkv/mp4/Blu-ray
@@ -176,8 +176,8 @@ Description: Multi platform Qt based encoding frontend (common files)
  a Blu-ray or an AVCHD structure.
  .
  Here's a general feature list:
-  * extensive ability to configure x264s setting (with dependency checks)
-  * ability to configure x265s setting
+  * extensive ability to configure x264's setting (with dependency checks)
+  * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
   * subtitle suppot for mkv/mp4/Blu-ray
