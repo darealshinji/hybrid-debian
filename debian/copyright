@@ -1,28 +1,10 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Hybrid
+Upstream-Contact: Georg Pelz <hybrid@selur.de>
 Source: http://www.selur.de/
 
 Files: Hybrid
 Copyright: 2011-2014 Georg Pelz <hybrid@selur.de>
-License: other-1
-
-Files: *
-Copyright: 2014 djcj <djcj@gmx.de>
-License: MIT
-
-Files: icons/*
-Copyright: 2007 Nuno Pinheiro <nuno@oxygen-icons.org>
-           2007 David Vignoni <david@icon-king.com>
-           2007 David Miller <miller@oxygen-icons.org>
-           2007 Johann Ollivier Lapeyre <johann@oxygen-icons.org>
-           2007 Kenneth Wimer <kwwii@bootsplash.org>
-           2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
-License: LGPL-3.0
-
-Files: framecounter.*
-Copyright: none
-License: public-domain
-
 License: other-1
  Hybrid itself is free for personal usage without a hassle.
  Hybrid is provided "as is", without any guarantee made as to its suitability or
@@ -31,6 +13,8 @@ License: other-1
  unintentionally be caused through its use. You may not distribute Hybrid in any
  form without a written permission of the author.
 
+Files: *
+Copyright: 2014 djcj <djcj@gmx.de>
 License: MIT
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -50,6 +34,13 @@ License: MIT
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 
+Files: icons/*
+Copyright: 2007 Nuno Pinheiro <nuno@oxygen-icons.org>
+           2007 David Vignoni <david@icon-king.com>
+           2007 David Miller <miller@oxygen-icons.org>
+           2007 Johann Ollivier Lapeyre <johann@oxygen-icons.org>
+           2007 Kenneth Wimer <kwwii@bootsplash.org>
+           2007 Riccardo Iaconelli <riccardo@oxygen-icons.org>
 License: LGPL-3.0
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -67,6 +58,8 @@ License: LGPL-3.0
   On Debian systems, the complete text of the GNU Lesser General Public
   License version 3 can be found in /usr/share/common-licenses/LGPL-3
 
+Files: framecounter.*
+Copyright: none
 License: public-domain
  THIS SOFTWARE IS NOT COPYRIGHTED
  .

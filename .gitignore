@@ -3,7 +3,6 @@
 core
 *.core
 framecounter
-Makefile
+framecounter.mk
 
-debian/control
-debian/changelog
+/debian/control
