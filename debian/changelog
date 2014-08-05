@@ -1,3 +1,10 @@
+hybrid (1:0.4~trusty) trusty; urgency=medium
+
+  * Run the current installation of Hybrid if the download of the newer
+    version fails
+
+ -- Marshall Banana <djcj@gmx.de>  Tue, 05 Aug 2014 05:49:39 +0200
+
 hybrid (1:0.3~trusty) trusty; urgency=low
 
   * Add manpage

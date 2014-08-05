@@ -28,11 +28,11 @@ install-hybrid:
 	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/hybrid-common
 	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/icons/hicolor
 	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/man/man1
-	$(INSTALL_PROGRAM) framecounter        $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_PROGRAM) hybrid              $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_PROGRAM) hybrid-qt46         $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_PROGRAM) hybrid-qt5          $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_PROGRAM) install-hybrid.sh   $(DESTDIR)$(PREFIX)/share/hybrid-common
+	$(INSTALL_PROGRAM) framecounter      $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL_PROGRAM) hybrid            $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL_PROGRAM) hybrid-qt46       $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL_PROGRAM) hybrid-qt5        $(DESTDIR)$(PREFIX)/bin
+	$(INSTALL_PROGRAM) install-hybrid.sh $(DESTDIR)$(PREFIX)/share/hybrid-common
 	$(INSTALL_FILE) run-hybrid          $(DESTDIR)$(PREFIX)/share/hybrid-common
 	$(INSTALL_FILE) hybrid.desktop      $(DESTDIR)$(PREFIX)/share/applications
 	$(INSTALL_FILE) hybrid-qt46.desktop $(DESTDIR)$(PREFIX)/share/applications

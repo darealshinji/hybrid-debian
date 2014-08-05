@@ -15,17 +15,22 @@ if [ $_REV != 1 ] ; then
 fi
 
 VER=$YY$MM$DD$REV
-
 BITS=$(getconf LONG_BIT)
+
 ZIP="Hybrid_${VER}_${BITS}bit_binary_qt${QT}.zip"
 
 mkdir -p "$HOME/.hybrid-bin"
 cd "$HOME/.hybrid-bin"
 
-rm -f $ZIP
-wget $URL/$ZIP
-unzip $ZIP
+# check if the zip is available
+wget -q --spider $URL/$ZIP
 
-mv Hybrid Hybrid-$QT
-chmod 0755 Hybrid-$QT
-rm -f $ZIP
+if [ $? = 0 ] ; then
+   mv -f "Hybrid-$QT" "Hybrid-$QT.old"
+   rm -f *.zip
+   wget $URL/$ZIP
+   unzip $ZIP
+   mv Hybrid Hybrid-$QT
+   chmod 0755 Hybrid-$QT
+   rm -f *.zip
+fi

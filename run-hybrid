@@ -9,23 +9,15 @@ current_ver_np=$(echo $current_ver | sed -e 's/\.//g')
 available_ver=$(wget -q -O - $URL/version.txt)
 available_ver_np=$(echo $available_ver | sed -e 's/\.//g')
 
-
-if [ ! -x "$hybrid" ] ; then
-    rm -f "$hybrid"
-fi
-
 if [ -f "$hybrid" ] ; then
     if [ -z $available_ver ] ; then
         echo "Couldn't get the version string of the current release."
         echo "Are you connected to the Internet?"
-    else
-        if [ $available_ver_np -gt $current_ver_np ] ; then
-            rm -f "$hybrid" &&
-            xterm -title "Update Hybrid (Qt $QT) to rev $available_ver" -e $install_hybrid $QT
-        fi
+    elif [ $available_ver_np -gt $current_ver_np ] ; then
+        xterm -title "Update Hybrid (Qt $QT) to rev $available_ver" -e $install_hybrid $QT
     fi
-    "$hybrid" "$@"
 else
-    xterm -title "Install Hybrid (Qt $QT) rev $available_ver" -e $install_hybrid $QT &&
-    "$hybrid" "$@"
+    xterm -title "Install Hybrid (Qt $QT) rev $available_ver" -e $install_hybrid $QT
 fi
+
+"$hybrid" "$@"
