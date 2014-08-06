@@ -1,3 +1,9 @@
+hybrid (1:0.6~trusty) trusty; urgency=low
+
+  * Check for AviSynth extension
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 06 Aug 2014 22:14:16 +0200
+
 hybrid (1:0.5~trusty) trusty; urgency=low
 
   * Get newest version string alternatively from RSS feed

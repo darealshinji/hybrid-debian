@@ -9,6 +9,7 @@ current_ver_np=$(echo $current_ver | sed -e 's/\.//g')
 available_ver=$(wget -q -O - $URL/version.txt)
 available_ver_np=$(echo $available_ver | sed -e 's/\.//g')
 
+# Check for updates
 if [ -f "$hybrid" ] ; then
     if [ -z $available_ver ] ; then
         echo "Couldn't get the version string of the current release."
@@ -18,6 +19,12 @@ if [ -f "$hybrid" ] ; then
     fi
 else
     xterm -title "Install Hybrid (Qt $QT) rev $available_ver" -e $install_hybrid $QT
+fi
+
+# Check for AviSynth extension
+extension_script=___PREFIX___/share/hybrid-avisynth-extension/install-hybrid-avisynth-extension.sh
+if [ -f $extension_script ] ; then
+    xterm -title "Check for AviSynth extension updates" -e $extension_script
 fi
 
 "$hybrid" "$@"
