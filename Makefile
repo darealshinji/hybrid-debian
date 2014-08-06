@@ -65,7 +65,7 @@ uninstall:
 
 clean:
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) clean
-	rm -f $(INFILES)
+	$(RM) $(INFILES)
 
 distclean: clean
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) distclean
