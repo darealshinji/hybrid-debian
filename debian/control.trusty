@@ -221,7 +221,7 @@ Depends:
  sox,
  vo-aacenc, vorbis-tools, vpx-tools,
  x264, x265
-Recommends: bdsup2sub++, telxcc [amd64], wine
+Recommends: bdsup2sub++, telxcc [amd64]
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
  aac-enc, aften, dcaenc, delaycut, ffmpeg or avconv, gpac (mp4box), kvazaar,
