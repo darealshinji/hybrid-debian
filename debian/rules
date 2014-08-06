@@ -3,6 +3,12 @@
 %:
 	dh $@
 
+override_dh_auto_build:
+	dh_auto_build -- PREFIX=/usr
+
+override_dh_auto_install:
+	dh_auto_install -- PREFIX=/usr
+
 override_dh_installdocs:
 	dh_installdocs -phybrid-common -phybrid-tools
 	dh_installdocs -phybrid -phybrid-qt46 -phybrid-qt5 --link-doc=hybrid-common

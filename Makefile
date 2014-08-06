@@ -1,3 +1,5 @@
+PREFIX ?= /usr/local
+
 INSTALL_FILE    = install -m644 -D
 INSTALL_DIR     = install -m755 -d
 INSTALL_PROGRAM = install -m755 -D
@@ -10,13 +12,12 @@ RMDIR = rmdir
 QMAKE = qmake
 MAKE  = make
 
-# prefix is hardcoded in the wrapper scripts
-PREFIX = /usr
-
 fc_MAKEFILE = framecounter.mk
+INFILES = hybrid hybrid-qt46 hybrid-qt5 run-hybrid
 
 
 all:
+	$(foreach FILE,$(INFILES),sed -e 's@___PREFIX___@$(PREFIX)@g' $(FILE).in > $(FILE) ; )
 	$(QMAKE) -o $(fc_MAKEFILE)
 	$(MAKE)  -f $(fc_MAKEFILE)
 
@@ -63,6 +64,7 @@ uninstall:
 
 clean:
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) clean
+	rm -f $(INFILES)
 
 distclean: clean
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) distclean

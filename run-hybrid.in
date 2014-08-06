@@ -1,7 +1,7 @@
 hybrid="$HOME/.hybrid-bin/Hybrid-$QT"
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
 
-install_hybrid=/usr/share/hybrid-common/install-hybrid.sh
+install_hybrid=___PREFIX___/share/hybrid-common/install-hybrid.sh
 
 current_ver=$("$hybrid" -version | cut -d' ' -f3)
 current_ver_np=$(echo $current_ver | sed -e 's/\.//g')

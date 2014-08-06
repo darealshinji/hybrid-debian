@@ -1,0 +1,3 @@
+#!/bin/sh
+QT=48
+. ___PREFIX___/share/hybrid-common/run-hybrid
