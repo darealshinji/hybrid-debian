@@ -1,4 +1,5 @@
-PREFIX ?= /usr/local
+prefix ?= /usr/local
+PREFIX ?= $(prefix)
 
 INSTALL_FILE    = install -m644 -D
 INSTALL_DIR     = install -m755 -d
