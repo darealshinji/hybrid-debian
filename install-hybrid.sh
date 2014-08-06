@@ -3,8 +3,14 @@
 QT=$1
 
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
-#available_ver=$(wget -q -O - $URL/version.txt)
-available_ver=$(wget -q -O - http://forum.selur.de/feed-rss-topic32.xml | perl -ne 'printf qq[%s\n], $1 if m/<strong>([^<]+)<\/strong>/' | sed -e 's/\://' | head -n1 | cut -d' ' -f3)
+available_ver1=$(wget -q -O - $URL/version.txt)
+available_ver2=$(wget -q -O - http://forum.selur.de/feed-rss-topic32.xml | perl -ne 'printf qq[%s\n], $1 if m/<strong>([^<]+)<\/strong>/' | sed -e 's/\://' | head -n1 | cut -d' ' -f3)
+
+if [$available_ver2 -gt $available_ver1 ] ; then
+   available_ver=$available_ver2
+else
+   available_ver=$available_ver1
+fi
 
 YY=$(echo $available_ver | cut -d'.' -f1 | tail -c+3)
 MM=$(echo $available_ver | cut -d'.' -f2)
