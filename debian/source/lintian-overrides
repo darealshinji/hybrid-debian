@@ -1,1 +1,3 @@
+# the libc6 dependencies were determined manually
+# from the Hybrid binary files
 hybrid source: package-depends-on-hardcoded-libc
