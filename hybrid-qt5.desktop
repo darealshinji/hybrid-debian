@@ -6,4 +6,5 @@ Comment=Multi platform Qt based encoding frontend
 Icon=hybrid-encoder
 Exec=hybrid-qt5 %F
 Terminal=false
-Categories=AudioVideo;AudioVideoEditing;
+StartupNotify=true
+Categories=AudioVideo;AudioVideoEditing;Qt;

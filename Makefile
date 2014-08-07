@@ -35,11 +35,11 @@ install-hybrid:
 	$(INSTALL_PROGRAM) hybrid-qt46       $(DESTDIR)$(PREFIX)/bin
 	$(INSTALL_PROGRAM) hybrid-qt5        $(DESTDIR)$(PREFIX)/bin
 	$(INSTALL_PROGRAM) install-hybrid.sh $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(INSTALL_FILE) run-hybrid          $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(INSTALL_FILE) hybrid.desktop      $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_FILE) hybrid-qt46.desktop $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_FILE) hybrid-qt5.desktop  $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_FILE) hybrid-encoder.1    $(DESTDIR)$(PREFIX)/share/man/man1
+	$(INSTALL_FILE) run-hybrid           $(DESTDIR)$(PREFIX)/share/hybrid-common
+	$(INSTALL_FILE) hybrid.desktop       $(DESTDIR)$(PREFIX)/share/applications
+	$(INSTALL_FILE) hybrid-qt46.desktop  $(DESTDIR)$(PREFIX)/share/applications
+	$(INSTALL_FILE) hybrid-qt5.desktop   $(DESTDIR)$(PREFIX)/share/applications
+	$(INSTALL_FILE) hybrid-encoder.1     $(DESTDIR)$(PREFIX)/share/man/man1
 	$(CP) icons/* $(DESTDIR)$(PREFIX)/share/icons/hicolor
 
 install-hook:
@@ -55,13 +55,13 @@ uninstall:
 	cd $(DESTDIR)$(PREFIX)/share/man/man1 && \
 		$(RM) hybrid.1* hybrid-qt46.1* hybrid-qt5.1* hybrid-encoder.1*
 	$(RM) $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(RMDIR) $(DESTDIR)$(PREFIX)/bin
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/applications
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/icons
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/man/man1
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/man
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share
+	$(RMDIR) $(DESTDIR)$(PREFIX)/bin &> /dev/null
+	$(RMDIR) $(DESTDIR)$(PREFIX)/share/applications &> /dev/null
+	$(RMDIR) $(DESTDIR)$(PREFIX)/share/hybrid-common &> /dev/null
+	$(RMDIR) $(DESTDIR)$(PREFIX)/share/icons &> /dev/null
+	$(RMDIR) $(DESTDIR)$(PREFIX)/share/man/man1 &> /dev/null
+	$(RMDIR) $(DESTDIR)$(PREFIX)/share/man &> /dev/null
+	$(RMDIR) $(DESTDIR)$(PREFIX)/share &> /dev/null
 
 clean:
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) clean
