@@ -216,7 +216,6 @@ Depends:
  lame, lsdvd,
  kvazaar,
  mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer | mplayer2,
- neroaac | neroaac-i386,
  opus-tools,
  sox,
  vo-aacenc, vorbis-tools, vpx-tools,

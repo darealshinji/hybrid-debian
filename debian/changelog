@@ -1,3 +1,9 @@
+hybrid (1:0.6.3~trusty) trusty; urgency=low
+
+  * Remove neroaac from hybrid-tools dependencies
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 13 Aug 2014 10:35:42 +0200
+
 hybrid (1:0.6.2~trusty) trusty; urgency=low
 
   * Fix detection of FrameCounter
