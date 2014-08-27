@@ -1,3 +1,9 @@
+hybrid (1:0.6.4~trusty) trusty; urgency=low
+
+  * trusty: add tsmuxer to hybrid-tools
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 27 Aug 2014 14:59:32 +0200
+
 hybrid (1:0.6.3~trusty) trusty; urgency=low
 
   * Remove neroaac from hybrid-tools dependencies
