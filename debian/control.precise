@@ -223,7 +223,7 @@ Depends:
 Recommends: telxcc [amd64]
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
- aac-enc, aften, dcaenc, delaycut, ffmpeg or avconv, gpac (mp4box), kvazaar,
+ aac-enc, aften, dcaenc, delaycut, ffmpeg, gpac (mp4box), kvazaar,
  lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or mplayer2,
  neroaac, opus-tools, sox, vo-aacenc, vorbis-tools (oggenc), vpx-tools,
  x264, x265.
