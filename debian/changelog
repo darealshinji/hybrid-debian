@@ -6,7 +6,7 @@ hybrid (1:0.6.5~trusty) trusty; urgency=low
 
 hybrid (1:0.6.4~trusty) trusty; urgency=low
 
-  * trusty/utopic: add tsmuxer to hybrid-tools
+  * add tsmuxer to hybrid-tools
 
  -- Marshall Banana <djcj@gmx.de>  Wed, 27 Aug 2014 14:59:32 +0200
 
