@@ -51,5 +51,7 @@ fi
 
 
 # start Hybrid
-"$hybrid" "$@"
+mkdir -p "$HOME/.hybrid/logs"
+date=$(date +"%Y-%m-%d_%H-%M-%S")
+"$hybrid" "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
 
