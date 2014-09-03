@@ -37,10 +37,10 @@ if [ -d $avs_extension_path ] ; then
 
     if [ -f "$avs_version_file" ] ; then
         avs_version=$(cat "$avs_version_file")
-        avs_title="Install AviSynth extension"
+        avs_title="Update AviSynth extension"
     else
         avs_version=0
-        avs_title="Update AviSynth extension"
+        avs_title="Install AviSynth extension"
     fi
 
     # Install/Update AviSynth extension
