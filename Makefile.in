@@ -1,4 +1,3 @@
-prefix ?= /usr/local
 PREFIX ?= $(prefix)
 
 INSTALL_FILE    = install -m644 -D
@@ -14,11 +13,9 @@ QMAKE = qmake
 MAKE  = make
 
 fc_MAKEFILE = framecounter.mk
-INFILES = hybrid hybrid-qt46 hybrid-qt5 run-hybrid
 
 
 all:
-	$(foreach FILE,$(INFILES),sed -e 's@___PREFIX___@$(PREFIX)@g' $(FILE).in > $(FILE) ; )
 	$(QMAKE) -o $(fc_MAKEFILE)
 	$(MAKE)  -f $(fc_MAKEFILE)
 
@@ -47,6 +44,7 @@ install-hook:
 	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid.1.gz
 	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid-qt46.1.gz
 	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid-qt5.1.gz
+	$(LN) framecounter $(DESTDIR)$(PREFIX)/bin/FrameCounter
 
 uninstall:
 	cd $(DESTDIR)$(PREFIX)/bin && $(RM) framecounter hybrid hybrid-qt46 hybrid-qt5
@@ -65,8 +63,8 @@ uninstall:
 
 clean:
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) clean
-	$(RM) $(INFILES)
 
 distclean: clean
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) distclean
+	$(RM) Makefile hybrid hybrid-qt46 hybrid-qt5
 

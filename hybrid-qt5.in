@@ -1,3 +1,0 @@
-#!/bin/sh
-QT=521
-. ___PREFIX___/share/hybrid-common/run-hybrid

@@ -1,0 +1,60 @@
+#!/bin/sh
+
+if test x"$1" = x"-h" -o x"$1" = x"--help" ; then
+cat << EOF
+Usage: ./configure [options]
+
+options:
+  -h, --help               print this message
+  --prefix=PREFIX          install files into PREFIX [/usr/local]
+EOF
+exit 1
+fi
+
+for opt; do
+    optarg="${opt#*=}"
+    case "$opt" in
+        --prefix=*)
+            prefix="$optarg"
+            ;;
+        *)
+            ;;
+    esac
+done
+
+test -n "$prefix" || prefix="/usr/local"
+
+rm -f Makefile
+cat >> Makefile << EOF
+prefix = $prefix
+EOF
+cat Makefile.in >> Makefile
+
+rm -f hybrid
+cat >> hybrid << EOF
+#!/bin/sh
+QT=48
+prefix=$prefix
+. "\$prefix/share/hybrid-common/run-hybrid"
+EOF
+
+rm -f hybrid-qt46
+cat >> hybrid-qt46 << EOF
+#!/bin/sh
+QT=46
+prefix=$prefix
+. "\$prefix/share/hybrid-common/run-hybrid"
+EOF
+
+rm -f hybrid-qt5
+cat >> hybrid-qt5 << EOF
+#!/bin/sh
+QT=521
+prefix=$prefix
+. "\$prefix/share/hybrid-common/run-hybrid"
+EOF
+
+echo "prefix = $prefix"
+echo "Now run 'make && make install'"
+
+exit 0
