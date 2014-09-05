@@ -1,6 +1,6 @@
 hybrid="$HOME/.hybrid-bin/Hybrid-$QT"
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
-install_hybrid=___PREFIX___/share/hybrid-common/install-hybrid.sh
+install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
 
 
 # Get version strings
@@ -20,20 +20,20 @@ if [ -f "$hybrid" ] ; then
         echo "Couldn't get the version string of the current release."
         echo "Are you connected to the Internet?"
     elif [ $available_ver_np -gt $current_ver_np ] ; then
-        xterm -title "Update Hybrid (Qt $QT) to rev $available_ver" -e $install_hybrid $QT
+        xterm -title "Update Hybrid (Qt $QT) to rev $available_ver" -e "$install_hybrid" $QT
     fi
 else
-    xterm -title "Install Hybrid (Qt $QT) rev $available_ver" -e $install_hybrid $QT
+    xterm -title "Install Hybrid (Qt $QT) rev $available_ver" -e "$install_hybrid" $QT
 fi
 
 
 # Check for AviSynth extension
-avs_extension_path=___PREFIX___/share/hybrid-avisynth-extension
+avs_extension_path="$prefix/share/hybrid-avisynth-extension"
 
 if [ -d $avs_extension_path ] ; then
-    avs_install_script=$avs_extension_path/install-hybrid-avisynth-extension.sh
+    avs_install_script="$avs_extension_path/install-hybrid-avisynth-extension.sh"
     avs_version_file="$HOME/.hybrid-bin/avisynthPlugins/version"
-    avs_pkg_version=$(cat $avs_extension_path/version)
+    avs_pkg_version=$(cat "$avs_extension_path/version")
 
     if [ -f "$avs_version_file" ] ; then
         avs_version=$(cat "$avs_version_file")
@@ -45,7 +45,7 @@ if [ -d $avs_extension_path ] ; then
 
     # Install/Update AviSynth extension
     if [ $avs_pkg_version -gt $avs_version ] ; then
-        xterm -title "$avs_title" -e $avs_install_script
+        xterm -title "$avs_title" -e "$avs_install_script"
     fi
 fi
 
