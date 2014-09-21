@@ -1,4 +1,4 @@
-hybrid (1:0.6.6~trusty) trusty; urgency=low
+hybrid (1:0.6.5~2~trusty) trusty; urgency=low
 
   * Add prerm maintainer scripts to delete ~/.hybrid-bin when the
     package is deinstalled with "apt-get purge"
