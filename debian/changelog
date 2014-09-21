@@ -1,3 +1,10 @@
+hybrid (1:0.6.6~trusty) trusty; urgency=low
+
+  * Add prerm maintainer scripts to delete ~/.hybrid-bin when the
+    package is deinstalled with "apt-get purge"
+
+ -- Marshall Banana <djcj@gmx.de>  Sun, 21 Sep 2014 15:40:08 +0200
+
 hybrid (1:0.6.5~trusty) trusty; urgency=low
 
   * Fix avs_title for XTerm
