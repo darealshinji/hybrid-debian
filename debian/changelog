@@ -1,3 +1,11 @@
+hybrid (1:0.6.5~trusty3) trusty; urgency=low
+
+  * Add prerm maintainer scripts to delete ~/.hybrid-bin when the
+    package is deinstalled with "apt-get purge"
+  * Fix used style on Qt5 version
+
+ -- Marshall Banana <djcj@gmx.de>  Mon, 22 Sep 2014 09:46:23 +0200
+
 hybrid (1:0.6.5~trusty2) trusty; urgency=low
 
   * Add prerm maintainer scripts to delete ~/.hybrid-bin when the
