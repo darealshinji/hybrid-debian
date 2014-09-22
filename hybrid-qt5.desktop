@@ -4,7 +4,7 @@ Name=Hybrid (Qt5)
 GenericName=Video encoder
 Comment=Multi platform Qt based encoding frontend
 Icon=hybrid-encoder
-Exec=hybrid-qt5 %F
+Exec=hybrid-qt5 -style=gtk %F
 Terminal=false
 StartupNotify=true
 Categories=AudioVideo;AudioVideoEditing;Qt;
