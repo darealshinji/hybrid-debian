@@ -3,7 +3,9 @@
 set -e
 
 if [ "$1" = "purge" ]; then
-  for d in /home/* ; do rm -rfv "$d/.hybrid-bin"; done
+  for d in /home/* ; do
+    rm -rfv "$d/.hybrid-bin";
+  done
 fi
 
 #DEBHELPER#
