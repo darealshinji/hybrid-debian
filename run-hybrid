@@ -30,7 +30,7 @@ fi
 # Check for AviSynth extension
 avs_extension_path="$prefix/share/hybrid-avisynth-extension"
 
-if [ -d $avs_extension_path ] ; then
+if [ -d "$avs_extension_path" ] ; then
     avs_install_script="$avs_extension_path/install-hybrid-avisynth-extension.sh"
     avs_version_file="$HOME/.hybrid-bin/avisynthPlugins/version"
     avs_pkg_version=$(cat "$avs_extension_path/version")
