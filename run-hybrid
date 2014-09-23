@@ -50,8 +50,17 @@ if [ -d $avs_extension_path ] ; then
 fi
 
 
+# check if DE is KDE
+# if we're using Qt5 Hybrid and we're not on KDE,
+# then run the app with '-style=gtk'
+xprop -name "kwin" >/dev/null 2>&1
+if [ $(echo $?) = 1 ] && [ $QT = 521 ] ; then
+  gtk_style='-style=gtk'
+fi
+
+
 # start Hybrid
 mkdir -p "$HOME/.hybrid/logs"
 date=$(date +"%Y-%m-%d_%H-%M-%S")
-"$hybrid" "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
+"$hybrid" $gtk_style "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
 
