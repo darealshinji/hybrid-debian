@@ -1,0 +1,13 @@
+
+log="disabled"
+for opt; do
+    case "$opt" in
+        -log)
+            log="enabled"
+            ;;
+        *)
+            ;;
+    esac
+done
+
+. "$prefix/share/hybrid-common/run-hybrid"

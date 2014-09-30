@@ -1,24 +1,27 @@
-.TH HYBRID 1 "AUGUST 2014"
+.TH HYBRID 1 "SEPTEMBER 2014"
 
 .SH NAME
 Hybrid \- Multi platform Qt based encoding frontend
 
 .SH SYNOPSIS
-.B hybrid \fR[-version]
+.B hybrid \fR[options]
 .br
-.B hybrid-qt46 \fR[-version]
+.B hybrid-qt46 \fR[options]
 .br
-.B hybrid-qt5 \fR[-version]
+.B hybrid-qt5 \fR[options]
 
 .SH OPTIONS
+.B \-version
+displays the current version and quits
+.TP
+.B \-log
+saves a log file in ~/.hybrid/logs/
+.P
 .B hybrid\fR: linked against Qt 4.8
 .br
 .B hybrid-qt46\fR: linked against Qt 4.6
 .br
 .B hybrid-qt5\fR: linked against Qt 5.2.1
-.TP
-.B \-version
-Displays the current version and quits.
 
 .SH DESCRIPTION
 .B Hybrid
@@ -56,7 +59,7 @@ Here's a general feature list:
 .I http://www.selur.de/
 
 .SH AUTHOR
-Hybrid was written by Selur <\fIhybrid@selur.de\fR> and is under a proprietary freeware license.
+Hybrid was written by Selur <\fIhybrid@selur.de\fR> and is released under a proprietary freeware license.
 The wrapper scripts and the Debian packaging were done by djcj <\fIdjcj@gmx.de\fR> and
 are released under MIT license.
-The desktop icons were taken from the Oxygen icon theme, which is available under LGPL-3.
+The desktop icons were taken from the Oxygen icon theme, which is available under LGPL v3.
