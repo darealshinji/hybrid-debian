@@ -11,6 +11,7 @@ GZIP  = gzip -f9
 RMDIR = rmdir
 QMAKE = qmake
 MAKE  = make
+STRIP = strip -s
 
 fc_MAKEFILE = framecounter.mk
 
@@ -18,6 +19,7 @@ fc_MAKEFILE = framecounter.mk
 all:
 	$(QMAKE) -o $(fc_MAKEFILE)
 	$(MAKE)  -f $(fc_MAKEFILE)
+	$(STRIP) framecounter
 
 install: install-hybrid install-hook
 
