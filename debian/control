@@ -25,7 +25,7 @@ Depends:
  sni-qt,
  xterm
 Recommends: hybrid-tools
-Provides: hybrid, hybrid-qt48
+Provides: hybrid, hybrid-qt46, hybrid-qt48
 Replaces: hybrid-qt46 (<< 1:0.7.0)
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
