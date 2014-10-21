@@ -47,6 +47,15 @@ if [ -d "$avs_extension_path" ] ; then
     if [ $avs_pkg_version -gt $avs_version ] ; then
         xterm -title "$avs_title" -e "$avs_install_script"
     fi
+
+    mkdir -p "$HOME/.hybrid-bin/settings"
+    if [ ! -f "$HOME/.hybrid-bin/misc.ini" ] ; then
+        cat >> "$HOME/.hybrid-bin/misc.ini" << EOF
+[General]
+settingPath=\"./settings\"
+avisynthOnLinux=true
+avisynthExtensionPath=\"./avisynthPlugins\"
+EOF
 fi
 
 
