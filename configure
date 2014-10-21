@@ -38,14 +38,6 @@ prefix=$prefix
 EOF
 cat hybrid.in >> hybrid
 
-rm -f hybrid-qt46
-cat >> hybrid-qt46 << EOF
-#!/bin/sh
-QT=46
-prefix=$prefix
-EOF
-cat hybrid.in >> hybrid-qt46
-
 rm -f hybrid-qt5
 cat >> hybrid-qt5 << EOF
 #!/bin/sh
