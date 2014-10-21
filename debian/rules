@@ -1,7 +1,20 @@
 #!/usr/bin/make -f
 
+QMAKE_CXXFLAGS_RELEASE = $(shell dpkg-buildflags --get CXXFLAGS) $(shell dpkg-buildflags --get CPPFLAGS)
+QMAKE_LFLAGS_RELEASE = $(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
+
+QMAKE_FLAGS = \
+	QMAKE_CXXFLAGS_RELEASE='$(QMAKE_CXXFLAGS_RELEASE)' \
+	QMAKE_CXXFLAGS_DEBUG='$(QMAKE_CXXFLAGS_RELEASE)' \
+	QMAKE_LFLAGS_RELEASE='$(QMAKE_LFLAGS_RELEASE)' \
+	QMAKE_LFLAGS_DEBUG='$(QMAKE_LFLAGS_RELEASE)'
+
+
 %:
 	dh $@
+
+override_dh_auto_build:
+	QMAKE_FLAGS="$(QMAKE_FLAGS)" dh_auto_build
 
 override_dh_installdocs:
 	dh_installdocs -phybrid-common -phybrid-tools

@@ -9,7 +9,7 @@ RM    = rm -rf
 LN    = ln -s
 GZIP  = gzip -f9
 RMDIR = rmdir
-QMAKE = qmake
+QMAKE = qmake-qt4 $(QMAKE_FLAGS)
 MAKE  = make
 STRIP = strip -s
 
