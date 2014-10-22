@@ -48,14 +48,22 @@ if [ -d "$avs_extension_path" ] ; then
         xterm -title "$avs_title" -e "$avs_install_script"
     fi
 
-    mkdir -p "$HOME/.hybrid-bin/settings"
-    if [ ! -f "$HOME/.hybrid-bin/misc.ini" ] ; then
-        cat >> "$HOME/.hybrid-bin/misc.ini" << EOF
+    if [ ! -f "$HOME/.hybrid/misc.ini" ] ; then
+        mkdir -p "$HOME/.hybrid"
+        cat >> "$HOME/.hybrid/misc.ini" << EOF
 [General]
-settingPath=\"./settings\"
 avisynthOnLinux=true
-avisynthExtensionPath=\"./avisynthPlugins\"
+avisynthExtensionPath="$HOME/.hybrid-bin/avisynthPlugins"
 EOF
+    fi
+
+    system32="$HOME/.wine/drive_c/windows/system32"
+    syswow64="$HOME/.wine/drive_c/windows/syswow64"
+    mkdir -p "$system32" "$syswow64"
+    test -f "$system32/avisynth.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$system32/avisynth.dll"
+    test -f "$syswow64/avisynth.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$syswow64/avisynth.dll"
+    test -f "$system32/DevIL.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$system32/DevIL.dll"
+    test -f "$syswow64/DevIL.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$syswow64/DevIL.dll"
 fi
 
 
