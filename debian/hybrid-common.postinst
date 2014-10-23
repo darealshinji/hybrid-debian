@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+priority=200
+
+case "$1" in
+configure)
+    update-alternatives \
+    --install /usr/bin/FrameCounter FrameCounter /usr/bin/framecounter $priority
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

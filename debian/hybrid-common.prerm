@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+deconfigure|remove)
+    update-alternatives --remove FrameCounter /usr/bin/framecounter
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
