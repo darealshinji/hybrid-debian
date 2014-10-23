@@ -1,3 +1,15 @@
+hybrid (1:0.8.0~trusty) trusty; urgency=low
+
+  * hybrid-tools: use update-alternative to install alternative
+    links to aac-enc, flvextract, kvazaar and mediainfo
+  * remove bdsup2sub++ from hybrid-tools' dependencies and instead
+    download and install BDSup2Sub.jar into .hybrid-bin if Java
+    is available
+  * Fix AviSynth detection and create the needed misc.ini file if it's
+    not available
+
+ -- Marshall Banana <djcj@gmx.de>  Thu, 23 Oct 2014 13:55:19 +0200
+
 hybrid (1:0.7.0~trusty) trusty; urgency=low
 
   * Close wrapper shell script when the Hybrid binary is running

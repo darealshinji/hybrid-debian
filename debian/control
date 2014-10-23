@@ -24,7 +24,7 @@ Depends:
  libstdc++6 (>= 4.4.0),
  sni-qt,
  xterm
-Recommends: hybrid-tools
+Recommends: hybrid-tools, openjdk-7-jre-headless
 Provides: hybrid, hybrid-qt46, hybrid-qt48
 Replaces: hybrid-qt46 (<< 1:0.7.0)
 Description: Multi platform Qt based encoding frontend
@@ -162,17 +162,17 @@ Depends:
  ${misc:Depends},
  aac-enc, aften,
  dcaenc, delaycut,
- ffmpeg,
+ flvextract, ffmpeg,
  gpac,
  lame, lsdvd,
  kvazaar,
  mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer | mplayer2,
- opus-tools,
+ openjdk-7-jre-headless, opus-tools,
  sox,
  tsmuxer,
  vo-aacenc, vorbis-tools, vpx-tools,
  x264, x265
-Recommends: bdsup2sub++, telxcc [amd64]
+Recommends: telxcc [amd64]
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
  aac-enc, aften, dcaenc, delaycut, ffmpeg, gpac (mp4box), kvazaar,
