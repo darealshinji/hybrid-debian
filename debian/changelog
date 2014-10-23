@@ -5,6 +5,8 @@ hybrid (1:0.8.0~trusty) trusty; urgency=low
   * remove bdsup2sub++ from hybrid-tools' dependencies and instead
     download and install BDSup2Sub.jar into .hybrid-bin if Java
     is available
+  * hybrid-tools: add faac, flac, flvextract and openjdk-7-jre-headless
+    (Java) to dependencies
   * Fix AviSynth detection and create the needed misc.ini file if it's
     not available
 

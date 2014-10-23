@@ -162,7 +162,7 @@ Depends:
  ${misc:Depends},
  aac-enc, aften,
  dcaenc, delaycut,
- flvextract, ffmpeg,
+ faac, flac, flvextract, ffmpeg,
  gpac,
  lame, lsdvd,
  kvazaar,
