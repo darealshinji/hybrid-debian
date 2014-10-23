@@ -1,0 +1,43 @@
+#!/bin/sh
+
+set -e
+
+priority=200
+
+case "$1" in
+configure)
+
+    update-alternatives \
+    --install /usr/bin/fdkaacenc fdkaacenc /usr/bin/aac-enc $priority \
+    --slave \
+        /usr/share/man/man1/fdkaacenc.1.gz \
+        fdkaacenc.1.gz \
+        /usr/share/man/man1/aac-enc.1.gz
+
+    update-alternatives \
+    --install /usr/bin/FLVExtractCL FLVExtractCL /usr/bin/flvextract $priority \
+    --slave \
+        /usr/share/man/man1/FLVExtractCL.1.gz \
+        FLVExtractCL.1.gz \
+        /usr/share/man/man1/flvextract.1.gz
+
+    update-alternatives \
+    --install /usr/bin/Kvazaar Kvazaar /usr/bin/kvazaar $priority \
+    --slave \
+        /usr/share/man/man1/Kvazaar.1.gz \
+        Kvazaar.1.gz \
+        /usr/share/man/man1/kvazaar.1.gz
+
+    update-alternatives \
+    --install /usr/bin/MediaInfo MediaInfo /usr/bin/mediainfo $priority \
+    --slave \
+        /usr/share/man/man1/MediaInfo.1.gz \
+        MediaInfo.1.gz \
+        /usr/share/man/man1/mediainfo.1.gz
+
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
