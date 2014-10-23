@@ -37,7 +37,7 @@ Description: Multi platform Qt based encoding frontend
   * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
-  * subtitle suppot for mkv/mp4/Blu-ray
+  * subtitle support for mkv/mp4/Blu-ray
   * separated audio-, video-, filter profiles, audio&video combi profiles
   * an integrated bitrate calculator
   * accepts vc-1 and avc raw input
@@ -46,7 +46,7 @@ Description: Multi platform Qt based encoding frontend
   * a job-control
   * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
     dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
+  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc
   * filtering through mencoder (+ some resize automation)
   * acceptable Input: avs and everything that mplayer/ffmpeg can decode
   * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
@@ -89,7 +89,7 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
   * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
-  * subtitle suppot for mkv/mp4/Blu-ray
+  * subtitle support for mkv/mp4/Blu-ray
   * separated audio-, video-, filter profiles, audio&video combi profiles
   * an integrated bitrate calculator
   * accepts vc-1 and avc raw input
@@ -98,7 +98,7 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
   * a job-control
   * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
     dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
+  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc
   * filtering through mencoder (+ some resize automation)
   * acceptable Input: avs and everything that mplayer/ffmpeg can decode
   * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
@@ -131,7 +131,7 @@ Description: Multi platform Qt based encoding frontend (common files)
   * ability to configure x265's setting
   * tagging support for mkv/mp4/mov
   * chapter support for mkv/mp4/Blu-ray
-  * subtitle suppot for mkv/mp4/Blu-ray
+  * subtitle support for mkv/mp4/Blu-ray
   * separated audio-, video-, filter profiles, audio&video combi profiles
   * an integrated bitrate calculator
   * accepts vc-1 and avc raw input
@@ -140,7 +140,7 @@ Description: Multi platform Qt based encoding frontend (common files)
   * a job-control
   * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
     dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
+  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc
   * filtering through mencoder (+ some resize automation)
   * acceptable Input: avs and everything that mplayer/ffmpeg can decode
   * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
@@ -164,19 +164,18 @@ Depends:
  dcaenc, delaycut,
  faac, flac, flvextract, ffmpeg,
  gpac,
- lame, lsdvd,
  kvazaar,
+ lame, lsdvd,
  mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer | mplayer2,
  openjdk-7-jre-headless, opus-tools,
  sox,
  tsmuxer,
- vo-aacenc, vorbis-tools, vpx-tools,
+ vorbis-tools, vpx-tools,
  x264, x265
 Recommends: telxcc [amd64]
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
- aac-enc, aften, dcaenc, delaycut, ffmpeg, gpac (mp4box), kvazaar,
- lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or mplayer2,
- neroaac, opus-tools, sox, tsmuxer, vo-aacenc, vorbis-tools (oggenc),
- vpx-tools, x264, x265.
-
+ aac-enc, aften, dcaenc, delaycut, faac, flac, flvextract, ffmpeg,
+ gpac (mp4box), kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix,
+ mp4fpsmod, mplayer or mplayer2, opus-tools, sox, tsmuxer,
+ vorbis-tools (oggenc), vpx-tools, x264, x265.
