@@ -15,6 +15,13 @@ configure)
         /usr/share/man/man1/aac-enc.1.gz
 
     update-alternatives \
+    --install /usr/bin/flaccl flaccl /usr/bin/flac $priority \
+    --slave \
+        /usr/share/man/man1/flaccl.1.gz \
+        flaccl.1.gz \
+        /usr/share/man/man1/flac.1.gz
+
+    update-alternatives \
     --install /usr/bin/FLVExtractCL FLVExtractCL /usr/bin/flvextract $priority \
     --slave \
         /usr/share/man/man1/FLVExtractCL.1.gz \

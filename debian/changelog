@@ -1,7 +1,7 @@
 hybrid (1:0.8.0~trusty) trusty; urgency=low
 
   * hybrid-tools: use update-alternative to install alternative
-    links to aac-enc, flvextract, kvazaar and mediainfo
+    links to aac-enc, flac, flvextract, kvazaar and mediainfo
   * remove bdsup2sub++ from hybrid-tools' dependencies and instead
     download and install BDSup2Sub.jar into .hybrid-bin if Java
     is available
