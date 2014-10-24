@@ -3,8 +3,7 @@ Priority: optional
 Maintainer: Marshall Banana <djcj@gmx.de>
 Build-Depends:
  debhelper (>= 9),
- libqt4-dev,
- qt4-qmake
+ libqt4-dev
 Standards-Version: 3.9.5
 Section: video
 Homepage: http://www.selur.de
@@ -24,7 +23,7 @@ Depends:
  libstdc++6 (>= 4.4.0),
  sni-qt,
  xterm
-Recommends: hybrid-tools, openjdk-7-jre-headless
+Recommends: hybrid-tools
 Provides: hybrid, hybrid-qt46, hybrid-qt48
 Replaces: hybrid-qt46 (<< 1:0.7.0)
 Description: Multi platform Qt based encoding frontend
@@ -46,7 +45,7 @@ Description: Multi platform Qt based encoding frontend
   * a job-control
   * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
     dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc
+  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
   * filtering through mencoder (+ some resize automation)
   * acceptable Input: avs and everything that mplayer/ffmpeg can decode
   * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
@@ -98,7 +97,7 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
   * a job-control
   * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
     dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc
+  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
   * filtering through mencoder (+ some resize automation)
   * acceptable Input: avs and everything that mplayer/ffmpeg can decode
   * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
@@ -140,7 +139,7 @@ Description: Multi platform Qt based encoding frontend (common files)
   * a job-control
   * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
     dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc
+  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
   * filtering through mencoder (+ some resize automation)
   * acceptable Input: avs and everything that mplayer/ffmpeg can decode
   * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
@@ -161,21 +160,22 @@ Section: metapackages
 Depends:
  ${misc:Depends},
  aac-enc, aften,
+ bdsup2sub++,
  dcaenc, delaycut,
  faac, flac, flvextract, ffmpeg,
  gpac,
  kvazaar,
  lame, lsdvd,
  mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer | mplayer2,
- openjdk-7-jre-headless, opus-tools,
+ neroaac,
+ opus-tools,
  sox,
- tsmuxer,
+ telxcc, tsmuxer,
  vorbis-tools, vpx-tools,
  x264, x265
-Recommends: telxcc [amd64]
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
- aac-enc, aften, dcaenc, delaycut, faac, flac, flvextract, ffmpeg,
+ aac-enc, aften, bdsup2sub++, dcaenc, delaycut, faac, flac, flvextract, ffmpeg,
  gpac (mp4box), kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix,
- mp4fpsmod, mplayer or mplayer2, opus-tools, sox, tsmuxer,
+ mp4fpsmod, mplayer or mplayer2, neroaac, opus-tools, sox, telxcc, tsmuxer,
  vorbis-tools (oggenc), vpx-tools, x264, x265.
