@@ -1,4 +1,5 @@
-hybrid="$HOME/.hybrid-bin/Hybrid-$QT"
+bin_dir="$HOME/.hybrid-bin"
+hybrid="$bin_dir/Hybrid-$QT"
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
 install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
 
@@ -29,16 +30,16 @@ fi
 
 # Temporary solution to successfully detect bdsup2sub++
 if [ ! -z "$(which bdsup2sub++)" ] ; then
-    ln -fs "$(which bdsup2sub++)" "$HOME/.hybrid-bin/bdsup2sub++"
+    ln -fs "$(which bdsup2sub++)" "$bin_dir/bdsup2sub++"
 else
     # Check for Java and install BDSup2Sub.jar
     BDSup2Sub=BDSup2Sub.jar
     # version 5.1.2
     BDSup2Sub_URL=http://dl.dropbox.com/u/18208597/BDSup2Sub/downloads
     if [ ! -z "$(which java)" ] ; then
-        if [ ! -f "$HOME/.hybrid-bin/$BDSup2Sub" ] ; then
-            mkdir -p "$HOME/.hybrid-bin"
-            cd "$HOME/.hybrid-bin"
+        if [ ! -f "$bin_dir/$BDSup2Sub" ] ; then
+            mkdir -p "$bin_dir"
+            cd "$bin_dir"
 
          # check if BDSup2Sub.jar is available
             wget -q --spider $BDSup2Sub_URL/$BDSup2Sub
@@ -58,7 +59,7 @@ avs_extension_path="$prefix/share/hybrid-avisynth-extension"
 
 if [ -d "$avs_extension_path" ] ; then
     avs_install_script="$avs_extension_path/install-hybrid-avisynth-extension.sh"
-    avs_version_file="$HOME/.hybrid-bin/avisynthPlugins/version"
+    avs_version_file="$bin_dir/avisynthPlugins/version"
     avs_pkg_version=$(cat "$avs_extension_path/version")
 
     if [ -f "$avs_version_file" ] ; then
@@ -79,17 +80,17 @@ if [ -d "$avs_extension_path" ] ; then
         cat >> "$HOME/.hybrid/misc.ini" << EOF
 [General]
 avisynthOnLinux=true
-avisynthExtensionPath="$HOME/.hybrid-bin/avisynthPlugins"
+avisynthExtensionPath="$bin_dir/avisynthPlugins"
 EOF
     fi
 
     system32="$HOME/.wine/drive_c/windows/system32"
     syswow64="$HOME/.wine/drive_c/windows/syswow64"
     mkdir -p "$system32" "$syswow64"
-    test -f "$system32/avisynth.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$system32/avisynth.dll"
-    test -f "$syswow64/avisynth.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$syswow64/avisynth.dll"
-    test -f "$system32/DevIL.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$system32/DevIL.dll"
-    test -f "$syswow64/DevIL.dll" || ln -rs "$HOME/.hybrid-bin/avisynth.dll" "$syswow64/DevIL.dll"
+    test -f "$system32/avisynth.dll" || ln -rs "$bin_dir/avisynth.dll" "$system32/avisynth.dll"
+    test -f "$syswow64/avisynth.dll" || ln -rs "$bin_dir/avisynth.dll" "$syswow64/avisynth.dll"
+    test -f "$system32/DevIL.dll" || ln -rs "$bin_dir/avisynth.dll" "$system32/DevIL.dll"
+    test -f "$syswow64/DevIL.dll" || ln -rs "$bin_dir/avisynth.dll" "$syswow64/DevIL.dll"
 fi
 
 
