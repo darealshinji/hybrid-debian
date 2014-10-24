@@ -1,3 +1,12 @@
+hybrid (1:0.8.1~trusty) trusty; urgency=low
+
+  * Implement a temporary solution to detect bdsup2sub++
+  * hybrid-tools: remove openjdk-7-jre-headless (Java) from dependencies
+    and re-add bdsup2sub++ and neroaac
+  * Move telxcc from 'Recommends' to 'Depends'
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 24 Oct 2014 13:07:00 +0200
+
 hybrid (1:0.8.0~trusty) trusty; urgency=low
 
   * hybrid-tools: use update-alternative to install alternative
