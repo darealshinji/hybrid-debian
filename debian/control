@@ -21,8 +21,7 @@ Depends:
  libqtcore4 (>= 4:4.7.0~beta1),
  libqtgui4 (>= 4:4.6.1),
  libstdc++6 (>= 4.4.0),
- sni-qt,
- xterm
+ sni-qt
 Recommends: hybrid-tools
 Provides: hybrid, hybrid-qt46, hybrid-qt48
 Replaces: hybrid-qt46 (<< 1:0.7.0)
@@ -75,8 +74,7 @@ Depends:
  libqt5widgets5 (>= 5.2.0),
  libqt5xml5 (>= 5.0.2),
  libstdc++6 (>= 4.4.0),
- sni-qt,
- xterm
+ sni-qt
 Recommends: hybrid-tools
 Description: Multi platform Qt based encoding frontend (Qt 5)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
@@ -118,7 +116,8 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
  wget,
- unzip
+ unzip,
+ xterm
 Recommends: hybrid-tools
 Description: Multi platform Qt based encoding frontend (common files)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
