@@ -27,25 +27,29 @@ else
 fi
 
 
-# Check for Java and install BDSup2Sub.jar
-BDSup2Sub=BDSup2Sub.jar
-# version 5.1.2
-BDSup2Sub_URL=http://dl.dropbox.com/u/18208597/BDSup2Sub/downloads
-
-if [ ! -z $(which java) ] ; then
-    if [ ! -f "$HOME/.hybrid-bin/$BDSup2Sub" ] ; then
-        mkdir -p "$HOME/.hybrid-bin"
-        cd "$HOME/.hybrid-bin"
-
-        # check if BDSup2Sub.jar is available
-        wget -q --spider $BDSup2Sub_URL/$BDSup2Sub
-
-        if [ $? = 0 ] ; then
-            xterm -title "Download BDSup2Sub.jar" -e "wget $BDSup2Sub_URL/$BDSup2Sub"
-        fi
-    fi
+# Temporary solution to successfully detect bdsup2sub++
+if [ ! -z "$(which bdsup2sub++)" ] ; then
+    ln -s "$(which bdsup2sub++)" "$HOME/.hybrid-bin/bdsup2sub++"
 else
-    echo "No Java found (required by BDSup2Sub)"
+    # Check for Java and install BDSup2Sub.jar
+    BDSup2Sub=BDSup2Sub.jar
+    # version 5.1.2
+    BDSup2Sub_URL=http://dl.dropbox.com/u/18208597/BDSup2Sub/downloads
+    if [ ! -z "$(which java)" ] ; then
+        if [ ! -f "$HOME/.hybrid-bin/$BDSup2Sub" ] ; then
+            mkdir -p "$HOME/.hybrid-bin"
+            cd "$HOME/.hybrid-bin"
+
+         # check if BDSup2Sub.jar is available
+            wget -q --spider $BDSup2Sub_URL/$BDSup2Sub
+
+            if [ $? = 0 ] ; then
+                xterm -title "Download BDSup2Sub.jar" -e "wget $BDSup2Sub_URL/$BDSup2Sub"
+            fi
+        fi
+    else
+        echo "No Java found (required by BDSup2Sub)"
+    fi
 fi
 
 
