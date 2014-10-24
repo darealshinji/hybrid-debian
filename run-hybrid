@@ -29,7 +29,7 @@ fi
 
 # Temporary solution to successfully detect bdsup2sub++
 if [ ! -z "$(which bdsup2sub++)" ] ; then
-    ln -s "$(which bdsup2sub++)" "$HOME/.hybrid-bin/bdsup2sub++"
+    ln -fs "$(which bdsup2sub++)" "$HOME/.hybrid-bin/bdsup2sub++"
 else
     # Check for Java and install BDSup2Sub.jar
     BDSup2Sub=BDSup2Sub.jar
