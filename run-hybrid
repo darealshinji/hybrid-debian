@@ -32,6 +32,12 @@ fi
 if [ ! -z "$(which bdsup2sub++)" ] ; then
     ln -fs "$(which bdsup2sub++)" "$bin_dir/bdsup2sub++"
 else
+    # Delete '~/.hybrid-bin/bdsup2sub++' if it's a dead link
+    checklink=$(find -L "$bin_dir" -type l -name bdsup2sub++)
+    if [ ! -z "$checklink" ] ; then
+        rm -f "$checklink"
+    fi
+
     # Check for Java and install BDSup2Sub.jar
     BDSup2Sub=BDSup2Sub.jar
     # version 5.1.2
