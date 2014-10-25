@@ -2,14 +2,9 @@
 
 set -e
 
-priority=200
-
-case "$1" in
-configure)
-    update-alternatives \
-    --install /usr/bin/FrameCounter FrameCounter /usr/bin/framecounter $priority
-    ;;
-esac
+if [ "$1" = "configure" ]; then
+    update-alternatives --install /usr/bin/FrameCounter FrameCounter /usr/bin/framecounter 200
+fi
 
 #DEBHELPER#
 
