@@ -22,9 +22,9 @@ Depends:
  libqtgui4 (>= 4:4.6.1),
  libstdc++6 (>= 4.4.0),
  sni-qt
-Recommends: hybrid-tools
 Provides: hybrid, hybrid-qt46, hybrid-qt48
 Replaces: hybrid-qt46 (<< 1:0.7.0)
+Suggests: hybrid-tools
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
@@ -75,7 +75,7 @@ Depends:
  libqt5xml5 (>= 5.0.2),
  libstdc++6 (>= 4.4.0),
  sni-qt
-Recommends: hybrid-tools
+Suggests: hybrid-tools
 Description: Multi platform Qt based encoding frontend (Qt 5)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
@@ -118,7 +118,7 @@ Depends:
  wget,
  unzip,
  xterm
-Recommends: hybrid-tools
+Suggests: hybrid | hybrid-qt5
 Description: Multi platform Qt based encoding frontend (common files)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
