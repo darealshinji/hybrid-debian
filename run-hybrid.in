@@ -68,6 +68,24 @@ EOF
 fi
 
 
+@JAVA@# Check for Java and install BDSup2Sub.jar
+@JAVA@BDSup2Sub=BDSup2Sub.jar
+@JAVA@# version 5.1.2
+@JAVA@BDSup2Sub_URL=http://dl.dropbox.com/u/18208597/BDSup2Sub/downloads
+@JAVA@if [ ! -z "$(which java)" ] ; then
+@JAVA@    if [ ! -f "$bin_dir/$BDSup2Sub" ] ; then
+@JAVA@        mkdir -p "$bin_dir"
+@JAVA@        cd "$bin_dir"
+@JAVA@
+@JAVA@        # check if BDSup2Sub.jar is available
+@JAVA@        wget -q --spider $BDSup2Sub_URL/$BDSup2Sub
+@JAVA@        if [ $? = 0 ] ; then
+@JAVA@            xterm -title "Download BDSup2Sub.jar" -e "wget $BDSup2Sub_URL/$BDSup2Sub"
+@JAVA@        fi
+@JAVA@    fi
+@JAVA@fi
+@JAVA@
+@JAVA@
 # check if DE is KDE
 # if we're using Qt5 Hybrid and we're not on KDE,
 # then run the app with '-style=gtk'

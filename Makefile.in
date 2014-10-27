@@ -17,6 +17,11 @@ fc_MAKEFILE = framecounter.mk
 
 
 all:
+ifeq ($(JAVA), yes)
+	sed -e 's/@JAVA@//g' run-hybrid.in > run-hybrid
+else
+	grep -v -e '@JAVA@' run-hybrid.in > run-hybrid
+endif
 	$(QMAKE) -o $(fc_MAKEFILE)
 	$(MAKE)  -f $(fc_MAKEFILE)
 	$(STRIP) framecounter
@@ -60,6 +65,7 @@ uninstall:
 
 clean:
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) clean
+	rm -f run-hybrid
 
 distclean: clean
 	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) distclean
