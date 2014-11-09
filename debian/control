@@ -9,7 +9,7 @@ Section: video
 Homepage: http://www.selur.de
 
 Package: hybrid
-Architecture: any
+Architecture: amd64 i386
 Depends:
  ${misc:Depends},
  hybrid-common,
@@ -60,7 +60,7 @@ Description: Multi platform Qt based encoding frontend
  This package will install the version that was linked against Qt 4.8.
 
 Package: hybrid-qt5
-Architecture: any
+Architecture: amd64 i386
 Depends:
  ${misc:Depends},
  hybrid-common,
@@ -111,7 +111,7 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
  This package will install the version that was linked against Qt 5.
 
 Package: hybrid-common
-Architecture: any
+Architecture: amd64 i386
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
@@ -154,13 +154,13 @@ Description: Multi platform Qt based encoding frontend (common files)
  This package contains the common files.
 
 Package: hybrid-tools
-Architecture: any
+Architecture: amd64 i386
 Section: metapackages
 Depends:
  ${misc:Depends},
  aac-enc, aften,
  bdsup2sub++,
- dcaenc, delaycut,
+ dcaenc, delaycut, divx265,
  faac, flac, flvextract, ffmpeg,
  gpac,
  kvazaar,
@@ -174,7 +174,7 @@ Depends:
  x264, x265
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
- aac-enc, aften, bdsup2sub++, dcaenc, delaycut, faac, flac, flvextract, ffmpeg,
- gpac (mp4box), kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix,
+ aac-enc, aften, bdsup2sub++, dcaenc, delaycut, divx265, faac, flac, flvextract,
+ ffmpeg, gpac (mp4box), kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix,
  mp4fpsmod, mplayer or mplayer2, neroaac, opus-tools, sox, telxcc, tsmuxer,
  vorbis-tools (oggenc), vpx-tools, x264, x265.
