@@ -1,3 +1,12 @@
+hybrid (1:0.8.4~trusty) trusty; urgency=low
+
+  * Implement '-no-update' command line option to suppress the search
+    for available updates.
+  * Update manpage
+  * hybrid-tools will install manpages for aften and vpxenc
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 14 Nov 2014 11:05:34 +0100
+
 hybrid (1:0.8.3~trusty) trusty; urgency=low
 
   * Add DivX265 to hybrid-tools
