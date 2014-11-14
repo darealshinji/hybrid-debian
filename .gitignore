@@ -1,4 +1,5 @@
 *.o
+*.log
 *~
 core
 *.core

@@ -17,11 +17,13 @@ available_ver_np=$(echo $available_ver | sed -e 's/\.//g')
 
 # Check for updates
 if [ -f "$hybrid" ] ; then
-    if [ -z $available_ver ] ; then
-        echo "Couldn't get the version string of the current release."
-        echo "Are you connected to the Internet?"
-    elif [ $available_ver_np -gt $current_ver_np ] ; then
-        xterm -title "Update Hybrid (Qt $QT) to rev $available_ver" -e "$install_hybrid" $QT
+    if [ "$update" = "enabled" ] ; then
+        if [ -z $available_ver ] ; then
+            echo "Couldn't get the version string of the current release."
+            echo "Are you connected to the Internet?"
+        elif [ $available_ver_np -gt $current_ver_np ] ; then
+            xterm -title "Update Hybrid (Qt $QT) to rev $available_ver" -e "$install_hybrid" $QT
+        fi
     fi
 else
     xterm -title "Install Hybrid (Qt $QT) rev $available_ver" -e "$install_hybrid" $QT

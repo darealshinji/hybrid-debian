@@ -1,9 +1,13 @@
 
 log="disabled"
+update="enabled"
 for opt; do
     case "$opt" in
         -log)
             log="enabled"
+            ;;
+        -no-update)
+            update="disabled"
             ;;
         *)
             ;;
