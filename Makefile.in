@@ -41,7 +41,7 @@ install-hybrid:
 	$(INSTALL_FILE) run-hybrid           $(DESTDIR)$(PREFIX)/share/hybrid-common
 	$(INSTALL_FILE) hybrid.desktop       $(DESTDIR)$(PREFIX)/share/applications
 	$(INSTALL_FILE) hybrid-qt5.desktop   $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_FILE) hybrid-encoder.1     $(DESTDIR)$(PREFIX)/share/man/man1
+	$(INSTALL_FILE) man/hybrid-encoder.1 $(DESTDIR)$(PREFIX)/share/man/man1
 	$(CP) icons/* $(DESTDIR)$(PREFIX)/share/icons/hicolor
 
 install-hook:
