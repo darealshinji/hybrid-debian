@@ -1,0 +1,338 @@
+.TH AFTEN 1 "NOVEMBER 2014"
+
+.SH NAME
+Aften \- A/52 audio encoder
+
+.SH SYNOPSIS
+.B aften \fR[options] <input.wav> <output.ac3>
+
+.SH OPTIONS
+.TP
+.B \-h
+Print out list of commandline options
+.TP
+.B \-longhelp
+Print out commandline option details
+.TP
+.B \-version
+Print out the build version
+.TP
+.B \-v #
+Verbosity (controls output to console)
+.br
+0 = quiet mode
+.br
+1 = show average stats (default)
+.br
+2 = show each frame's stats
+.TP
+.B \-threads #
+Number of parallel threads to use
+.br
+0 = detect number of CPUs (default)
+.TP
+.B \-nosimd X
+Comma-separated list of SIMD instruction sets not to use
+.br
+Available sets are mmx, sse, sse2, sse3 and altivec.
+.br
+No spaces are allowed between the sets and the commas.
+.TP
+.B \-b #
+CBR bitrate in kbps (default: about 96kbps per channel)
+.TP
+.B \-q #
+VBR quality [0 - 1023] (default: 240)
+.TP
+.B \-fba #
+Fast bit allocation (default: 0)
+.br
+0 = more accurate encoding
+.br
+1 = faster encoding
+.TP
+.B \-exps #
+Exponent strategy search size (default: 8)
+.br
+1 to 32 (lower is faster, higher is better quality)
+.TP
+.B \-pad #
+Start-of-stream padding
+.br
+0 = no padding
+.br
+1 = 256 samples of padding (default)
+.TP
+.B \-w #
+Bandwidth
+.br
+0 to 60 = fixed bandwidth (28%-99% of full bandwidth)
+.br
+-1 = fixed adaptive bandwidth (default)
+.br
+-2 = variable adaptive bandwidth
+.TP
+.B \-wmin #
+Minimum bandwidth [0 - 60] (default: 0)
+.TP
+.B \-wmax #
+Maximum bandwidth [0 - 60] (default: 60)
+.TP
+.B \-m #
+Stereo rematrixing
+.br
+0 = independent L+R channels
+.br
+1 = mid/side rematrixing (default)
+.TP
+.B \-s #
+Block switching
+.br
+0 = use only 512-point MDCT (default)
+.br
+1 = selectively use 256-point MDCT
+.TP
+.B \-cmix #
+Center mix level
+.br
+0 = -3.0 dB (default)
+.br
+1 = -4.5 dB
+.br
+2 = -6.0 dB
+.TP
+.B \-smix #
+Surround mix level
+.br
+0 = -3 dB (default)
+.br
+1 = -6 dB
+.br
+2 = 0
+.TP
+.B \-dsur #
+Dolby Surround mode
+.br
+0 = not indicated (default)
+.br
+1 = not Dolby surround encoded
+.br
+2 = Dolby surround encoded
+.TP
+.B \-dnorm #
+Dialog normalization [0 - 31] (default: 31)
+.TP
+.B \-dynrng #
+Dynamic Range Compression profile
+.br
+0 = Film Light
+.br
+1 = Film Standard
+.br
+2 = Music Light
+.br
+3 = Music Standard
+.br
+4 = Speech
+.br
+5 = None (default)
+.TP
+.B \-acmod #
+Audio coding mode (overrides wav header)
+.br
+0 = 1+1 (Ch1,Ch2)
+.br
+1 = 1/0 (C)
+.br
+2 = 2/0 (L,R)
+.br
+3 = 3/0 (L,R,C)
+.br
+4 = 2/1 (L,R,S)
+.br
+5 = 3/1 (L,R,C,S)
+.br
+6 = 2/2 (L,R,SL,SR)
+.br
+7 = 3/2 (L,R,C,SL,SR)
+.TP
+.B \-lfe #
+Specify use of LFE channel (overrides wav header)
+.br
+0 = LFE channel is not present
+.br
+1 = LFE channel is present
+.TP
+.B \-chconfig X
+Specify channel configuration (overrides wav header)
+.br
+1+1 = (Ch1,Ch2)
+.br
+1/0 = (C)
+.br
+2/0 = (L,R)
+.br
+3/0 = (L,R,C)
+.br
+2/1 = (L,R,S)
+.br
+3/1 = (L,R,C,S)
+.br
+2/2 = (L,R,SL,SR)
+.br
+3/2 = (L,R,C,SL,SR)
+.br
+adding "+LFE" indicates use of the LFE channel
+.TP
+.B \-ch_X file
+Add a mono file to the input list as the channel specified
+.br
+ch_fl  = Front Left
+.br
+ch_fc  = Front Center
+.br
+ch_fr  = Front Right
+.br
+ch_sl  = Surround Left
+.br
+ch_s   = Surround
+.br
+ch_sr  = Surround Right
+.br
+ch_m1  = Dual Mono Channel 1
+.br
+ch_m2  = Dual Mono Channel 2
+.br
+ch_lfe = LFE
+.TP
+.B \-raw_fmt X
+Raw audio input sample format (default: s16_le)
+.br
+One of the pre-defined sample formats:
+.br
+u8, s8, s16_le, s16_be, s20_le, s20_be, s24_le, s24_be,
+.br
+s32_le, s32_be, float_le, float_be, double_le, double_be
+.TP
+.B \-raw_sr #
+Raw audio input sample rate (default: 48000)
+.TP
+.B \-raw_ch #
+Raw audio input channels (default: 1)
+.TP
+.B \-chmap #
+Channel mapping order of input audio
+.br
+0 = WAVE mapping (default)
+.br
+1 = AC-3 mapping
+.br
+2 = MPEG mapping
+.TP
+.B \-readtoeof #
+Read input WAVE audio data until the end-of-file
+.br
+0 = use data size in header (default)
+.br
+1 = read data until end-of-file
+.TP
+.B \-bwfilter #
+Specify use of the bandwidth low-pass filter
+.br
+0 = do not apply filter (default)
+.br
+1 = apply filter
+.TP
+.B \-dcfilter #
+Specify use of the DC high-pass filter
+.br
+0 = do not apply filter (default)
+.br
+1 = apply filter
+.TP
+.B \-lfefilter #
+Specify use of the LFE low-pass filter
+.br
+0 = do not apply filter (default)
+.br
+1 = apply filter
+.TP
+.B \-xbsi1 #
+Specify use of extended bitstream info 1
+.br
+0 = do not write xbsi1
+.br
+1 = write xbsi1
+.TP
+.B \-dmixmod #
+Preferred stereo downmix mode
+.br
+0 = not indicated (default)
+.br
+1 = Lt/Rt downmix preferred
+.br
+2 = Lo/Ro downmix preferred
+.TP
+.B \-ltrtcmix #
+Lt/Rt center mix level
+.TP
+.B \-ltrtsmix #
+Lt/Rt surround mix level
+.TP
+.B \-lorocmix #
+Lo/Ro center mix level
+.TP
+.B \-lorosmix #
+Lo/Ro surround mix level
+.br
+0 = +3.0 dB
+.br
+1 = +1.5 dB
+.br
+2 =  0.0 dB
+.br
+3 = -1.5 dB
+.br
+4 = -3.0 dB (default)
+.br
+5 = -4.5 dB
+.br
+6 = -6.0 dB
+.br
+7 = -inf dB
+.TP
+.B \-xbsi2 #
+Specify use of extended bitstream info 2
+.br
+0 = do not write xbsi2
+.br
+1 = write xbsi2
+.TP
+.B \-dsurexmod #
+Dolby Surround EX mode
+.br
+0 = not indicated (default)
+.br
+1 = Not Dolby Surround EX encoded
+.br
+2 = Dolby Surround EX encoded
+.TP
+.B \-dheadphon #
+Dolby Headphone mode
+.br
+0 = not indicated (default)
+.br
+1 = Not Dolby Headphone encoded
+.br
+2 = Dolby Headphone encoded
+.TP
+.B \-adconvtyp #
+A/D converter type
+.br
+0 = Standard (default)
+.br
+1 = HDCD
+
+.SH COPYRIGHT
+Copyright \(co 2006-2009 Justin Ruggles, Prakash Punnoor, et al.
+
