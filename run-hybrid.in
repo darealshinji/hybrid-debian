@@ -101,7 +101,7 @@ fi
 if [ "$log" = "enabled" ] ; then
   mkdir -p "$HOME/.hybrid/logs"
   date=$(date +"%Y-%m-%d_%H-%M-%S")
-  "$hybrid" $gtk_style "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log" &
+  "$hybrid" $gtk_style "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
 else
-  "$hybrid" $gtk_style "$@" &
+  "$hybrid" $gtk_style "$@"
 fi
