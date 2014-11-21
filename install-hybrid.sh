@@ -10,10 +10,9 @@ perl -ne 'printf qq[%s\n], $1 if m/<strong>([^<]+)<\/strong>/' | head -n1 | cut 
 available_ver1_np=$(echo $available_ver1 | sed -e 's/\.//g')
 available_ver2_np=$(echo $available_ver2 | sed -e 's/\.//g')
 
+available_ver=$available_ver1
 if [ $available_ver1_np -gt $available_ver2_np ] ; then
    available_ver=$available_ver2
-else
-   available_ver=$available_ver1
 fi
 
 YY=$(echo $available_ver | cut -d'.' -f1 | tail -c+3)
