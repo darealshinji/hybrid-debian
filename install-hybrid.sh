@@ -4,9 +4,13 @@ QT=$1
 
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
 available_ver1=$(wget -q -O - $URL/version.txt)
-available_ver2=$(wget -q -O - http://forum.selur.de/feed-rss-topic32.xml | perl -ne 'printf qq[%s\n], $1 if m/<strong>([^<]+)<\/strong>/' | sed -e 's/\://' | head -n1 | cut -d' ' -f3)
+available_ver2=$(wget -q -O - http://forum.selur.de/feed-rss-topic32.xml | \
+perl -ne 'printf qq[%s\n], $1 if m/<strong>([^<]+)<\/strong>/' | head -n1 | cut -d' ' -f3)
 
-if [$available_ver2 -gt $available_ver1 ] ; then
+available_ver1_np=$(echo $available_ver1 | sed -e 's/\.//g')
+available_ver2_np=$(echo $available_ver2 | sed -e 's/\.//g')
+
+if [ $available_ver1_np -gt $available_ver2_np ] ; then
    available_ver=$available_ver2
 else
    available_ver=$available_ver1
@@ -33,7 +37,7 @@ cd "$HOME/.hybrid-bin"
 wget -q --spider $URL/$ZIP
 
 if [ $? = 0 ] ; then
-   mv -f "Hybrid-$QT" "Hybrid-$QT.old"
+   test -f "Hybrid-$QT" && mv -f "Hybrid-$QT" "Hybrid-$QT.old"
    rm -f *.zip
    wget $URL/$ZIP
    unzip $ZIP
