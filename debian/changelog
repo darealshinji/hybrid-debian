@@ -1,3 +1,12 @@
+hybrid (1:0.8.5~trusty) trusty; urgency=low
+
+  * Bugfixes in installation and startup scripts
+  * Don't delete files when unistalling with 'apt-get purge'
+  * Remove manpages for aften and vpxenc from hybrid-tools package
+    to avoid possible package conflicts
+
+ -- Marshall Banana <djcj@gmx.de>  Sun, 23 Nov 2014 17:05:30 +0100
+
 hybrid (1:0.8.4~trusty) trusty; urgency=low
 
   * Implement '-no-update' command line option to suppress the search
