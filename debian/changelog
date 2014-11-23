@@ -1,4 +1,4 @@
-hybrid (1:0.8.5~trusty) trusty; urgency=low
+hybrid (1:0.8.5~trusty1) trusty; urgency=low
 
   * Bugfixes in installation and startup scripts
   * Don't delete files when unistalling with 'apt-get purge'
