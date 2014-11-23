@@ -86,8 +86,8 @@ fi
 @JAVA@        fi
 @JAVA@    fi
 @JAVA@fi
-@JAVA@
-@JAVA@
+
+
 # check if DE is KDE
 # if we're using Qt5 Hybrid and we're not on KDE,
 # then run the app with '-style=gtk'

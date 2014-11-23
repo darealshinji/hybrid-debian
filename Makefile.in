@@ -15,13 +15,14 @@ STRIP = strip -s
 
 fc_MAKEFILE = framecounter.mk
 
+HASHTAG = \#
+ifeq ($(JAVA), yes)
+HASHTAG =
+endif
+
 
 all:
-ifeq ($(JAVA), yes)
-	sed -e 's/@JAVA@//g' run-hybrid.in > run-hybrid
-else
-	grep -v -e '@JAVA@' run-hybrid.in > run-hybrid
-endif
+	sed -e 's/@JAVA@/$(HASHTAG)/g' run-hybrid.in > run-hybrid
 	$(QMAKE) -o $(fc_MAKEFILE)
 	$(MAKE)  -f $(fc_MAKEFILE)
 	$(STRIP) framecounter
