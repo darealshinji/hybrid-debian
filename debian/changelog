@@ -1,3 +1,11 @@
+hybrid (1:0.8.6~trusty) trusty; urgency=low
+
+  * Add FFmbc to hybrid-tools
+  * Install 22x22 hicolor icon
+  * Bump year in debian/copyright
+
+ -- Marshall Banana <djcj@gmx.de>  Sat, 17 Jan 2015 10:59:29 +0100
+
 hybrid (1:0.8.5~trusty1) trusty; urgency=low
 
   * Bugfixes in installation and startup scripts
