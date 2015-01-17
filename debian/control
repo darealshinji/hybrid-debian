@@ -161,7 +161,7 @@ Depends:
  aac-enc, aften,
  bdsup2sub++,
  dcaenc, delaycut, divx265,
- faac, flac, flvextract, ffmbc, ffmpeg,
+ faac, flac, flvextract-python | flvextract | flvextractcl, ffmbc, ffmpeg,
  gpac,
  kvazaar,
  lame, lsdvd,
@@ -175,7 +175,8 @@ Depends:
 Description: Tools required by Hybrid
  This metapackage will install additional tools required by Hybrid:
  aac-enc, aften, bdsup2sub++, dcaenc, delaycut, divx265, faac, flac,
- flvextract, ffmbc, ffmpeg, gpac (mp4box), kvazaar, lame, lsdvd, mediainfo,
- mencoder, mkvtoolnix, mp4fpsmod, mplayer or mplayer2, neroaac, opus-tools,
- sox, telxcc, tsmuxer, vorbis-tools (oggenc), vpx-tools, x264, x265.
+ flvextract-python or flvextract, ffmbc, ffmpeg, gpac (mp4box), kvazaar,
+ lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or mplayer2,
+ neroaac, opus-tools, sox, telxcc, tsmuxer, vorbis-tools (oggenc), vpx-tools,
+ x264, x265.
 
