@@ -7,10 +7,6 @@ Usage: ./configure [options]
 options:
   -h, --help               print this message
   --prefix=PREFIX          install files into PREFIX [/usr/local]
-  --with-bdsup2sub-jar     Let the startup script check for Java and
-                           download BDSup2Sub.jar if the system can't
-                           use bdsup2sub++ because it doesn't support
-                           c++11.
 EOF
 exit 1
 fi
@@ -22,9 +18,6 @@ for opt; do
         --prefix=*)
             prefix="$optarg"
             ;;
-        --with-bdsup2sub-jar)
-            JAVA="yes"
-            ;;
         *)
             ;;
     esac
@@ -35,7 +28,6 @@ test -n "$prefix" || prefix="/usr/local"
 rm -f Makefile
 cat >> Makefile << EOF
 prefix = $prefix
-JAVA = $JAVA
 EOF
 cat Makefile.in >> Makefile
 
@@ -56,7 +48,6 @@ EOF
 cat hybrid.in >> hybrid-qt5
 
 echo "prefix: $prefix"
-echo "with BDSup2Sub.jar: $JAVA"
 echo "Now run 'make && make install'"
 
 exit 0

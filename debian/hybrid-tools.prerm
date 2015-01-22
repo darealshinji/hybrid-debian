@@ -5,9 +5,10 @@ set -e
 case "$1" in
 deconfigure|remove)
 
-    update-alternatives --remove fdkaacenc /usr/bin/aac-enc
+    update-alternatives --remove fdkaac /usr/bin/aac-enc
     update-alternatives --remove flaccl /usr/bin/flac
     update-alternatives --remove FLVExtractCL /usr/bin/flvextract
+    update-alternatives --remove FrameCounter /usr/bin/framecounter
     update-alternatives --remove Kvazaar /usr/bin/kvazaar
     update-alternatives --remove MediaInfo /usr/bin/mediainfo
 

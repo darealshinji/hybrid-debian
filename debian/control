@@ -1,9 +1,7 @@
 Source: hybrid
 Priority: optional
 Maintainer: Marshall Banana <djcj@gmx.de>
-Build-Depends:
- debhelper (>= 9),
- libqt4-dev
+Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.5
 Section: video
 Homepage: http://www.selur.de
@@ -22,9 +20,7 @@ Depends:
  libqtgui4 (>= 4:4.6.1),
  libstdc++6 (>= 4.4.0),
  sni-qt
-Provides: hybrid, hybrid-qt46, hybrid-qt48
-Replaces: hybrid-qt46 (<< 1:0.7.0)
-Suggests: hybrid-tools
+Suggests: hybrid-tools, hybrid-avisynth-extension
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
@@ -75,7 +71,7 @@ Depends:
  libqt5xml5 (>= 5.0.2),
  libstdc++6 (>= 4.4.0),
  sni-qt
-Suggests: hybrid-tools
+Suggests: hybrid-tools, hybrid-avisynth-extension
 Description: Multi platform Qt based encoding frontend (Qt 5)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
@@ -111,10 +107,9 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
  This package will install the version that was linked against Qt 5.
 
 Package: hybrid-common
-Architecture: amd64 i386
+Architecture: all
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  wget,
  unzip,
  xterm
@@ -154,14 +149,14 @@ Description: Multi platform Qt based encoding frontend (common files)
  This package contains the common files.
 
 Package: hybrid-tools
-Architecture: amd64 i386
+Architecture: all
 Section: metapackages
 Depends:
  ${misc:Depends},
  aac-enc, aften,
  bdsup2sub++,
  dcaenc, delaycut, divx265,
- faac, flac, flvextract-python | flvextract | flvextractcl, ffmbc, ffmpeg,
+ faac, flac, flvextract-python | flvextract | flvextractcl, ffmbc, ffmpeg, framecounter,
  gpac,
  kvazaar,
  lame, lsdvd,
@@ -172,11 +167,12 @@ Depends:
  telxcc, tsmuxer,
  vorbis-tools, vpx-tools,
  x264, x265
-Description: Tools required by Hybrid
- This metapackage will install additional tools required by Hybrid:
+Recommends: hybrid-avisynth-extension
+Description: All tools required by Hybrid
+ This metapackage will install all additional tools required by Hybrid:
  aac-enc, aften, bdsup2sub++, dcaenc, delaycut, divx265, faac, flac,
- flvextract-python or flvextract, ffmbc, ffmpeg, gpac (mp4box), kvazaar,
- lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or mplayer2,
- neroaac, opus-tools, sox, telxcc, tsmuxer, vorbis-tools (oggenc), vpx-tools,
- x264, x265.
+ flvextract-python or flvextract, ffmbc, ffmpeg, framecounter, gpac (mp4box),
+ kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or
+ mplayer2, neroaac, opus-tools, sox, telxcc, tsmuxer, vorbis-tools (oggenc),
+ vpx-tools, x264, x265.
 

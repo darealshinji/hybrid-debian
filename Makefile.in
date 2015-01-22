@@ -9,23 +9,9 @@ RM    = rm -rf
 LN    = ln -s
 GZIP  = gzip -f9
 RMDIR = rmdir
-QMAKE = qmake-qt4 $(QMAKE_FLAGS)
-MAKE  = make
-STRIP = strip -s
-
-fc_MAKEFILE = framecounter.mk
-
-HASHTAG = \#
-ifeq ($(JAVA), yes)
-HASHTAG =
-endif
 
 
 all:
-	sed -e 's/@JAVA@/$(HASHTAG)/g' run-hybrid.in > run-hybrid
-	$(QMAKE) -o $(fc_MAKEFILE)
-	$(MAKE)  -f $(fc_MAKEFILE)
-	$(STRIP) framecounter
 
 install: install-hybrid install-hook
 
@@ -35,7 +21,6 @@ install-hybrid:
 	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/hybrid-common
 	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/icons/hicolor
 	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/man/man1
-	$(INSTALL_PROGRAM) framecounter      $(DESTDIR)$(PREFIX)/bin
 	$(INSTALL_PROGRAM) hybrid            $(DESTDIR)$(PREFIX)/bin
 	$(INSTALL_PROGRAM) hybrid-qt5        $(DESTDIR)$(PREFIX)/bin
 	$(INSTALL_PROGRAM) install-hybrid.sh $(DESTDIR)$(PREFIX)/share/hybrid-common
@@ -49,10 +34,9 @@ install-hook:
 	$(GZIP) $(DESTDIR)$(PREFIX)/share/man/man1/hybrid-encoder.1
 	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid.1.gz
 	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid-qt5.1.gz
-	$(LN) framecounter $(DESTDIR)$(PREFIX)/bin/FrameCounter
 
 uninstall:
-	cd $(DESTDIR)$(PREFIX)/bin && $(RM) framecounter hybrid hybrid-qt5
+	cd $(DESTDIR)$(PREFIX)/bin && $(RM) hybrid hybrid-qt5
 	cd $(DESTDIR)$(PREFIX)/share/applications && $(RM) hybrid.desktop hybrid-qt5.desktop
 	cd $(DESTDIR)$(PREFIX)/share/man/man1 && $(RM) hybrid.1* hybrid-qt5.1* hybrid-encoder.1*
 	$(RM) $(DESTDIR)$(PREFIX)/share/hybrid-common
@@ -65,10 +49,5 @@ uninstall:
 	$(RMDIR) $(DESTDIR)$(PREFIX)/share &> /dev/null
 
 clean:
-	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) clean
-	rm -f run-hybrid
-
-distclean: clean
-	[ ! -f $(fc_MAKEFILE) ] || $(MAKE) -f $(fc_MAKEFILE) distclean
 	$(RM) Makefile hybrid hybrid-qt5
 
