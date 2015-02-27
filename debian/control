@@ -167,7 +167,7 @@ Depends:
  telxcc, tsmuxer,
  vorbis-tools, vpx-tools,
  x264, x265
-Recommends: hybrid-avisynth-extension
+Suggests: hybrid-avisynth-extension
 Description: All tools required by Hybrid
  This metapackage will install all additional tools required by Hybrid:
  aac-enc, aften, bdsup2sub++, dcaenc, delaycut, divx265, faac, flac,
