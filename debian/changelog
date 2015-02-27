@@ -1,3 +1,9 @@
+hybrid (1:0.8.7+ppa4~trusty) trusty; urgency=low
+
+  * Move hybrid-avisynth-extension to suggested packages
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 27 Feb 2015 16:54:52 +0100
+
 hybrid (1:0.8.7+ppa3~trusty) trusty; urgency=low
 
   * Remove maintainer scripts
