@@ -1,0 +1,13 @@
+Source: hybrid-avisynth-extension
+Priority: optional
+Maintainer: Marshall Banana <djcj@gmx.de>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Section: video
+Homepage: https://github.com/darealshinji/hybrid-avisynth-extension
+
+Package: hybrid-avisynth-extension
+Architecture: all
+Depends: ${misc:Depends}, hybrid | hybrid-qt5, p7zip-full, wget, wine
+Description: Hybrid Avisynth extension
+ Enables avisynth script generation.

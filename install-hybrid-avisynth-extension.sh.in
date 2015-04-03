@@ -1,0 +1,19 @@
+PKG_VER=$(cat "$PKG_VER_FILE")
+URL=http://www.selur.de/sites/default/files/hybrid_downloads/avisynth
+ZIP=avisynthExtension_${PKG_VER}.7z
+bin_dir="$HOME/.hybrid-bin"
+
+# check if the 7z file is available
+wget -q --spider $URL/$ZIP
+
+if [ $? = 0 ] ; then
+    mkdir -p "$bin_dir"
+    rm -rf "$bin_dir/avisynthPlugins" "$bin_dir/platforms"
+    rm -f "$bin_dir/*.exe" "$bin_dir/*.dll" "$bin_dir/avisynthExtension_*.7z"
+    cd "$bin_dir"
+    wget $URL/$ZIP
+    7z x $ZIP
+    cp -f "$PKG_VER_FILE" "$bin_dir/avisynthPlugins"
+    rm -f "$bin_dir/$ZIP"
+fi
+

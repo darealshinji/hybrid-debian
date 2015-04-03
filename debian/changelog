@@ -1,0 +1,76 @@
+hybrid-avisynth-extension (150208~ppa1~trusty) trusty; urgency=low
+
+  * Update to version 2015.02.08 (150208)
+
+ -- Marshall Banana <djcj@gmx.de>  Mon, 09 Feb 2015 14:07:06 +0100
+
+hybrid-avisynth-extension (150119~ppa2~trusty) trusty; urgency=low
+
+  * Remove maintainer scripts
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 21 Jan 2015 22:48:59 +0100
+
+hybrid-avisynth-extension (150119~ppa1~trusty) trusty; urgency=low
+
+  * Update to version 2015.01.19 (150119)
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 21 Jan 2015 22:44:25 +0100
+
+hybrid-avisynth-extension (150111~ppa1~trusty) trusty; urgency=low
+
+  * Update to version 2015.01.11 (150111)
+
+ -- Marshall Banana <djcj@gmx.de>  Mon, 12 Jan 2015 13:43:26 +0100
+
+hybrid-avisynth-extension (141021~ppa2~trusty) trusty; urgency=low
+
+  * Make file deletion in install script safer
+  * Delete AviSynth files too if the package is uninstalled with
+    "apt-get remove"
+
+ -- Marshall Banana <djcj@gmx.de>  Sun, 23 Nov 2014 17:14:33 +0100
+
+hybrid-avisynth-extension (141021~ppa1~trusty) trusty; urgency=low
+
+  * Update to version 2014.10.21 (141021)
+  * Make package depend on 'hybrid | hybrid-qt5'
+  * Move package to section 'video'
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 24 Oct 2014 13:17:10 +0200
+
+hybrid-avisynth-extension (141010~ppa1~trusty) trusty; urgency=low
+
+  * Update to version 2014.10.10 (141010)
+
+ -- Marshall Banana <djcj@gmx.de>  Tue, 21 Oct 2014 23:08:56 +0200
+
+hybrid-avisynth-extension (140708~ppa5~trusty) trusty; urgency=low
+
+  * Use postrm script to delete local installations after package removal
+  * Make the installation script safer
+
+ -- Marshall Banana <djcj@gmx.de>  Mon, 22 Sep 2014 09:33:01 +0200
+
+hybrid-avisynth-extension (140708~ppa4~trusty) trusty; urgency=low
+
+  * Remove version file in case it already exists
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 03 Sep 2014 07:20:16 +0200
+
+hybrid-avisynth-extension (140708~ppa3~trusty) trusty; urgency=low
+
+  * Use script only to install and not to check for updates
+
+ -- Marshall Banana <djcj@gmx.de>  Thu, 07 Aug 2014 04:08:17 +0200
+
+hybrid-avisynth-extension (140708~ppa2~trusty) trusty; urgency=low
+
+  * More automation
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 06 Aug 2014 22:33:50 +0200
+
+hybrid-avisynth-extension (140708~ppa1~trusty) trusty; urgency=low
+
+  * Initial release
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 06 Aug 2014 20:40:44 +0200
