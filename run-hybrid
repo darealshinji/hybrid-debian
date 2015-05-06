@@ -1,4 +1,3 @@
-bin_dir="$HOME/.hybrid-bin"
 hybrid="$bin_dir/Hybrid-$QT"
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
 install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
@@ -15,8 +14,27 @@ available_ver=$(wget -q -O - $URL/version.txt)
 available_ver_np=$(echo $available_ver | sed -e 's/\.//g')
 
 
+# Roll back to previous release version
+if [ "$rollback" = "yes" ] ; then
+    if [ -f "$hybrid.old" ] ; then
+        cd "$bin_dir"
+        mv -f "Hybrid-$QT.old" "Hybrid-$QT"
+        chmod 0755 Hybrid-$QT
+        current_ver=$("$hybrid" -version | cut -d' ' -f3)
+        echo "Switched back to Hybrid version $current_ver"
+        touch "$bin_dir/.disable-updates"
+        echo "automatic updates: DISABLED"
+        exit 0
+    else
+        echo "No previous version available as backup."
+        exit 1
+    fi
+fi
+
+
 # Check for updates
 if [ -f "$hybrid" ] ; then
+    test -f "$bin_dir/.disable-updates" && update="disabled"
     if [ "$update" = "enabled" ] ; then
         if [ -z $available_ver ] ; then
             echo "Couldn't get the version string of the current release."
@@ -78,15 +96,19 @@ fi
 # then run the app with '-style=gtk'
 xprop -name "kwin" >/dev/null 2>&1
 if [ $(echo $?) = 1 ] && [ $QT = 521 ] ; then
-  gtk_style='-style=gtk'
+    gtk_style='-style=gtk'
 fi
 
 
 # start Hybrid
+if [ "$print_version" = "yes" ] ; then
+    "$hybrid" -version
+    exit 0
+fi
 if [ "$log" = "enabled" ] ; then
-  mkdir -p "$HOME/.hybrid/logs"
-  date=$(date +"%Y-%m-%d_%H-%M-%S")
-  "$hybrid" $gtk_style "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
+    mkdir -p "$HOME/.hybrid/logs"
+    date=$(date +"%Y-%m-%d_%H-%M-%S")
+    "$hybrid" $gtk_style "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
 else
-  "$hybrid" $gtk_style "$@"
+    "$hybrid" $gtk_style "$@"
 fi

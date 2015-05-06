@@ -1,17 +1,57 @@
+bin_dir="$HOME/.hybrid-bin"
+
+printHelp () {
+app="$(basename "$0")"
+echo \
+"usage: $app [options] [<QT options>]
+
+options: --log
+         --no-update
+         --disable-updates
+         --enable-updates
+         --rollback
+         --help | -h
+         --version | -V
+
+Run 'man $app' for more information."
+exit 0
+}
 
 log="disabled"
 update="enabled"
+rollback="no"
+print_version="no"
 for opt; do
     case "$opt" in
-        -log)
+        --help|-help|-h)
+            printHelp
+            ;;
+        --log|-log)
             log="enabled"
             ;;
-        -no-update)
+        --no-update|-no-update)
             update="disabled"
+            ;;
+        --disable-updates)
+            touch "$bin_dir/.disable-updates"
+            echo "automatic updates: DISABLED"
+            exit 0
+            ;;
+        --enable-updates)
+            rm -f "$bin_dir/.disable-updates"
+            echo "automatic updates: ENABLED"
+            exit 0
+            ;;
+        --rollback)
+            rollback="yes"
+            ;;
+        --version|-V)
+            print_version="yes"
             ;;
         *)
             ;;
     esac
 done
 
-. "$prefix/share/hybrid-common/run-hybrid"
+source "$prefix/share/hybrid-common/run-hybrid"
+

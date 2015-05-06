@@ -1,23 +1,40 @@
-.TH HYBRID 1 "January 2015"
+.TH HYBRID 1 "May 2015"
 
 .SH NAME
 Hybrid \- Multi platform Qt based encoding frontend
 
 .SH SYNOPSIS
-.B hybrid \fR[options]
+.B hybrid \fR[options] [<QT options>]
 .br
-.B hybrid\-qt5 \fR[options]
+.B hybrid\-qt5 \fR[options] [<QT options>]
 
 .SH OPTIONS
-.B \-version
-displays the current version and quits
 .TP
-.B \-log
-saves a log file in
+.B \-\-log
+save a log file in
 .I ~/.hybrid/logs/
 .TP
-.B \-no\-update
+.B \-\-no\-update
 don't check for available updates on startup
+.TP
+.B \-\-disable-updates
+disable automatic updates
+.TP
+.B \-\-enable-updates
+enable automatic updates
+.TP
+.B \-\-rollback
+Switch back to the previous version if a backup is available.
+This disables automatic updates.
+A backup of the currently installed version is automatically saved in
+.I ~/.hybrid\-bin/
+when upgrading to a new version.
+.TP
+.B \-h\fR, \fB\-\-help
+show usage information
+.TP
+.B \-V\fR, \fB\-\-version
+show the current version and quit
 
 .SH DESCRIPTION
 .B Hybrid
@@ -112,10 +129,9 @@ Wrapper scripts and Debian package sources:
 .br
 .I https://github.com/darealshinji/hybrid\-debian
 .br
-.I https://github.com/darealshinji/hybrid\-avisynth\-extension
+.I https://github.com/darealshinji/hybrid-debian/tree/avisynth-extension
 
 .SH AUTHOR
 Hybrid was written by Selur <\fIhybrid@selur.de\fR> and is released under a proprietary freeware license.
-The wrapper scripts and the Debian packaging were done by djcj <\fIdjcj@gmx.de\fR> and
-are released under MIT license.
+The wrapper scripts and the Debian packaging were made by djcj <\fIdjcj@gmx.de\fR> and are released under MIT license.
 The desktop icons were taken from the Oxygen icon theme, which is available under LGPL v3.
