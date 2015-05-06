@@ -47,6 +47,6 @@ EOF
 cat hybrid.in >> hybrid-qt5
 
 echo "prefix: $prefix"
-echo "Now run 'make && make install'"
+echo "Now run 'make install'"
 
 exit 0

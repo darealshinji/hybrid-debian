@@ -1,53 +1,34 @@
 PREFIX ?= $(prefix)
 
-INSTALL_FILE    = install -m644 -D
-INSTALL_DIR     = install -m755 -d
-INSTALL_PROGRAM = install -m755 -D
-
-CP    = cp -rf
-RM    = rm -rf
-LN    = ln -s
-GZIP  = gzip -f9
-RMDIR = rmdir
+bindir    = $(DESTDIR)$(PREFIX)/bin
+appdir    = $(DESTDIR)$(PREFIX)/share/applications
+commondir = $(DESTDIR)$(PREFIX)/share/hybrid-common
+iconsdir  = $(DESTDIR)$(PREFIX)/share/icons/hicolor
+man1dir   = $(DESTDIR)$(PREFIX)/share/man/man1
 
 
 all:
 
-install: install-hybrid install-hook
-
-install-hybrid:
-	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/icons/hicolor
-	$(INSTALL_DIR) $(DESTDIR)$(PREFIX)/share/man/man1
-	$(INSTALL_PROGRAM) hybrid            $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_PROGRAM) hybrid-qt5        $(DESTDIR)$(PREFIX)/bin
-	$(INSTALL_PROGRAM) install-hybrid.sh $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(INSTALL_FILE) run-hybrid           $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(INSTALL_FILE) hybrid.desktop       $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_FILE) hybrid-qt5.desktop   $(DESTDIR)$(PREFIX)/share/applications
-	$(INSTALL_FILE) man/hybrid-encoder.1 $(DESTDIR)$(PREFIX)/share/man/man1
-	$(CP) icons/* $(DESTDIR)$(PREFIX)/share/icons/hicolor
-
-install-hook:
-	$(GZIP) $(DESTDIR)$(PREFIX)/share/man/man1/hybrid-encoder.1
-	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid.1.gz
-	$(LN) hybrid-encoder.1.gz $(DESTDIR)$(PREFIX)/share/man/man1/hybrid-qt5.1.gz
-
-uninstall:
-	cd $(DESTDIR)$(PREFIX)/bin && $(RM) hybrid hybrid-qt5
-	cd $(DESTDIR)$(PREFIX)/share/applications && $(RM) hybrid.desktop hybrid-qt5.desktop
-	cd $(DESTDIR)$(PREFIX)/share/man/man1 && $(RM) hybrid.1* hybrid-qt5.1* hybrid-encoder.1*
-	$(RM) $(DESTDIR)$(PREFIX)/share/hybrid-common
-	$(RMDIR) $(DESTDIR)$(PREFIX)/bin &> /dev/null
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/applications &> /dev/null
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/hybrid-common &> /dev/null
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/icons &> /dev/null
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/man/man1 &> /dev/null
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share/man &> /dev/null
-	$(RMDIR) $(DESTDIR)$(PREFIX)/share &> /dev/null
+install:
+	install -d $(bindir)
+	install -d $(appdir)
+	install -d $(commondir)
+	install -d $(man1dir)
+	install -m755 -D hybrid $(bindir)
+	install -m755 -D hybrid-qt5 $(bindir)
+	install -m755 -D install-hybrid.sh $(commondir)
+	install -m644 -D run-hybrid $(commondir)
+	install -m644 -D hybrid.desktop $(appdir)
+	install -m644 -D hybrid-qt5.desktop $(appdir)
+	install -m644 -D hybrid-encoder.1 $(man1dir)
+	$(foreach SIZE, 16 22 24 32 48 64 96 128 256,\
+	  install -d $(iconsdir)/$(SIZE)x$(SIZE)/apps ;\
+	  install -m644 -D icons/$(SIZE)x$(SIZE)/apps/hybrid-encoder.png \
+	  $(iconsdir)/$(SIZE)x$(SIZE)/apps/hybrid-encoder.png ;)
+	gzip -f9 $(man1dir)/hybrid-encoder.1
+	ln -fs hybrid-encoder.1.gz $(man1dir)/hybrid.1.gz
+	ln -fs hybrid-encoder.1.gz $(man1dir)/hybrid-qt5.1.gz
 
 clean:
-	$(RM) Makefile hybrid hybrid-qt5
+	rm -f Makefile hybrid hybrid-qt5
 
