@@ -1,3 +1,9 @@
+hybrid (1:0.9~trusty) trusty; urgency=low
+
+  * New command line options to handle updates and rollbacks
+
+ -- Marshall Banana <djcj@gmx.de>  Sat, 09 May 2015 16:24:09 +0200
+
 hybrid (1:0.8.7+ppa4~trusty) trusty; urgency=low
 
   * Move hybrid-avisynth-extension to suggested packages
