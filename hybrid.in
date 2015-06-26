@@ -53,5 +53,5 @@ for opt; do
     esac
 done
 
-source "$prefix/share/hybrid-common/run-hybrid"
+. "$prefix/share/hybrid-common/run-hybrid"
 
