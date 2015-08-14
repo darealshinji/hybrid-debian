@@ -34,7 +34,7 @@ License: MIT
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 
-Files: icons/*
+Files: icons/* oxygen/*
 Copyright: 2007 Nuno Pinheiro <nuno@oxygen-icons.org>
            2007 David Vignoni <david@icon-king.com>
            2007 David Miller <miller@oxygen-icons.org>
