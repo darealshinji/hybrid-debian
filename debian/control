@@ -112,7 +112,7 @@ Depends:
  ${misc:Depends},
  wget,
  unzip,
- xterm
+ zenity
 Suggests: hybrid | hybrid-qt5
 Description: Multi platform Qt based encoding frontend (common files)
  It can convert nearly every input to x264/x265/Xvid/VP9/...

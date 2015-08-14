@@ -18,11 +18,8 @@ fi
 YY=$(echo $available_ver | cut -d'.' -f1 | tail -c+3)
 MM=$(echo $available_ver | cut -d'.' -f2)
 DD=$(echo $available_ver | cut -d'.' -f3)
-revision=$(echo $available_ver | cut -d'.' -f4)
-
-if [ $revision != 1 ] ; then
-   REV=$revision
-fi
+REV=$(echo $available_ver | cut -d'.' -f4)
+if [ $REV = 1 ] ; then REV=""; fi
 
 VER=$YY$MM$DD$REV
 BITS=$(getconf LONG_BIT)
