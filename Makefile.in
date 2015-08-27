@@ -37,3 +37,5 @@ install:
 clean:
 	rm -f Makefile hybrid hybrid-qt5
 
+distclean: clean
+
