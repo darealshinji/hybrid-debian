@@ -3,23 +3,13 @@
 QT=$1
 
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
-available_ver1=$(wget -q -O - $URL/version.txt)
-available_ver2=$(wget -q -O - http://forum.selur.de/feed-rss-topic32.xml | \
-perl -ne 'printf qq[%s\n], $1 if m/<strong>([^<]+)<\/strong>/' | head -n1 | cut -d' ' -f3)
+version=$(wget -q -O - $URL/version.txt)
 
-available_ver1_np=$(echo $available_ver1 | sed -e 's/\.//g')
-available_ver2_np=$(echo $available_ver2 | sed -e 's/\.//g')
-
-available_ver=$available_ver1
-if [ $available_ver1_np -gt $available_ver2_np ] ; then
-   available_ver=$available_ver2
-fi
-
-YY=$(echo $available_ver | cut -d'.' -f1 | tail -c+3)
-MM=$(echo $available_ver | cut -d'.' -f2)
-DD=$(echo $available_ver | cut -d'.' -f3)
-REV=$(echo $available_ver | cut -d'.' -f4)
-if [ $REV = 1 ] ; then REV=""; fi
+YY=$(echo $version | cut -d'.' -f1 | tail -c+3)
+MM=$(echo $version | cut -d'.' -f2)
+DD=$(echo $version | cut -d'.' -f3)
+REV=$(echo $version | cut -d'.' -f4)
+if [ $REV -lt 2 ] ; then REV=""; fi
 
 VER=$YY$MM$DD$REV
 BITS=$(getconf LONG_BIT)
