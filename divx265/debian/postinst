@@ -1,0 +1,42 @@
+#!/bin/sh
+
+set -e
+
+VERSION=1_5_8
+
+sha256_1=d8bfbfac33280358fee85580c8694ccecb9a97cb6a78dba9e9c6e8942230fcb3
+cache=/var/cache/divx265
+bin=DivX265_$VERSION
+
+case "$1" in
+    install|configure|upgrade)
+        rm -rf $cache
+        rm -f /usr/bin/$bin
+
+        mkdir -p $cache
+        cd $cache
+        wget "http://download.divx.com/hevc/$bin" || ( echo "Couldn't download $bin"; exit 1 )
+
+        sha256_2=$(sha256sum $bin | head -c64)
+        if [ $sha256_2 != $sha256_1 ]; then
+            echo "$bin:"
+            echo "SHA256 checksum is $sha256_2 but should be $sha256_1."
+            exit 1
+        fi
+
+        install -m755 -D $bin /usr/bin/DivX265
+        rm -rf $cache
+    ;;
+
+    abort-upgrade)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

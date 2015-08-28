@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+rm -f /usr/bin/DivX265
+rm -rf /var/cache/divx265
+
+#DEBHELPER#
+
+exit 0
