@@ -1,3 +1,14 @@
+hybrid (1:0.9.3~trusty) trusty; urgency=low
+
+  * Fix and clean up the download script. Now the download won't fail if a
+    release's revision was set to 0 instead of 1. And the RSS feed of the
+    forum's updates topic won't be checked anymore. Getting the version
+    from the server's version.txt file is reliable and enough.
+  * Don't install hybrid-encoder.1 and create symlinks. Instead a copy for
+    the packages hybrid and hybrid-qt5 will be installed.
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 28 Aug 2015 13:56:43 +0200
+
 hybrid (1:0.9.2~trusty) trusty; urgency=low
 
   * Use Zenity dialogs when files are downloaded instead of xterm
