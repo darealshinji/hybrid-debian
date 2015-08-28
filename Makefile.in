@@ -25,14 +25,14 @@ install:
 	install -m644 -D run-hybrid $(commondir)
 	install -m644 -D hybrid.desktop $(appdir)
 	install -m644 -D hybrid-qt5.desktop $(appdir)
-	install -m644 -D hybrid-encoder.1 $(man1dir)
-	$(foreach SIZE, 16 22 24 32 48 64 96 128 256,\
-	  install -d $(iconsdir)/$(SIZE)x$(SIZE)/apps${\n}\
+	install -m644 -D hybrid.1 $(man1dir)
+	install -m644 hybrid.1 $(man1dir)/hybrid-qt5.1
+	$(foreach SIZE, 16 22 24 32 48 64 96 128 256, \
+	  install -d $(iconsdir)/$(SIZE)x$(SIZE)/apps${\n} \
 	  install -m644 -D icons/$(SIZE)x$(SIZE)/apps/hybrid-encoder.png \
 	  $(iconsdir)/$(SIZE)x$(SIZE)/apps/hybrid-encoder.png${\n} )
-	gzip -f9 $(man1dir)/hybrid-encoder.1
-	ln -fs hybrid-encoder.1.gz $(man1dir)/hybrid.1.gz
-	ln -fs hybrid-encoder.1.gz $(man1dir)/hybrid-qt5.1.gz
+	gzip -f9 $(man1dir)/hybrid.1
+	gzip -f9 $(man1dir)/hybrid-qt5.1
 
 clean:
 	rm -f Makefile hybrid hybrid-qt5
