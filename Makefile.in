@@ -26,7 +26,7 @@ install:
 	install -m644 -D hybrid.desktop $(appdir)
 	install -m644 -D hybrid-qt5.desktop $(appdir)
 	install -m644 -D hybrid.1 $(man1dir)
-	install -m644 hybrid.1 $(man1dir)/hybrid-qt5.1
+	install -m644 -D hybrid.1 $(man1dir)/hybrid-qt5.1
 	$(foreach SIZE, 16 22 24 32 48 64 96 128 256, \
 	  install -d $(iconsdir)/$(SIZE)x$(SIZE)/apps${\n} \
 	  install -m644 -D icons/$(SIZE)x$(SIZE)/apps/hybrid-encoder.png \
