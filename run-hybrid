@@ -1,6 +1,10 @@
 hybrid="$bin/Hybrid-$QT"
-URL=http://www.selur.de/sites/default/files/hybrid_downloads
+url="http://www.selur.de/sites/default/files/hybrid_downloads"
 install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
+
+avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
+avs_extension_path="$prefix/share/hybrid-avisynth-extension"
+avs_install_script="$avs_extension_path/install-hybrid-avisynth-extension.sh"
 
 
 # Get version strings
@@ -10,7 +14,7 @@ else
     current_ver=0
 fi
 current_ver_np=$(echo $current_ver | tr -d .)
-available_ver=$(wget -q -O - $URL/version.txt)
+available_ver=$(wget -q -O - $url/version.txt)
 available_ver_np=$(echo $available_ver | tr -d .)
 
 
@@ -33,6 +37,7 @@ fi
 
 
 # Check for updates
+do_install_hybrid="no"
 if [ -f "$hybrid" ] ; then
     test -f "$bin/.disable-updates" && update="disabled"
     if [ "$update" = "enabled" ] ; then
@@ -40,27 +45,25 @@ if [ -f "$hybrid" ] ; then
             echo "Couldn't get the version string of the current release."
             echo "Are you connected to the Internet?"
         elif [ $available_ver_np -gt $current_ver_np ] ; then
-            "$install_hybrid" $QT | zenity \
-                    --progress --pulsate --auto-close --no-cancel \
-                    --width=550 \
-                    --title="Update Hybrid (Qt $QT) to rev $available_ver" \
-                    --text="Wait a few seconds until the donwload is finished ..."
+            do_install_hybrid="yes"
+            install_hybrid_title="Update Hybrid (Qt $QT) to rev $available_ver"
         fi
     fi
 else
+    do_install_hybrid="yes"
+    install_hybrid_title="Install Hybrid (Qt $QT) rev $available_ver"
+fi
+if [ "$do_install_hybrid" = "yes" ] ; then
     "$install_hybrid" $QT | zenity \
-            --progress --pulsate --auto-close --no-cancel \
-            --width=550 \
-            --title="Install Hybrid (Qt $QT) rev $available_ver" \
-            --text="Wait a few seconds until the donwload is finished ..."
+        --progress --pulsate --auto-close --no-cancel \
+        --width=550 \
+        --title="$install_hybrid_title" \
+        --text="Wait a few seconds until the donwload is finished ..."
 fi
 
 
 # Check for AviSynth extension
-avs_extension_path="$prefix/share/hybrid-avisynth-extension"
-avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
 if [ -d "$avs_extension_path" ] ; then
-    avs_install_script="$avs_extension_path/install-hybrid-avisynth-extension.sh"
     avs_available_ver=$(wget -O - $avs_version_url)
     avs_pkg_version=$(cat "$avs_extension_path/version")
 
