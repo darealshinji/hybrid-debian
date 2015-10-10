@@ -1,4 +1,4 @@
-bin_dir="$HOME/.hybrid-bin"
+bin="$HOME/.hybrid-bin"
 
 printHelp () {
 app="$(basename "$0")"
@@ -33,12 +33,12 @@ for opt; do
             update="disabled"
             ;;
         --disable-updates)
-            touch "$bin_dir/.disable-updates"
+            touch "$bin/.disable-updates"
             echo "automatic updates: DISABLED"
             exit 0
             ;;
         --enable-updates)
-            rm -f "$bin_dir/.disable-updates"
+            rm -f "$bin/.disable-updates"
             echo "automatic updates: ENABLED"
             exit 0
             ;;
