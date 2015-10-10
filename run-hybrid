@@ -3,7 +3,7 @@ url="http://www.selur.de/sites/default/files/hybrid_downloads"
 install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
 
 avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
-avs_extension_path="$bin/avisynth/avisynthPlugins"
+avs_extension_path="$bin/avisynth"
 avs_install_script="$prefix/share/hybrid-avisynth-extension/install-hybrid-avisynth-extension.sh"
 
 
@@ -80,7 +80,7 @@ if [ -f "$avs_install_script" ] ; then
 
         # Install/Update AviSynth extension
         if [ $avs_available_ver -gt $avs_current_ver ] ; then
-            "$avs_install_script" $QT | zenity \
+            "$avs_install_script" $avs_available_ver | zenity \
                     --progress --pulsate --auto-close --no-cancel \
                     --width=550 \
                     --title="$avs_title" \
@@ -92,7 +92,7 @@ if [ -f "$avs_install_script" ] ; then
             cat > "$HOME/.hybrid/misc.ini" << EOF
 [General]
 avisynthOnLinux=true
-avisynthExtensionPath="$avs_extension_path"
+avisynthExtensionPath="$avs_extension_path/avisynthPlugins"
 EOF
         fi
 
