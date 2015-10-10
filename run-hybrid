@@ -1,4 +1,4 @@
-hybrid="$bin_dir/Hybrid-$QT"
+hybrid="$bin/Hybrid-$QT"
 URL=http://www.selur.de/sites/default/files/hybrid_downloads
 install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
 
@@ -17,12 +17,12 @@ available_ver_np=$(echo $available_ver | tr -d .)
 # Roll back to previous release version
 if [ "$rollback" = "yes" ] ; then
     if [ -f "$hybrid.old" ] ; then
-        cd "$bin_dir"
+        cd "$bin"
         mv -f "Hybrid-$QT.old" "Hybrid-$QT"
         chmod 0755 Hybrid-$QT
         current_ver=$("$hybrid" -version | cut -d' ' -f3)
         echo "Switched back to Hybrid version $current_ver"
-        touch "$bin_dir/.disable-updates"
+        touch "$bin/.disable-updates"
         echo "automatic updates: DISABLED"
         exit 0
     else
@@ -34,7 +34,7 @@ fi
 
 # Check for updates
 if [ -f "$hybrid" ] ; then
-    test -f "$bin_dir/.disable-updates" && update="disabled"
+    test -f "$bin/.disable-updates" && update="disabled"
     if [ "$update" = "enabled" ] ; then
         if [ -z $available_ver ] ; then
             echo "Couldn't get the version string of the current release."
@@ -58,45 +58,51 @@ fi
 
 # Check for AviSynth extension
 avs_extension_path="$prefix/share/hybrid-avisynth-extension"
+avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
 if [ -d "$avs_extension_path" ] ; then
     avs_install_script="$avs_extension_path/install-hybrid-avisynth-extension.sh"
-    avs_version_file="$bin_dir/avisynthPlugins/version"
+    avs_available_ver=$(wget -O - $avs_version_url)
     avs_pkg_version=$(cat "$avs_extension_path/version")
 
-    if [ -f "$avs_version_file" ] ; then
-        avs_version=$(cat "$avs_version_file")
-        avs_title="Update AviSynth extension"
+    if [ -z $avs_available_ver ] ; then
+        echo "Couldn't get the version string of the latest AviSynth extension."
+        echo "Are you connected to the Internet?"
     else
-        avs_version=0
-        avs_title="Install AviSynth extension"
-    fi
+        if [ -f "$avs_extension_path/version" ] ; then
+            avs_version=$avs_available_ver
+            avs_title="Update AviSynth extension"
+        else
+            avs_version=0
+            avs_title="Install AviSynth extension"
+        fi
 
-    # Install/Update AviSynth extension
-    if [ $avs_pkg_version -gt $avs_version ] ; then
-        "$install_hybrid" $QT | zenity \
-                --progress --pulsate --auto-close --no-cancel \
-                --width=550 \
-                --title="$avs_title" \
-                --text="Wait a few seconds until the donwload is finished ..."
-    fi
+        # Install/Update AviSynth extension
+        if [ $avs_pkg_version -gt $avs_version ] ; then
+            "$avs_install_script" $QT | zenity \
+                    --progress --pulsate --auto-close --no-cancel \
+                    --width=550 \
+                    --title="$avs_title" \
+                    --text="Wait a few seconds until the donwload is finished ..."
+        fi
 
-    if [ ! -f "$HOME/.hybrid/misc.ini" ] ; then
-        mkdir -p "$HOME/.hybrid"
-        cat > "$HOME/.hybrid/misc.ini" << EOF
+        if [ ! -f "$HOME/.hybrid/misc.ini" ] ; then
+            mkdir -p "$HOME/.hybrid"
+            cat > "$HOME/.hybrid/misc.ini" << EOF
 [General]
 avisynthOnLinux=true
-avisynthExtensionPath="$bin_dir/avisynthPlugins"
+avisynthExtensionPath="$bin/avisynthPlugins"
 EOF
-    fi
+        fi
 
-    system32="$HOME/.wine/drive_c/windows/system32"
-    syswow64="$HOME/.wine/drive_c/windows/syswow64"
-    mkdir -p "$system32" "$syswow64"
-    test -f "$system32/avisynth.dll" || ln -rs "$bin_dir/avisynth.dll" "$system32/avisynth.dll"
-    test -f "$syswow64/avisynth.dll" || ln -rs "$bin_dir/avisynth.dll" "$syswow64/avisynth.dll"
+        system32="$HOME/.wine/drive_c/windows/system32"
+        syswow64="$HOME/.wine/drive_c/windows/syswow64"
+        mkdir -p "$system32" "$syswow64"
+        test -f "$system32/avisynth.dll" || ln -rs "$bin/avisynth.dll" "$system32/avisynth.dll"
+        test -f "$syswow64/avisynth.dll" || ln -rs "$bin/avisynth.dll" "$syswow64/avisynth.dll"
+    fi
 else
-    rm -rf "$bin_dir/avisynthPlugins" "$bin_dir/platforms"
-    rm -f "$bin_dir/*.exe" "$bin_dir/*.dll" "$bin_dir/AVSMeter.ini"
+    rm -rf "$bin/avisynthPlugins" "$bin/dynamic" "$bin/platforms"
+    rm -f "$bin/*.exe" "$bin/*.dll" "$bin/AVSMeter.ini"
     if [ -f "$HOME/.hybrid/misc.ini" ] ; then
         sed -i "s/^avisynthOnLinux=true/^avisynthOnLinux=false/;" "$HOME/.hybrid/misc.ini"
     fi
