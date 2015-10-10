@@ -1,3 +1,9 @@
+hybrid-avisynth-extension (151010~ppa1~trusty) trusty; urgency=low
+
+  * Now the latest version string will be automatically obtained from Github
+
+ -- Marshall Banana <djcj@gmx.de>  Sat, 10 Oct 2015 19:56:09 +0200
+
 hybrid-avisynth-extension (150707~ppa1~trusty) trusty; urgency=low
 
   * Update to version 2015.07.07 (150707)
