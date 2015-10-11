@@ -16,10 +16,12 @@ if [ $? = 0 ] ; then
     cd "$bin/avisynth"
     wget $url/$zip
     7z x $zip
-    echo $pkg_ver > version
+    echo $pkg_ver > "$bin/avisynth/version"
     rm -f $zip
-    mv -f avisynth/dynamic/* "$bin"
-    mv -f avisynth/*.exe avisynth/*.dll avisynth/AVSMeter.ini "$bin"
+    mv -f "$bin/avisynth/dynamic"/* "$bin"
+    mv -f "$bin/avisynth"/*.exe "$bin"
+    mv -f "$bin/avisynth"/*.dll "$bin"
+    mv -f "$bin/avisynth/AVSMeter.ini" "$bin"
     # http://forum.selur.de/topic968-linux-hybrid-doesnt-find-avsmeterexe.html
     cp -f "$bin/AVSMeter.exe" "$bin/AVSMeter"
 fi
