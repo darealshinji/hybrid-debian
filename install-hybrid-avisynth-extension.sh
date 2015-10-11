@@ -11,7 +11,7 @@ wget -q --spider $url/$zip
 
 if [ $? = 0 ] ; then
     rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"
-    rm -f "$bin/*.exe" "$bin/*.dll" "$bin/AVSMeter*" "$bin/*.7z"
+    rm -f "$bin"/*.exe "$bin"/*.dll "$bin"/AVSMeter* "$bin"/*.7z
     mkdir -p "$bin/avisynth"
     cd "$bin/avisynth"
     wget $url/$zip
