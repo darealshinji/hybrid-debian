@@ -1,5 +1,5 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Source: https://github.com/darealshinji/hybrid-avisynth-extension
+Source: https://github.com/darealshinji/hybrid-debian/tree/avisynth-extension
 
 Files: *
 Copyright: 2014-2015 djcj <djcj@gmx.de>

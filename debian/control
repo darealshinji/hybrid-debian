@@ -4,7 +4,7 @@ Maintainer: Marshall Banana <djcj@gmx.de>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.6
 Section: video
-Homepage: https://github.com/darealshinji/hybrid-avisynth-extension
+Homepage: https://github.com/darealshinji/hybrid-debian/tree/avisynth-extension
 
 Package: hybrid-avisynth-extension
 Architecture: all

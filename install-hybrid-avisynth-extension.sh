@@ -10,15 +10,17 @@ bin="$HOME/.hybrid-bin"
 wget -q --spider $url/$zip
 
 if [ $? = 0 ] ; then
-    rm -rf "$bin/avisynth"
-    # old files
-    rm -rf "$bin/avisynthPlugins" "$bin/platforms"
-    rm -f "$bin/*.exe" "$bin/*.dll" "$bin/AVSMeter.ini" "$bin/avisynthExtension_*.7z"
+    rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"
+    rm -f "$bin/*.exe" "$bin/*.dll" "$bin/AVSMeter*" "$bin/*.7z"
     mkdir -p "$bin/avisynth"
     cd "$bin/avisynth"
     wget $url/$zip
     7z x $zip
-    echo $pkg_ver > "$bin/avisynth/version"
-    rm -f "$bin/$zip"
+    echo $pkg_ver > version
+    rm -f $zip
+    mv -f avisynth/dynamic/* "$bin"
+    mv -f avisynth/*.exe avisynth/*.dll avisynth/AVSMeter.ini "$bin"
+    # http://forum.selur.de/topic968-linux-hybrid-doesnt-find-avsmeterexe.html
+    cp -f "$bin/AVSMeter.exe" "$bin/AVSMeter"
 fi
 
