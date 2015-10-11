@@ -5,5 +5,5 @@
 
 override_dh_installdocs:
 	dh_installdocs -phybrid-common -phybrid-tools
-	dh_installdocs -phybrid -phybrid-qt5 --link-doc=hybrid-common
+	dh_installdocs -phybrid -phybrid-qt5 -phybrid-avisynth-extension --link-doc=hybrid-common
 

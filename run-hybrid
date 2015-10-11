@@ -2,8 +2,11 @@ hybrid="$bin/Hybrid-$QT"
 url="http://www.selur.de/sites/default/files/hybrid_downloads"
 install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
 
-avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
+avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/master/avisynth-extension-version"
 avs_extension_path="$bin/avisynth"
+# The main reason to keep this a separate file in a separate package is
+# that this package will install Wine as a dependency, which comes in a
+# huge bunch of individual packages.
 avs_install_script="$prefix/share/hybrid-avisynth-extension/install-hybrid-avisynth-extension.sh"
 
 
