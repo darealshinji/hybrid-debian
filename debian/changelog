@@ -1,8 +1,6 @@
 hybrid (1:0.10~trusty) trusty; urgency=low
 
   * Fix download and installation of the AviSynth extension
-  * Add the hybrid-avisynth-extension binary package to the hybrid source
-    package
 
  -- Marshall Banana <djcj@gmx.de>  Sun, 11 Oct 2015 23:38:25 +0200
 

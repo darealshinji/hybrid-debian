@@ -22,7 +22,6 @@ install:
 	install -m755 -D hybrid $(bindir)
 	install -m755 -D hybrid-qt5 $(bindir)
 	install -m755 -D install-hybrid.sh $(commondir)
-	install -m755 -D install-hybrid-avisynth-extension.sh $(commondir)
 	install -m644 -D run-hybrid $(commondir)
 	install -m644 -D hybrid.desktop $(appdir)
 	install -m644 -D hybrid-qt5.desktop $(appdir)
