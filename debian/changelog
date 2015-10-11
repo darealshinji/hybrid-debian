@@ -1,4 +1,4 @@
-hybrid (1:0.10~trusty) trusty; urgency=low
+hybrid (1:0.9.4~trusty) trusty; urgency=low
 
   * Fix download and installation of the AviSynth extension
 
