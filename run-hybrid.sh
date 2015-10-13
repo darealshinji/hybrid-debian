@@ -1,6 +1,6 @@
+conf="$HOME/.hybrid"
 hybrid="$bin/Hybrid-$QT"
 url="http://www.selur.de/sites/default/files/hybrid_downloads"
-install_hybrid="$prefix/share/hybrid-common/install-hybrid.sh"
 
 avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
 avs_extension_path="$bin/avisynth"
@@ -112,16 +112,12 @@ if [ -f "$avs_install_script" ] ; then
 
         # Install/Update AviSynth extension
         if [ $avs_available_ver -gt $avs_current_ver ] ; then
-            "$avs_install_script" $avs_available_ver | zenity \
-                    --progress --pulsate --auto-close --no-cancel \
-                    --width=550 \
-                    --title="$avs_title" \
-                    --text="Wait a few seconds until the donwload is finished ..."
+            "$avs_install_script" "$avs_title" $avs_available_ver
         fi
 
-        if [ ! -f "$HOME/.hybrid/misc.ini" ] ; then
-            mkdir -p "$HOME/.hybrid"
-            cat > "$HOME/.hybrid/misc.ini" << EOF
+        if [ ! -f "$conf/misc.ini" ] ; then
+            mkdir -p "$conf"
+            cat > "$conf/misc.ini" << EOF
 [General]
 avisynthOnLinux=true
 avisynthExtensionPath="$avs_extension_path/avisynthPlugins"
@@ -137,8 +133,8 @@ EOF
 else
     rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"
     rm -f "$bin"/*.exe "$bin"/*.dll "$bin"/AVSMeter* "$bin"/*.7z
-    if [ -f "$HOME/.hybrid/misc.ini" ] ; then
-        sed -i "s/^avisynthOnLinux=true/^avisynthOnLinux=false/;" "$HOME/.hybrid/misc.ini"
+    if [ -f "$conf/misc.ini" ] ; then
+        sed -i "s/^avisynthOnLinux=true/^avisynthOnLinux=false/;" "$conf/misc.ini"
     fi
 fi
 
@@ -158,9 +154,9 @@ if [ "$print_version" = "yes" ] ; then
     exit 0
 fi
 if [ "$log" = "enabled" ] ; then
-    mkdir -p "$HOME/.hybrid/logs"
+    mkdir -p "$conf/logs"
     date=$(date +"%Y-%m-%d_%H-%M-%S")
-    "$hybrid" $gtk_style "$@" | tee "$HOME/.hybrid/logs/hybrid-qt$QT-$date.log"
+    "$hybrid" $gtk_style "$@" | tee "$conf/logs/hybrid-qt$QT-$date.log"
 else
     "$hybrid" $gtk_style "$@"
 fi
