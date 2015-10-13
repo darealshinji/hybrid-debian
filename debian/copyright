@@ -7,11 +7,14 @@ Files: Hybrid
 Copyright: 2011-2015 Georg Pelz <hybrid@selur.de>
 License: other
  Hybrid itself is free for personal usage without a hassle.
- Hybrid is provided "as is", without any guarantee made as to its suitability or
- fitness for any particular use. It may contain bugs, so the use of this tool is
- at your own risk. The author takes no responsibility for any damage that may
- unintentionally be caused through its use. You may not distribute Hybrid in any
- form without a written permission of the author.
+ Hybrid is provided "as is", without any guarantee made as to its suitability
+ or fitness for any particular use. It may contain bugs, so the use of this
+ tool is at your own risk. The author takes no responsibility for any damage
+ that may unintentionally be caused through its use. You may not distribute
+ Hybrid in any form without a written permission of the author.
+Comment:
+ Hybrid itself is not included in any of the Debian packages but will be
+ download on start.
 
 Files: *
 Copyright: 2014-2015 djcj <djcj@gmx.de>

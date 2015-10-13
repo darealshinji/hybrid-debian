@@ -1,8 +1,10 @@
 hybrid (1:0.9.4~trusty) trusty; urgency=low
 
   * Fix download and installation of the AviSynth extension
+  * Don't install a separate `run-hybrid' script (the package hybrid-common
+    now only provides the icons)
 
- -- Marshall Banana <djcj@gmx.de>  Sun, 11 Oct 2015 23:38:25 +0200
+ -- Marshall Banana <djcj@gmx.de>  Tue, 13 Oct 2015 10:55:47 +0200
 
 hybrid (1:0.9.3~trusty) trusty; urgency=low
 

@@ -53,5 +53,166 @@ for opt; do
     esac
 done
 
-. "$prefix/share/hybrid-common/run-hybrid"
 
+conf="$HOME/.hybrid"
+hybrid="$bin/Hybrid-$QT"
+url="http://www.selur.de/sites/default/files/hybrid_downloads"
+
+avs_version_url="https://raw.githubusercontent.com/darealshinji/hybrid-debian/avisynth-extension/version"
+avs_extension_path="$bin/avisynth"
+# The main reason to keep this a separate file in a separate package is
+# that this package will install Wine as a dependency, which comes in a
+# huge bunch of individual packages.
+avs_install_script="$prefix/share/hybrid-avisynth-extension/install-hybrid-avisynth-extension.sh"
+
+
+install_hybrid () {
+    title=$1
+    version=$2
+
+    YY=$(echo $version | cut -d'.' -f1 | tail -c+3)
+    MM=$(echo $version | cut -d'.' -f2)
+    DD=$(echo $version | cut -d'.' -f3)
+    rev=$(echo $version | cut -d'.' -f4)
+    if [ $rev -lt 2 ] ; then rev=""; fi
+
+    version=$YY$MM$DD$rev
+    bits=$(getconf LONG_BIT)
+
+    zip="Hybrid_${version}_${bits}bit_binary_qt${QT}.zip"
+
+    mkdir -p "$bin"
+    cd "$bin"
+
+    # check if the zip is available
+    wget -q --spider $url/$zip
+
+    if [ $? = 0 ] ; then
+        test -f "Hybrid-$QT" && mv -f "Hybrid-$QT" "Hybrid-$QT.old"
+        rm -f *.zip
+        # tested on GNU Wget 1.15, 1.16.1
+        wget $url/$zip 2>&1 | sed -u 's/^[a-zA-Z\-].*//; s/.* \{1,2\}\([0-9]\{1,3\}\)%.*/\1\n#Downloading... \1%/; s/^20[0-9][0-9].*/#Done./' | \
+            zenity --progress \
+                   --title="$title" \
+                   --text "Wait a few seconds until the donwload is finished ..." \
+                   --auto-close
+        unzip $zip
+        mv Hybrid Hybrid-$QT
+        chmod 0755 Hybrid-$QT
+        rm -f *.zip
+    fi
+}
+
+
+# Get version strings
+if [ -f "$hybrid" ] ; then
+    current_ver=$("$hybrid" -version | cut -d' ' -f3)
+else
+    current_ver=0
+fi
+current_ver_np=$(echo $current_ver | tr -d .)
+available_ver=$(wget -q -O - $url/version.txt)
+available_ver_np=$(echo $available_ver | tr -d .)
+
+
+# Roll back to previous release version
+if [ "$rollback" = "yes" ] ; then
+    if [ -f "$hybrid.old" ] ; then
+        cd "$bin"
+        mv -f "Hybrid-$QT.old" "Hybrid-$QT"
+        chmod 0755 Hybrid-$QT
+        current_ver=$("$hybrid" -version | cut -d' ' -f3)
+        echo "Switched back to Hybrid version $current_ver"
+        touch "$bin/.disable-updates"
+        echo "automatic updates: DISABLED"
+        exit 0
+    else
+        echo "No previous version available as backup."
+        exit 1
+    fi
+fi
+
+
+# Check for updates
+do_install_hybrid="no"
+if [ -f "$hybrid" ] ; then
+    test -f "$bin/.disable-updates" && update="disabled"
+    if [ "$update" = "enabled" ] ; then
+        if [ -z $available_ver ] ; then
+            echo "Couldn't get the version string of the current release."
+            echo "Are you connected to the Internet?"
+        elif [ $available_ver_np -gt $current_ver_np ] ; then
+            install_hybrid "Update Hybrid (Qt $QT) to rev $available_ver" $available_ver
+        fi
+    fi
+else
+    install_hybrid "Install Hybrid (Qt $QT) rev $available_ver" $available_ver
+fi
+
+
+# Check for AviSynth extension
+if [ -f "$avs_install_script" ] ; then
+    avs_available_ver=$(wget -O - $avs_version_url)
+
+    if [ -z $avs_available_ver ] ; then
+        echo "Couldn't get the version string of the latest AviSynth extension."
+        echo "Are you connected to the Internet?"
+    else
+        if [ -f "$avs_extension_path/version" ] ; then
+            avs_current_ver=$(cat "$avs_extension_path/version")
+            avs_title="Update AviSynth extension"
+        else
+            avs_current_ver=0
+            avs_title="Install AviSynth extension"
+        fi
+
+        # Install/Update AviSynth extension
+        if [ $avs_available_ver -gt $avs_current_ver ] ; then
+            "$avs_install_script" "$avs_title" $avs_available_ver
+        fi
+
+        if [ ! -f "$conf/misc.ini" ] ; then
+            mkdir -p "$conf"
+            cat > "$conf/misc.ini" << EOF
+[General]
+avisynthOnLinux=true
+avisynthExtensionPath="$avs_extension_path/avisynthPlugins"
+EOF
+        fi
+
+        system32="$HOME/.wine/drive_c/windows/system32"
+        syswow64="$HOME/.wine/drive_c/windows/syswow64"
+        mkdir -p "$system32" "$syswow64"
+        test -f "$system32/avisynth.dll" || ln -rs "$bin/avisynth/avisynth.dll" "$system32/avisynth.dll"
+        test -f "$syswow64/avisynth.dll" || ln -rs "$bin/avisynth/avisynth.dll" "$syswow64/avisynth.dll"
+    fi
+else
+    rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"
+    rm -f "$bin"/*.exe "$bin"/*.dll "$bin"/AVSMeter* "$bin"/*.7z
+    if [ -f "$conf/misc.ini" ] ; then
+        sed -i "s/^avisynthOnLinux=true/^avisynthOnLinux=false/;" "$conf/misc.ini"
+    fi
+fi
+
+
+# check if DE is KDE
+# if we're using Qt5 Hybrid and we're not on KDE,
+# then run the app with '-style=gtk'
+xprop -name "kwin" >/dev/null 2>&1
+if [ $(echo $?) = 1 ] && [ $QT = 521 ] ; then
+    gtk_style='-style=gtk'
+fi
+
+
+# start Hybrid
+if [ "$print_version" = "yes" ] ; then
+    "$hybrid" -version
+    exit 0
+fi
+if [ "$log" = "enabled" ] ; then
+    mkdir -p "$conf/logs"
+    date=$(date +"%Y-%m-%d_%H-%M-%S")
+    "$hybrid" $gtk_style "$@" | tee "$conf/logs/hybrid-qt$QT-$date.log"
+else
+    "$hybrid" $gtk_style "$@"
+fi
