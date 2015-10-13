@@ -8,6 +8,11 @@ Homepage: https://github.com/darealshinji/hybrid-debian/tree/avisynth-extension
 
 Package: hybrid-avisynth-extension
 Architecture: all
-Depends: ${misc:Depends}, hybrid | hybrid-qt5, p7zip-full, wget, wine
+Depends: ${misc:Depends},
+         hybrid | hybrid-qt5,
+         p7zip-full,
+         wget,
+         wine,
+         zenity
 Description: Hybrid Avisynth extension
  Enables avisynth script generation.
