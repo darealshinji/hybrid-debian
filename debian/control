@@ -19,7 +19,10 @@ Depends:
  libqtcore4 (>= 4:4.7.0~beta1),
  libqtgui4 (>= 4:4.6.1),
  libstdc++6 (>= 4.4.0),
- sni-qt
+ sni-qt,
+ wget,
+ unzip,
+ zenity
 Suggests: hybrid-tools, hybrid-avisynth-extension
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
@@ -70,7 +73,10 @@ Depends:
  libqt5widgets5 (>= 5.2.0),
  libqt5xml5 (>= 5.0.2),
  libstdc++6 (>= 4.4.0),
- sni-qt
+ sni-qt,
+ wget,
+ unzip,
+ zenity
 Suggests: hybrid-tools, hybrid-avisynth-extension
 Description: Multi platform Qt based encoding frontend (Qt 5)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
@@ -108,11 +114,7 @@ Description: Multi platform Qt based encoding frontend (Qt 5)
 
 Package: hybrid-common
 Architecture: all
-Depends:
- ${misc:Depends},
- wget,
- unzip,
- zenity
+Depends: ${misc:Depends}
 Suggests: hybrid | hybrid-qt5
 Description: Multi platform Qt based encoding frontend (common files)
  It can convert nearly every input to x264/x265/Xvid/VP9/...
