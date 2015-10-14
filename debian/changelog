@@ -1,14 +1,9 @@
 hybrid-avisynth-extension (151013~trusty) trusty; urgency=low
 
+  * Now the latest version string will be automatically obtained from Github
   * Move Windows programs into ~/.hybrid-bin so that Hybrid automatically
     detects them on startup
   * Show a real download progress
-
- -- Marshall Banana <djcj@gmx.de>  Tue, 13 Oct 2015 10:35:54 +0200
-
-hybrid-avisynth-extension (151010~ppa1~trusty) trusty; urgency=low
-
-  * Now the latest version string will be automatically obtained from Github
 
  -- Marshall Banana <djcj@gmx.de>  Sat, 10 Oct 2015 19:56:09 +0200
 
