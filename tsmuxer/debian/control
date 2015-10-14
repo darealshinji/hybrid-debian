@@ -18,7 +18,8 @@ Depends: ${misc:Depends},
          lib32stdc++6 (>= 4.2.1) [amd64],
          libfreetype6:i386 (>= 2.2.1) [amd64],
          zlib1g:i386 (>= 1:1.1.4) [amd64],
-         upx-ucl
+         upx-ucl,
+         wget
 Provides: tsmuxer, tsmuxer-bin
 Replaces: tsmuxer, tsmuxer-bin
 Description: mux video to TS/M2TS files or create BD disks
