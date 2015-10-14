@@ -11,7 +11,7 @@ bin=DivX265_$VERSION
 case "$1" in
     install|configure|upgrade)
         rm -rf $cache
-        rm -f /usr/bin/$bin
+        rm -f /usr/bin/DivX265
 
         mkdir -p $cache
         cd $cache
