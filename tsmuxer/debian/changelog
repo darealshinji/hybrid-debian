@@ -1,3 +1,9 @@
+tsmuxer (2.6.11~4~trusty) trusty; urgency=low
+
+  * add missing dependencies on wget
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 14 Oct 2015 12:55:02 +0200
+
 tsmuxer (2.6.11~3~trusty) trusty; urgency=medium
 
   * Decompress and strip upx-compressed binaries
