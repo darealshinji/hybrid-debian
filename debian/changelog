@@ -1,3 +1,10 @@
+hybrid (1:0.9.4.1~trusty) trusty; urgency=low
+
+  * Copy avisynth.dll and DevIL.dll into wine prefix. Otherwise Hybrid
+    doesn't detect the AviSynth extension.
+
+ -- Marshall Banana <djcj@gmx.de>  Sun, 18 Oct 2015 16:07:20 +0200
+
 hybrid (1:0.9.4~trusty) trusty; urgency=low
 
   * Fix download and installation of the AviSynth extension
