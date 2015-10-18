@@ -183,14 +183,16 @@ EOF
         system32="$HOME/.wine/drive_c/windows/system32"
         syswow64="$HOME/.wine/drive_c/windows/syswow64"
         mkdir -p "$system32" "$syswow64"
-        test -f "$system32/avisynth.dll" || ln -rs "$bin/avisynth/avisynth.dll" "$system32/avisynth.dll"
-        test -f "$syswow64/avisynth.dll" || ln -rs "$bin/avisynth/avisynth.dll" "$syswow64/avisynth.dll"
+        cp -f "$avs_extension_path/avisynthPlugins/avisynth.dll" "$system32"
+        cp -f "$avs_extension_path/avisynthPlugins/avisynth.dll" "$syswow64"
+        cp -f "$avs_extension_path/avisynthPlugins/DevIL.dll" "$system32"
+        cp -f "$avs_extension_path/avisynthPlugins/DevIL.dll" "$syswow64"
     fi
 else
     rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"
     rm -f "$bin"/*.exe "$bin"/*.dll "$bin"/AVSMeter* "$bin"/*.7z
     if [ -f "$conf/misc.ini" ] ; then
-        sed -i "s/^avisynthOnLinux=true/^avisynthOnLinux=false/;" "$conf/misc.ini"
+        sed -i "s/^avisynthOnLinux=true/avisynthOnLinux=false/;" "$conf/misc.ini"
     fi
 fi
 
