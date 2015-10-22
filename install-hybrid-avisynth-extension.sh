@@ -35,7 +35,5 @@ if [ $? = 0 ] ; then
     mv -f "$bin/avisynth"/*.exe "$bin"
     mv -f "$bin/avisynth"/*.dll "$bin"
     mv -f "$bin/avisynth/AVSMeter.ini" "$bin"
-    # http://forum.selur.de/topic968-linux-hybrid-doesnt-find-avsmeterexe.html
-    cp -f "$bin/AVSMeter.exe" "$bin/AVSMeter"
 fi
 
