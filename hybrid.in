@@ -134,7 +134,6 @@ fi
 
 
 # Check for updates
-do_install_hybrid="no"
 if [ -f "$hybrid" ] ; then
     test -f "$bin/.disable-updates" && update="disabled"
     if [ "$update" = "enabled" ] ; then
