@@ -27,13 +27,12 @@ if [ $? = 0 ] ; then
                    --pulsate \
                    --title="Extract package" \
                    --auto-close
-
-    echo $pkg_ver > "$bin/avisynth/version"
     rm -f $zip
-
-    mv -f "$bin/avisynth/dynamic"/* "$bin"
-    mv -f "$bin/avisynth"/*.exe "$bin"
-    mv -f "$bin/avisynth"/*.dll "$bin"
-    mv -f "$bin/avisynth/AVSMeter.ini" "$bin"
+    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}/dynamic"/* "$bin"
+    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}"/*.exe "$bin"
+    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}"/*.dll "$bin"
+    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}/avisynthPlugins" "$bin/avisynth"
+    rm -rf "$bin/avisynth/avisynthExtension_${pkg_ver}"
+    echo $pkg_ver > "$bin/avisynth/version"
 fi
 
