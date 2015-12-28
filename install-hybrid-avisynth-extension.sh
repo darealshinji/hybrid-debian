@@ -28,11 +28,18 @@ if [ $? = 0 ] ; then
                    --title="Extract package" \
                    --auto-close
     rm -f $zip
-    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}/dynamic"/* "$bin"
-    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}"/*.exe "$bin"
-    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}"/*.dll "$bin"
-    mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}/avisynthPlugins" "$bin/avisynth"
-    rm -rf "$bin/avisynth/avisynthExtension_${pkg_ver}"
+    if [ -d "$bin/avisynthExtension_${pkg_ver}" ]; then
+        mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}/dynamic"/* "$bin"
+        mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}"/*.exe "$bin"
+        mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}"/*.dll "$bin"
+        mv -f "$bin/avisynth/avisynthExtension_${pkg_ver}/avisynthPlugins" "$bin/avisynth"
+        rm -rf "$bin/avisynth/avisynthExtension_${pkg_ver}"
+    else
+        mv -f "$bin/avisynth/dynamic"/* "$bin"
+        mv -f "$bin/avisynth"/*.exe "$bin"
+        mv -f "$bin/avisynth"/*.dll "$bin"
+        mv -f "$bin/avisynth/avisynthPlugins" "$bin/avisynth"
+    fi
     echo $pkg_ver > "$bin/avisynth/version"
 fi
 
