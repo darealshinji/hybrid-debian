@@ -1,3 +1,9 @@
+hybrid-avisynth-extension (151228~trusty) trusty; urgency=low
+
+  * Download script needed some tweaks for new extension version (2015.12.01)
+
+ -- Marshall Banana <djcj@gmx.de>  Mon, 28 Dec 2015 03:05:50 +0100
+
 hybrid-avisynth-extension (151026~trusty) trusty; urgency=medium
 
   * Extension version 2015.09.15 (150915) was updated and the download script
