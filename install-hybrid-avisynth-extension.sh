@@ -8,7 +8,7 @@ zip=avisynthExtension_${pkg_ver}.7z
 bin="$HOME/.hybrid-bin"
 
 # check if the 7z file is available
-wget -q --spider $url/$zip
+wget -q -t 1 --timeout=4 --spider $url/$zip
 
 if [ $? = 0 ] ; then
     rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"

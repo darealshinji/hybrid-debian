@@ -1,3 +1,10 @@
+hybrid-avisynth-extension (160114~trusty) trusty; urgency=low
+
+  * Set a timeout value to the wget command in case the resource website
+    is offline
+
+ -- Marshall Banana <djcj@gmx.de>  Thu, 14 Jan 2016 08:00:40 +0100
+
 hybrid-avisynth-extension (151228~trusty) trusty; urgency=low
 
   * Download script needed some tweaks for new extension version (2015.12.01)
