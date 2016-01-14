@@ -34,5 +34,4 @@ clean:
 	rm -f Makefile hybrid hybrid-qt5
 
 distclean: clean
-	test ! -x /usr/bin/dh_clean || dh_clean
 
