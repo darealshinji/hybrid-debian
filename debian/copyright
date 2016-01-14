@@ -4,7 +4,7 @@ Upstream-Contact: Georg Pelz <hybrid@selur.de>
 Source: http://www.selur.de/
 
 Files: Hybrid
-Copyright: 2011-2015 Georg Pelz <hybrid@selur.de>
+Copyright: 2011-2016 Georg Pelz <hybrid@selur.de>
 License: other
  Hybrid itself is free for personal usage without a hassle.
  Hybrid is provided "as is", without any guarantee made as to its suitability
@@ -17,7 +17,7 @@ Comment:
  download on start.
 
 Files: *
-Copyright: 2014-2015 djcj <djcj@gmx.de>
+Copyright: 2014-2016 djcj <djcj@gmx.de>
 License: MIT
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

@@ -85,12 +85,11 @@ install_hybrid () {
     cd "$bin"
 
     # check if the zip is available
-    wget -q --spider $url/$zip
+    wget -q -t 1 --timeout=4 --spider $url/$zip
 
     if [ $? = 0 ] ; then
         test -f "Hybrid-$QT" && mv -f "Hybrid-$QT" "Hybrid-$QT.old"
         rm -f *.zip
-        # tested on GNU Wget 1.15, 1.16.1
         wget $url/$zip 2>&1 | sed -u 's/^[a-zA-Z\-].*//; s/.* \{1,2\}\([0-9]\{1,3\}\)%.*/\1\n#Downloading... \1%/; s/^20[0-9][0-9].*/#Done./' | \
             zenity --progress \
                    --title="$title" \
@@ -111,7 +110,7 @@ else
     current_ver=0
 fi
 current_ver_np=$(echo $current_ver | tr -d .)
-available_ver=$(wget -q -O - $url/version.txt)
+available_ver=$(wget -q -t 1 --timeout=2 -O - $url/version.txt)
 available_ver_np=$(echo $available_ver | tr -d .)
 
 
@@ -151,7 +150,7 @@ fi
 
 # Check for AviSynth extension
 if [ -f "$avs_install_script" ] ; then
-    avs_available_ver=$(wget -O - $avs_version_url)
+    avs_available_ver=$(wget -q -t 1 --timeout=2 -O - $avs_version_url)
 
     if [ -z $avs_available_ver ] ; then
         echo "Couldn't get the version string of the latest AviSynth extension."
