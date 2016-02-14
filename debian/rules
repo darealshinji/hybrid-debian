@@ -3,7 +3,4 @@
 %:
 	dh $@
 
-override_dh_installdocs:
-	dh_installdocs -phybrid-common -phybrid-tools
-	dh_installdocs -phybrid -phybrid-qt5 --link-doc=hybrid-common
 

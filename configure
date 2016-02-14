@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if test x"$1" = x"-h" -o x"$1" = x"--help" ; then
-cat << EOF
+cat <<EOF
 Usage: ./configure [options]
 
 options:
@@ -24,27 +24,16 @@ done
 
 test -n "$prefix" || prefix="/usr/local"
 
-rm -f Makefile
-cat >> Makefile << EOF
+cat <<EOF > Makefile
 prefix = $prefix
 EOF
 cat Makefile.in >> Makefile
 
-rm -f hybrid
-cat >> hybrid << EOF
+cat <<EOF > hybrid
 #!/bin/sh
-QT=48
 prefix=$prefix
 EOF
 cat hybrid.in >> hybrid
-
-rm -f hybrid-qt5
-cat >> hybrid-qt5 << EOF
-#!/bin/sh
-QT=521
-prefix=$prefix
-EOF
-cat hybrid.in >> hybrid-qt5
 
 echo "prefix: $prefix"
 echo "Now run 'make install'"

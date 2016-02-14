@@ -1,8 +1,10 @@
-*.o
 *.log
 *~
-core
-*.core
-framecounter
-framecounter.mk
-
+hybrid
+Makefile
+debian/files
+debian/*.substvars
+debian/hybrid-common/
+debian/hybrid-qt5/
+debian/hybrid-tools/
+debian/tmp/

@@ -1,3 +1,4 @@
+QT=521
 bin="$HOME/.hybrid-bin"
 
 printHelp () {

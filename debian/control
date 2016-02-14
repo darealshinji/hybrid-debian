@@ -10,20 +10,25 @@ Package: hybrid
 Architecture: amd64 i386
 Depends:
  ${misc:Depends},
- hybrid-common,
  libc6 (>= 2.14),
  libgcc1 (>= 1:4.1.1),
- libqt4-dbus (>= 4:4.5.3),
- libqt4-network (>= 4:4.6.1),
- libqt4-xml (>= 4:4.5.3),
- libqtcore4 (>= 4:4.7.0~beta1),
- libqtgui4 (>= 4:4.6.1),
+ libqt5core5a (>= 5.2.0),
+ libqt5dbus5 (>= 5.0.2),
+ libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2),
+ libqt5multimedia5 (>= 5.0.2),
+ libqt5network5 (>= 5.0.2),
+ libqt5widgets5 (>= 5.2.0),
+ libqt5xml5 (>= 5.0.2),
  libstdc++6 (>= 4.4.0),
  sni-qt,
  wget,
  unzip,
  zenity
-Suggests: hybrid-tools, hybrid-avisynth-extension
+Suggests:
+ hybrid-tools,
+ hybrid-avisynth-extension
+Replaces:
+ hybrid-common (<< 1:0.10~)
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
@@ -55,100 +60,14 @@ Description: Multi platform Qt based encoding frontend
     structure
   * audio/video pass-through -> can be used for muxing, tagging, chapter editing
   * a lot of option to automate stuff
- .
- This package will install the version that was linked against Qt 4.8.
 
 Package: hybrid-qt5
-Architecture: amd64 i386
-Depends:
- ${misc:Depends},
- hybrid-common,
- libc6 (>= 2.14),
- libgcc1 (>= 1:4.1.1),
- libqt5core5a (>= 5.2.0),
- libqt5dbus5 (>= 5.0.2),
- libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2),
- libqt5multimedia5 (>= 5.0.2),
- libqt5network5 (>= 5.0.2),
- libqt5widgets5 (>= 5.2.0),
- libqt5xml5 (>= 5.0.2),
- libstdc++6 (>= 4.4.0),
- sni-qt,
- wget,
- unzip,
- zenity
-Suggests: hybrid-tools, hybrid-avisynth-extension
-Description: Multi platform Qt based encoding frontend (Qt 5)
- It can convert nearly every input to x264/x265/Xvid/VP9/...
- + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
- a Blu-ray or an AVCHD structure.
- .
- Here's a general feature list:
-  * extensive ability to configure x264's setting (with dependency checks)
-  * ability to configure x265's setting
-  * tagging support for mkv/mp4/mov
-  * chapter support for mkv/mp4/Blu-ray
-  * subtitle support for mkv/mp4/Blu-ray
-  * separated audio-, video-, filter profiles, audio&video combi profiles
-  * an integrated bitrate calculator
-  * accepts vc-1 and avc raw input
-  * manual & automatic creation & pass-through of chapters
-  * ability to encode single title/chapters
-  * a job-control
-  * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
-    dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
-  * filtering through mencoder (+ some resize automation)
-  * acceptable Input: avs and everything that mplayer/ffmpeg can decode
-  * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
-    (x264, cuda, qsvencc), VP8/VP9 (vpxenc), ProRes (ffmpeg), MPEG-4 HEVC
-    (x265, kvazaar, DivX265), FFV1 (ffmpeg), UT video (ffmpeg), FFvHuff (ffmpeg)
-  * supported audio output formats: dts, ac3, ogg vorbis, mp3, aac, flac, pcm,
-    opus, pass-through
-  * supported containers: mov/mp4/mkv/m2ts/webm/avi, Blu-ray or a AVCHD
-    structure
-  * audio/video pass-through -> can be used for muxing, tagging, chapter editing
-  * a lot of option to automate stuff
- .
- This package will install the version that was linked against Qt 5.
-
-Package: hybrid-common
 Architecture: all
-Depends: ${misc:Depends}
-Suggests: hybrid | hybrid-qt5
-Description: Multi platform Qt based encoding frontend (common files)
- It can convert nearly every input to x264/x265/Xvid/VP9/...
- + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
- a Blu-ray or an AVCHD structure.
- .
- Here's a general feature list:
-  * extensive ability to configure x264's setting (with dependency checks)
-  * ability to configure x265's setting
-  * tagging support for mkv/mp4/mov
-  * chapter support for mkv/mp4/Blu-ray
-  * subtitle support for mkv/mp4/Blu-ray
-  * separated audio-, video-, filter profiles, audio&video combi profiles
-  * an integrated bitrate calculator
-  * accepts vc-1 and avc raw input
-  * manual & automatic creation & pass-through of chapters
-  * ability to encode single title/chapters
-  * a job-control
-  * aac/mp3/ac3/ogg/flac/dts/pcm audio encoding with
-    dcaenc/mencoder/ffmpeg/aften and different aac encoders
-  * supported aac encoders: qaac, fdk, faac, fhg, neroaacenc, vo-aacenc
-  * filtering through mencoder (+ some resize automation)
-  * acceptable Input: avs and everything that mplayer/ffmpeg can decode
-  * supported video output formats: MPEG-4 ASP (Xvid), MPEG-4 AVC
-    (x264, cuda, qsvencc), VP8/VP9 (vpxenc), ProRes (ffmpeg), MPEG-4 HEVC
-    (x265, kvazaar, DivX265), FFV1 (ffmpeg), UT video (ffmpeg), FFvHuff (ffmpeg)
-  * supported audio output formats: dts, ac3, ogg vorbis, mp3, aac, flac, pcm,
-    opus, pass-through
-  * supported containers: mov/mp4/mkv/m2ts/webm/avi, Blu-ray or a AVCHD
-    structure
-  * audio/video pass-through -> can be used for muxing, tagging, chapter editing
-  * a lot of option to automate stuff
- .
- This package contains the common files.
+Depends:
+ hybrid,
+ ${misc:Depends}
+Description: transitional dummy package
+ This transitional dummy package can safely be removed.
 
 Package: hybrid-tools
 Architecture: all
@@ -170,6 +89,7 @@ Depends:
  vorbis-tools, vpx-tools,
  x264, x265
 Suggests: hybrid-avisynth-extension
+Enhances: hybrid
 Description: All tools required by Hybrid
  This metapackage will install all additional tools required by Hybrid:
  aac-enc, aften, bdsup2sub++, dcaenc, delaycut, divx265, faac, flac,
