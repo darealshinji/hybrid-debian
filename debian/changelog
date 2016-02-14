@@ -1,10 +1,11 @@
-hybrid (1:0.10~trusty) trusty; urgency=medium
+hybrid (1:0.10~trusty1) trusty; urgency=medium
 
   * Upstream has dropped Qt4 entirely:
-      Install all files with the package hybrid and turn hybrid-qt5 and
-      hybrid-common into transitional dummy packages
+     * Install all files with the package hybrid and turn hybrid-qt5 into a
+       transitional dummy package
+     * Remove hybrid-common
 
- -- Marshall Banana <djcj@gmx.de>  Sun, 14 Feb 2016 07:44:32 +0100
+ -- Marshall Banana <djcj@gmx.de>  Sun, 14 Feb 2016 12:03:09 +0100
 
 hybrid (1:0.9.5~trusty) trusty; urgency=low
 

@@ -28,7 +28,7 @@ Suggests:
  hybrid-tools,
  hybrid-avisynth-extension
 Replaces:
- hybrid-common (<< 1:0.10~)
+ hybrid-common
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
