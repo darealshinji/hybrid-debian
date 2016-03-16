@@ -1,3 +1,10 @@
+tsmuxer (2.6.11~5~trusty) trusty; urgency=medium
+
+  * make package depend on binutils because maintainer scripts require
+    `strip' to be installed
+
+ -- Marshall Banana <djcj@gmx.de>  Wed, 16 Mar 2016 23:56:15 +0100
+
 tsmuxer (2.6.11~4~trusty) trusty; urgency=low
 
   * add missing dependencies on wget
