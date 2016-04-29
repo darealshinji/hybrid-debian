@@ -115,7 +115,7 @@ install_hybrid () {
         wget $url/$zip 2>&1 | sed -u 's/^[a-zA-Z\-].*//; s/.* \{1,2\}\([0-9]\{1,3\}\)%.*/\1\n#Downloading... \1%/; s/^20[0-9][0-9].*/#Done./' | \
             zenity --progress \
                    --title="$title" \
-                   --text "Wait a few seconds until the donwload is finished ..." \
+                   --text "Wait a few seconds until the download has finished ..." \
                    --auto-close
         unzip $zip
         mv Hybrid Hybrid-$QT
