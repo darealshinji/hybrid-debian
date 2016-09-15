@@ -1,3 +1,9 @@
+hybrid (1:0.11~trusty) trusty; urgency=medium
+
+  * New metapackage: hybrid-vapoursynth-extension
+
+ -- Marshall Banana <djcj@gmx.de>  Thu, 15 Sep 2016 11:23:18 +0200
+
 hybrid (1:0.10~trusty1) trusty; urgency=medium
 
   * Upstream has dropped Qt4 entirely:

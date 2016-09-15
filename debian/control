@@ -26,6 +26,7 @@ Depends:
  zenity
 Suggests:
  hybrid-tools,
+ hybrid-vapoursynth-extension,
  hybrid-avisynth-extension
 Replaces:
  hybrid-common
@@ -88,7 +89,9 @@ Depends:
  telxcc, tsmuxer,
  vorbis-tools, vpx-tools,
  x264, x265
-Suggests: hybrid-avisynth-extension
+Suggests:
+ hybrid-vapoursynth-extension,
+ hybrid-avisynth-extension
 Enhances: hybrid
 Description: All tools required by Hybrid
  This metapackage will install all additional tools required by Hybrid:
@@ -97,4 +100,15 @@ Description: All tools required by Hybrid
  kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or
  mplayer2, neroaac, opus-tools, sox, telxcc, tsmuxer, vorbis-tools (oggenc),
  vpx-tools, x264, x265.
+
+Package: hybrid-vapoursynth-extension
+Architecture: all
+Section: metapackages
+Depends: ${misc:Depends},
+         vapoursynth,
+         vapoursynth-editor,
+         vapoursynth-extra-plugins
+Description: Hybrid VapourSynth support
+ This metapackage will install all packages required to support VapourSynth
+ in Hybrid.
 
