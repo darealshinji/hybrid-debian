@@ -1,3 +1,9 @@
+hybrid-avisynth-extension (160915~trusty) trusty; urgency=low
+
+  * Remove hybrid-qt5 from dependencies
+
+ -- Marshall Banana <djcj@gmx.de>  Thu, 15 Sep 2016 11:27:12 +0200
+
 hybrid-avisynth-extension (160114~trusty) trusty; urgency=low
 
   * Set a timeout value to the wget command in case the resource website
