@@ -105,6 +105,7 @@ Package: hybrid-vapoursynth-extension
 Architecture: all
 Section: metapackages
 Depends: ${misc:Depends},
+         d2vwitch,
          vapoursynth,
          vapoursynth-editor,
          vapoursynth-extra-plugins
