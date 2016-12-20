@@ -1,3 +1,9 @@
+hybrid (1:0.11.1~trusty) trusty; urgency=low
+
+  * hybrid-vapoursynth-extension: depend on d2vwitch
+
+ -- Marshall Banana <djcj@gmx.de>  Tue, 20 Dec 2016 13:53:24 +0100
+
 hybrid (1:0.11~trusty) trusty; urgency=medium
 
   * New metapackage: hybrid-vapoursynth-extension
