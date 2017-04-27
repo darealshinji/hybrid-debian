@@ -2,6 +2,7 @@ hybrid (1:0.11.2~trusty) trusty; urgency=low
 
   * Try to get the latest avisynth extension version string from Selur's homepage
   * Remove transitional dummy package hybrid-qt5
+  * i386: issue a warning that 32 bit builds are no longer supported
 
  -- Marshall Banana <djcj@gmx.de>  Fri, 28 Apr 2017 00:39:37 +0200
 
