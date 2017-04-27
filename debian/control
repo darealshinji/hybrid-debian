@@ -62,14 +62,6 @@ Description: Multi platform Qt based encoding frontend
   * audio/video pass-through -> can be used for muxing, tagging, chapter editing
   * a lot of option to automate stuff
 
-Package: hybrid-qt5
-Architecture: all
-Depends:
- hybrid,
- ${misc:Depends}
-Description: transitional dummy package
- This transitional dummy package can safely be removed.
-
 Package: hybrid-tools
 Architecture: all
 Section: metapackages

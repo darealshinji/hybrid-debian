@@ -172,7 +172,11 @@ fi
 
 # Check for AviSynth extension
 if [ -f "$avs_install_script" ] ; then
-    avs_available_ver=$(wget -q -t 1 --timeout=2 -O - $avs_version_url)
+    avs_available_ver=$(wget -q -t 1 --timeout=2 -O - http://www.selur.de/downloads | \
+      grep -o '/avisynthExtension_[0-7]*\.7z' | sed 's|^.*avisynthExtension_||; s|\.7z.*||g')
+    if [ -z $avs_available_ver ] ; then
+      avs_available_ver=$(wget -q -t 1 --timeout=2 -O - $avs_version_url)
+    fi
 
     if [ -z $avs_available_ver ] ; then
         echo "Couldn't get the version string of the latest AviSynth extension."
