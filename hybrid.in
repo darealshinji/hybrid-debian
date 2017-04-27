@@ -1,5 +1,5 @@
 
-# Copyright (C) 2014-2016 djcj <djcj@gmx.de>
+# Copyright (C) 2014-2017 djcj <djcj@gmx.de>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -99,9 +99,13 @@ install_hybrid () {
     if [ $rev -lt 2 ] ; then rev=""; fi
 
     version=$YY$MM$DD$rev
-    bits=$(getconf LONG_BIT)
 
-    zip="Hybrid_${version}_${bits}bit_binary_qt${QT}.zip"
+    if [ $(getconf LONG_BIT) != 64 ] ; then
+        zenity --warning --text '32 bit GNU/Linux is no longer supported!\nUpgrade your OS.'
+        exit 1
+    fi
+
+    zip="Hybrid_${version}_64bit_binary_qt${QT}.zip"
 
     mkdir -p "$bin"
     cd "$bin"
