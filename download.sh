@@ -15,14 +15,14 @@ linecount=$(grep '^[A-Za-z]' list.txt.new | wc -l)
 
 for n in `seq 1 $linecount`; do
   line="$(grep '^[A-Za-z]' list.txt.new | sed -n "${n}p")"
-  tool=$(echo $line | cut -d' ' -f1)
-  version=$(echo $line | cut -d' ' -f2)
-  checksum=$(echo $line | cut -d' ' -f3)
+  tool=$(echo $line | awk '{print $1}')
+  version=$(echo $line | awk '{print $2}')
+  checksum=$(echo $line | awk '{print $3}')
 
   tarball="${tool}-${version}-bin.tar.xz"
 
   if [ -e list.txt ]; then
-    current_version=$(grep "^$tool" list.txt | cut -d' ' -f2)
+    current_version=$(grep "^$tool" list.txt | awk '{print $2}')
     oldfiles="$(grep "^$tool" list.txt | awk '{$1=$2=$3=""; print $0}')"
   fi
 
