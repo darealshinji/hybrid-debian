@@ -32,7 +32,9 @@ for n in `seq 1 $linecount`; do
     test -e $f || missing="true"
   done
 
-  if [ "x$current_version" != "x$version" -o "$missing" = "true" ]; then
+  if [ "x$current_version" = "xdropped" ]; then
+    rm -f $tarball $oldfiles
+  elif [ "x$current_version" != "x$version" -o "$missing" = "true" ]; then
     rm -f $tarball
     wget -q --show-progress "https://sourceforge.net/projects/hybrid-tools/files/$system/$tarball"
     echo "$checksum *$tarball" | sha256sum -c
