@@ -1,8 +1,8 @@
 #!/bin/sh
 
-bin=$HOME/.hybrid-bin
+bin="$HOME/.hybrid-bin"
 
-title=$1
+title="$1"
 pkg_ver=$2
 
 url=http://www.selur.de/sites/default/files/hybrid_downloads/avisynth
