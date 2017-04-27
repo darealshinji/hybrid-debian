@@ -1,3 +1,9 @@
+hybrid-avisynth-extension (170428~trusty) trusty; urgency=low
+
+  * Always download latest installation script from Github
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 28 Apr 2017 00:11:41 +0200
+
 hybrid-avisynth-extension (170331~trusty) trusty; urgency=low
 
   * Update "install-hybrid-avisynth-extension.sh"
