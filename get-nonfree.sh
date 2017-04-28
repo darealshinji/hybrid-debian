@@ -3,16 +3,31 @@
 # requires: GNU toolchain, autoreconf, wget, unzip
 # optional: upx
 
+missing="no"
 echo "Check for tools:"
 for cmd in gcc g++ make strip autoreconf wget unzip; do
   printf "  $cmd ==> "
   if [ "$(whereis -b $cmd)" = "${cmd}:" ]; then
     echo "missing"
-    exit 1
+    missing="yes"
   else
     echo "found"
   fi
 done
+if [ "$missing" = "yes" ]; then
+  echo ""
+  echo "one or more build dependencies not found"
+  if which dpkg >/dev/null; then
+    libs="build-essential autoconf wget unzip"
+    if which apt >/dev/null; then
+      echo ">> sudo apt install $libs"
+    elif which apt-get >/dev/null; then
+      echo ">> sudo apt-get install $libs"
+    fi
+  fi
+  echo ""
+  exit 1
+fi
 echo ""
 
 export CFLAGS="-w -O3 -fstack-protector -D_FORTIFY_SOURCE=2"
@@ -120,4 +135,6 @@ if [ "$i386" = "failed" && "$(uname -m)" = "x86_64" ]; then
     fi
   fi
 fi
+echo ""
+echo ""
 
