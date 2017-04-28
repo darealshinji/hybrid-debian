@@ -6,23 +6,24 @@ system="x86_64-linux-gnu"
 mkdir -p "$HOME/.hybrid-bin"
 cd "$HOME/.hybrid-bin"
 
-rm -f list.txt.new
-wget -O list.txt.new "https://raw.githubusercontent.com/darealshinji/hybrid-debian/test/list.txt"
-#cp -f "$HOME/Downloads/hybrid-debian/list.txt" list.txt.new
+pkgs="packages.txt"
+rm -f ${pkgs}.new
+wget -O ${pkgs}.new "https://raw.githubusercontent.com/darealshinji/hybrid-debian/test/$pkgs"
+#cp -f "$HOME/Downloads/hybrid-debian/$pkgs" ${pkgs}.new
 
-linecount=$(grep '^[A-Za-z]' list.txt.new | wc -l)
+linecount=$(grep '^[A-Za-z]' ${pkgs}.new | wc -l)
 
 for n in `seq 1 $linecount`; do
-  line="$(grep '^[A-Za-z]' list.txt.new | sed -n "${n}p")"
+  line="$(grep '^[A-Za-z]' ${pkgs}.new | sed -n "${n}p")"
   tool=$(echo $line | awk '{print $1}')
   version=$(echo $line | awk '{print $2}')
   checksum=$(echo $line | awk '{print $3}')
 
   tarball="${tool}-${version}-bin.tar.xz"
 
-  if [ -e list.txt ]; then
-    current_version=$(grep "^$tool" list.txt | awk '{print $2}')
-    oldfiles="$(grep "^$tool" list.txt | awk '{$1=$2=$3=""; print $0}')"
+  if [ -e $pkgs ]; then
+    current_version=$(grep "^$tool" $pkgs | awk '{print $2}')
+    oldfiles="$(grep "^$tool" $pkgs | awk '{$1=$2=$3=""; print $0}')"
   fi
 
   missing="false"
@@ -43,5 +44,5 @@ for n in `seq 1 $linecount`; do
   fi
 done
 
-mv -f list.txt.new list.txt
+mv -f ${pkgs}.new $pkgs
 
