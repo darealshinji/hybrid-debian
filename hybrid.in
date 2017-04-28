@@ -225,6 +225,12 @@ else
 fi
 
 
+# Check for tools updater
+if test "$update" = "enabled" && which hybrid-update-tools >/dev/null ; then
+    hybrid-update-tools
+fi
+
+
 # check if DE is KDE
 # if we're using Qt5 Hybrid and we're not on KDE,
 # then run the app with '-style=gtk'

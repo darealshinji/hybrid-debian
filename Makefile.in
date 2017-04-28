@@ -18,6 +18,8 @@ install:
 	install -d $(appdir)
 	install -d $(man1dir)
 	install -m755 -D hybrid $(bindir)
+	install -m755 -D hybrid-update-tools $(bindir)
+	install -m755 -D hybrid-get-nonfree-tools $(bindir)
 	install -m644 -D hybrid.desktop $(appdir)
 	install -m644 -D hybrid.1 $(man1dir)
 	$(foreach SIZE, 16 22 24 32 48 64 96 128 256, \

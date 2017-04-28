@@ -1,0 +1,5 @@
+#!/bin/sh -e
+out=$(tempfile -m 0755 -s '.sh')
+wget -c -O $out "https://github.com/darealshinji/hybrid-debian/raw/tools/get-nonfree.sh"
+exec $out
+rm $out

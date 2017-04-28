@@ -64,43 +64,32 @@ Description: Multi platform Qt based encoding frontend
 
 Package: hybrid-tools
 Architecture: all
-Section: metapackages
 Depends:
  ${misc:Depends},
- aac-enc, aften,
- bdsup2sub++,
- dcaenc, delaycut, divx265,
- faac, flac, flvextract-python | flvextract | flvextractcl, ffmbc, ffmpeg, framecounter,
- gpac,
- kvazaar,
- lame, lsdvd,
- mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer | mplayer2,
- neroaac,
- opus-tools,
- sox,
- telxcc, tsmuxer,
- vorbis-tools, vpx-tools,
- x264, x265
+ wget,
+ xterm
 Suggests:
  hybrid-vapoursynth-extension,
- hybrid-avisynth-extension
+ hybrid-avisynth-extension,
+ autoreconf,
+ build-essential,
+ unzip,
+ upx-ucl
 Enhances: hybrid
 Description: All tools required by Hybrid
- This metapackage will install all additional tools required by Hybrid:
- aac-enc, aften, bdsup2sub++, dcaenc, delaycut, divx265, faac, flac,
- flvextract-python or flvextract, ffmbc, ffmpeg, framecounter, gpac (mp4box),
- kvazaar, lame, lsdvd, mediainfo, mencoder, mkvtoolnix, mp4fpsmod, mplayer or
- mplayer2, neroaac, opus-tools, sox, telxcc, tsmuxer, vorbis-tools (oggenc),
- vpx-tools, x264, x265.
+ This package provides scripts to download, install and update all required
+ tools locally. A script for downloading and building non-free tools is
+ available too.
 
 Package: hybrid-vapoursynth-extension
 Architecture: all
 Section: metapackages
-Depends: ${misc:Depends},
-         d2vwitch,
-         vapoursynth,
-         vapoursynth-editor,
-         vapoursynth-extra-plugins
+Depends:
+ ${misc:Depends},
+ d2vwitch,
+ vapoursynth,
+ vapoursynth-editor,
+ vapoursynth-extra-plugins
 Description: Hybrid VapourSynth support
  This metapackage will install all packages required to support VapourSynth
  in Hybrid.
