@@ -1,3 +1,5 @@
+# DO NOT EDIT OR DELETE THIS FILE!
+
 # tab-width=4
 <package>				<version>					<sha256sum>															<files>
 aften					0.0.8+git20100105			604b399f1798a6e7d645a0c72339581b594fcea5da9bde376010b83cf3ddd5ea	aften
