@@ -36,7 +36,7 @@ for n in `seq 1 $linecount`; do
     rm -f $tarball $oldfiles
   elif [ "x$current_version" != "x$version" -o "$missing" = "true" ]; then
     rm -f $tarball
-    wget -q --show-progress "https://sourceforge.net/projects/hybrid-tools/files/$system/$tarball"
+    wget -q --show-progress "https://sourceforge.net/projects/hybrid-tools/files/$system/$tool/$tarball"
     echo "$checksum *$tarball" | sha256sum -c
     rm -f $oldfiles
     tar xf $tarball
