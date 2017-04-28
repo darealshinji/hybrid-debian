@@ -8,7 +8,7 @@ cd "$HOME/.hybrid-bin"
 
 pkgs="packages.txt"
 rm -f ${pkgs}.new
-wget -O ${pkgs}.new "https://raw.githubusercontent.com/darealshinji/hybrid-debian/test/$pkgs"
+wget -O ${pkgs}.new "https://raw.githubusercontent.com/darealshinji/hybrid-debian/tools/$pkgs"
 #cp -f "$HOME/Downloads/hybrid-debian/$pkgs" ${pkgs}.new
 
 linecount=$(grep '^[A-Za-z]' ${pkgs}.new | wc -l)
