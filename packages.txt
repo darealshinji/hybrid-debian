@@ -5,7 +5,7 @@
 aften					0.0.8+git20100105			604b399f1798a6e7d645a0c72339581b594fcea5da9bde376010b83cf3ddd5ea	aften
 aom						20170403					f2ac10e7c2968e4373671003374395a54fa035ca74c5af889f3d28e9ec61304f	aomenc
 BDSup2SubPlusPlus		1.0.2-patched-20150827		42f2aca906f83bd5737367795a1bd56f19211280b389773152a9c1bb00b2c682	bdsup2sub++
-d2vwitch				2							74a3e6b75de3eca12eeb7601811ae1bcfc19e1f2830f8a26765f32b95a505507	d2vwitch
+d2vwitch				deprecated
 dcaenc					2							d88a411e399ed549e4af9eef07f70389fbdd35fe64bc2468a2a089d1aaf88de4	dcaenc
 delaycut				1.4.3.9						eb70cd239b7f8f641c29540164a2eb4def99ba1627be1b57a7596247c840eb1b	delaycut
 ffmbc					0.7.4-fixed					8dca40eec4e5ff92f5894abe7c1f8e62c51bdf071bc7e91be3e7d9b41d44a8df	ffmbc
