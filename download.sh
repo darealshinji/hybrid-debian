@@ -1,6 +1,5 @@
 #!/bin/sh
-
-set -e
+#set -e
 
 system="x86_64-linux-gnu"
 
