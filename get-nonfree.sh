@@ -17,11 +17,11 @@ missing="no"
 echo "Check for tools:"
 for cmd in gcc g++ make strip autoreconf wget unzip; do
   printf "  $cmd ==> "
-  if [ "$(whereis -b $cmd)" = "${cmd}:" ]; then
+  if [ -n "$(_which $cmd)" ]; then
+    echo "found"
+  else
     echo "missing"
     missing="yes"
-  else
-    echo "found"
   fi
 done
 if [ "$missing" = "yes" ]; then
