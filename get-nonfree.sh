@@ -81,6 +81,7 @@ rm -rf fdk-aac-0.1.5*
 set +x
 set +e
 
+i386="ok"
 echo ""
 echo ""
 echo "=== check if binaries are working ==="
@@ -90,7 +91,7 @@ if [ "$(./aac-enc 2>&1 | head -n1)" = './aac-enc [-r bitrate] [-t aot] [-a after
 fi
 printf "DivX265:    "
 if [ "$(./DivX265 -h 2>&1 | head -n1)" = 'DivX 265/HEVC Encoder (version 1.5.0.8) 2000-2015 DivX, LLC.' ]; then
-  echo "OK"; else echo "FAIL";
+  echo "OK"; else echo "FAIL"; i386="failed";
 fi
 printf "faac:       "
 if [ "$(./faac --help 2>&1 | head -n1)" = 'Freeware Advanced Audio Coder' ]; then
@@ -98,12 +99,25 @@ if [ "$(./faac --help 2>&1 | head -n1)" = 'Freeware Advanced Audio Coder' ]; the
 fi
 printf "neroAacEnc: "
 if [ "$(./neroAacEnc -help 2>&1 | sed -n '3p')" = '*  Nero AAC Encoder                                         *' ]; then
-  echo "OK"; else echo "FAIL";
+  echo "OK"; else echo "FAIL"; i386="failed";
 fi
 printf "tsMuxeR:    "
 if [ "$(./tsMuxeR | head -n1)" = 'Network Optix tsMuxeR.  Version 2.6.11. www.networkoptix.com' ]; then
-  echo "OK"; else echo "FAIL";
+  echo "OK"; else echo "FAIL"; i386="failed";
 fi
 echo ""
 echo ""
+
+if [ "$i386" = "failed" && "$(uname -m)" = "x86_64" ]; then
+  echo "Cannot run one or more of the 32 bit tools."
+  echo "Try to install the 32 bit libraries of freetype, zlib, glibc, libgcc and stdc++."
+  if which dpkg >/dev/null; then
+    libs="libc6-i386 lib32gcc1 lib32stdc++6 zlib1g:i386"
+    if which apt >/dev/null; then
+      echo ">> sudo apt install $libs"
+    elif which apt-get >/dev/null; then
+      echo ">> sudo apt-get install $libs"
+    fi
+  fi
+fi
 
