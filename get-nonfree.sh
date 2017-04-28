@@ -3,6 +3,16 @@
 # requires: GNU toolchain, autoreconf, wget, unzip
 # optional: upx
 
+_which () {
+  found=""
+  for p in `echo $PATH | tr ':' '\n' | tac | tr '\n' ' '`; do
+    if [ -x "$p/$1" ]; then
+      found="$p/$1"
+    fi
+  done
+  echo "$found"
+}
+
 missing="no"
 echo "Check for tools:"
 for cmd in gcc g++ make strip autoreconf wget unzip; do
@@ -17,11 +27,11 @@ done
 if [ "$missing" = "yes" ]; then
   echo ""
   echo "one or more build dependencies not found"
-  if which dpkg >/dev/null; then
+  if [ -n "$(_which dpkg)" ]; then
     libs="build-essential autoconf wget unzip"
-    if which apt >/dev/null; then
+    if [ -n "$(_which apt)" ]; then
       echo ">> sudo apt install $libs"
-    elif which apt-get >/dev/null; then
+    elif [ -n "$(_which apt-get)" ]; then
       echo ">> sudo apt-get install $libs"
     fi
   fi
@@ -54,9 +64,9 @@ rm NeroAACCodec-1.5.1.zip
 # tsmuxer
 $wget -O tsmuxer.tgz 'https://docs.google.com/uc?authuser=0&id=0B0VmPcEZTp8NekJxLUVJRWMwejQ&export=download'
 tar xf tsmuxer.tgz ./tsMuxeR
-if [ "$(whereis -b upx)" != "upx:" ]; then
+if [ -n "$(_which upx)" ]; then
   upx -d tsMuxeR
-elif [ "$(whereis -b upx-ucl)" != "upx-ucl:" ]; then
+elif [ -n "$(_which upx-ucl)" ]; then
   upx-ucl -d tsMuxeR
 else
   $wget "https://github.com/upx/upx/releases/download/v3.93/upx-3.93-amd64_linux.tar.xz"
@@ -126,11 +136,11 @@ echo ""
 if [ "$i386" = "failed" && "$(uname -m)" = "x86_64" ]; then
   echo "Cannot run one or more of the 32 bit tools."
   echo "Try to install the 32 bit libraries of freetype, zlib, glibc, libgcc and stdc++."
-  if which dpkg >/dev/null; then
+  if [ -n "$(_which dpkg)" ]; then
     libs="libc6-i386 lib32gcc1 lib32stdc++6 zlib1g:i386"
-    if which apt >/dev/null; then
+    if [ -n "$(_which apt)" ]; then
       echo ">> sudo apt install $libs"
-    elif which apt-get >/dev/null; then
+    elif [ -n "$(_which apt-get)" ]; then
       echo ">> sudo apt-get install $libs"
     fi
   fi
