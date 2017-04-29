@@ -7,7 +7,7 @@ Section: video
 Homepage: http://www.selur.de
 
 Package: hybrid
-Architecture: amd64 i386
+Architecture: amd64
 Depends:
  ${misc:Depends},
  libc6 (>= 2.14),
@@ -28,8 +28,6 @@ Suggests:
  hybrid-tools,
  hybrid-vapoursynth-extension,
  hybrid-avisynth-extension
-Replaces:
- hybrid-common
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
@@ -63,7 +61,7 @@ Description: Multi platform Qt based encoding frontend
   * a lot of option to automate stuff
 
 Package: hybrid-tools
-Architecture: all
+Architecture: amd64
 Depends:
  ${misc:Depends},
  wget,
@@ -77,12 +75,11 @@ Suggests:
  unzip,
  upx-ucl,
 # non-free runtime dependencies
-# libc6-i386 [amd64],
-# lib32gcc1 [amd64],
-# lib32stdc++6 [amd64],
-# libfreetype6 [i386],
-# libfreetype6:i386 [amd64],
-# zlib1g:i386 [amd64]
+ libc6:i386,
+ libgcc1:i386,
+ libstdc++6:i386,
+ libfreetype6:i386,
+ zlib1g:i386
 Enhances: hybrid
 Description: All tools required by Hybrid
  This package provides scripts to download, install and update all required
@@ -90,7 +87,7 @@ Description: All tools required by Hybrid
  available too.
 
 Package: hybrid-vapoursynth-extension
-Architecture: all
+Architecture: amd64
 Section: metapackages
 Depends:
  ${misc:Depends},

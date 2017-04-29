@@ -2,8 +2,9 @@ hybrid (1:0.12~trusty) trusty; urgency=medium
 
   * hybrid-tools now provides a script to download latest tools from
     SourceForge
+  * Change all package architectures to amd64 and disable 32 bits warning
 
- -- Marshall Banana <djcj@gmx.de>  Fri, 28 Apr 2017 15:24:00 +0200
+ -- Marshall Banana <djcj@gmx.de>  Sat, 29 Apr 2017 14:37:16 +0200
 
 hybrid (1:0.11.2~trusty) trusty; urgency=low
 
