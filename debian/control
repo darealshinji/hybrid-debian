@@ -77,12 +77,12 @@ Suggests:
  unzip,
  upx-ucl,
 # non-free runtime dependencies
- libc6-i386 [amd64],
- lib32gcc1 [amd64],
- lib32stdc++6 [amd64],
- libfreetype6 [i386],
- libfreetype6:i386 [amd64],
- zlib1g:i386 [amd64]
+# libc6-i386 [amd64],
+# lib32gcc1 [amd64],
+# lib32stdc++6 [amd64],
+# libfreetype6 [i386],
+# libfreetype6:i386 [amd64],
+# zlib1g:i386 [amd64]
 Enhances: hybrid
 Description: All tools required by Hybrid
  This package provides scripts to download, install and update all required
