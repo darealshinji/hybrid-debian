@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# requires: GNU toolchain, autoreconf, wget, unzip
-# optional: upx
-
 _which () {
   found=""
   for p in `echo $PATH | tr ':' '\n' | tac | tr '\n' ' '`; do
@@ -15,7 +12,7 @@ _which () {
 
 missing="no"
 echo "Check for tools:"
-for cmd in gcc g++ make strip autoreconf wget unzip; do
+for cmd in gcc g++ make strip autoreconf git wget unzip; do
   printf "  $cmd ==> "
   if [ -n "$(_which $cmd)" ]; then
     echo "found"
@@ -28,7 +25,7 @@ if [ "$missing" = "yes" ]; then
   echo ""
   echo "one or more build dependencies not found"
   if [ -n "$(_which dpkg)" ]; then
-    libs="build-essential autoconf wget unzip"
+    libs="build-essential autoconf git wget unzip"
     if [ -n "$(_which apt)" ]; then
       echo ">> sudo apt install $libs"
     elif [ -n "$(_which apt-get)" ]; then
@@ -47,8 +44,9 @@ export LDLFAGS="-Wl,-z,relro"
 set -e
 set -x
 
-mkdir -p "$HOME/.hybrid-bin"
-cd "$HOME/.hybrid-bin"
+bindir="$HOME/.hybrid-bin"
+mkdir -p "$bindir"
+cd "$bindir"
 
 wget="wget -nv --show-progress -c"
 
@@ -103,9 +101,21 @@ mv -f aac-enc ..
 cd ..
 rm -rf fdk-aac-0.1.5*
 
+# libdvdcss
+rm -rf dvdcss libdvdcss
+git clone --depth 1 "http://code.videolan.org/videolan/libdvdcss.git"
+cd libdvdcss
+autoreconf -if >/dev/null
+./configure --prefix="$bindir"/dvdcss --libdir="$bindir"/dvdcss --disable-static --disable-doc
+make -j`nproc` V=0
+make install
+cd ..
+rm -rf libdvdcss
+
 set +x
 set +e
 
+# checks
 i386="ok"
 echo ""
 echo ""
@@ -133,7 +143,7 @@ fi
 echo ""
 echo ""
 
-if [ "$i386" = "failed" && "$(uname -m)" = "x86_64" ]; then
+if [ "$i386" = "failed" ] && [ "$(uname -m)" = "x86_64" ]; then
   echo "Cannot run one or more of the 32 bit tools."
   echo "Try to install the 32 bit libraries of freetype, zlib, glibc, libgcc and stdc++."
   if [ -n "$(_which dpkg)" ]; then
