@@ -1,3 +1,9 @@
+hybrid-avisynth-extension (170429~trusty) trusty; urgency=medium
+
+  * Change package architecture to amd64
+
+ -- Marshall Banana <djcj@gmx.de>  Sat, 29 Apr 2017 14:50:46 +0200
+
 hybrid-avisynth-extension (170428~trusty) trusty; urgency=low
 
   * Always download latest installation script from Github

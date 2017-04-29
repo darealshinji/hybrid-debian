@@ -7,12 +7,13 @@ Section: video
 Homepage: https://github.com/darealshinji/hybrid-debian/tree/avisynth-extension
 
 Package: hybrid-avisynth-extension
-Architecture: all
-Depends: ${misc:Depends},
-         hybrid,
-         p7zip-full,
-         wget,
-         wine,
-         zenity
+Architecture: amd64
+Depends:
+ ${misc:Depends},
+ hybrid,
+ p7zip-full,
+ wget,
+ wine,
+ zenity
 Description: Hybrid Avisynth extension
  Enables avisynth script generation.
