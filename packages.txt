@@ -20,7 +20,7 @@ lsdvd					0.17						9b74f683b26b9369e2f23e814af43c7a726f42f52564a940a2ef8abad356
 mediainfo				0.7.94						11b4a18d4327b99d237bf04c13ca7c59ba11be3f563cf328ce26fd7a0d71dc5b	mediainfo
 mkvtoolnix				11.0.0						95d6315fed6ce153f6ed9928ea4b82ce698c15b1a38e68c46e03e414bb9248d2	mkvextract mkvinfo mkvmerge
 mp4fpsmod				0.25						2def5c2d31e6b5696fe793e642ef96e3ad9056f7a2977fd0dcf3c9b72ad2f7d4	mp4fpsmod
-mplayer					20170404					036342fe3979867c3c0b51c11022219e09b76295315a3b0d1d5e23cf646e2a8a	mencoder mplayer
+mplayer					20170505					d4434bfb43d8b3c1fb27c88d3229cb24501b276c4c6a3d81032fed0d83c50c55	mencoder mplayer
 opus-tools				0.1.9						f3c396f320e76b234e09e920a2672ccc526b9c1d5407bbe63dd2e7530d7e42de	opusenc
 sox						14.4.2						8f400a35f07d41ff574526e6b2295e6e15ceac13d6c5cd39e502e7427629751e	sox
 telxcc					2.5.3						0dbc11d36ae7be24115f1b9b5934b549d341dab58a0b1ab7e534c5a3b09c1495	telxcc
