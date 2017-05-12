@@ -1,0 +1,6 @@
+#!/bin/sh -e
+out=$(mktemp --tmpdir='/tmp' --suffix='.sh' get_sources_XXXXXXXX)
+chmod a+x $out
+wget -c -O $out "https://github.com/darealshinji/hybrid-debian/raw/tools/get-sources.sh"
+exec $out
+rm $out

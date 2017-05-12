@@ -1,5 +1,6 @@
 #!/bin/sh -e
-out=$(tempfile -m 0755 -s '.sh')
+out=$(mktemp --tmpdir='/tmp' --suffix='.sh' download_XXXXXXXX)
+chmod a+x $out
 wget -c -O $out "https://github.com/darealshinji/hybrid-debian/raw/tools/download.sh"
 xterm -T "Update/install Hybrid encoder tools" -e $out
 rm $out

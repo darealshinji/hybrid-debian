@@ -1,3 +1,10 @@
+hybrid (1:0.12.1~trusty) trusty; urgency=low
+
+  * New script to download the source code of Hybrid's tools:
+    hybrid-get-tools-sources
+
+ -- Marshall Banana <djcj@gmx.de>  Fri, 12 May 2017 21:01:01 +0200
+
 hybrid (1:0.12~trusty) trusty; urgency=medium
 
   * hybrid-tools now provides a script to download latest tools from
