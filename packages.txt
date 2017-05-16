@@ -9,7 +9,7 @@ d2vwitch				deprecated
 dcaenc					2							d88a411e399ed549e4af9eef07f70389fbdd35fe64bc2468a2a089d1aaf88de4	dcaenc
 delaycut				1.4.3.9						eb70cd239b7f8f641c29540164a2eb4def99ba1627be1b57a7596247c840eb1b	delaycut
 ffmbc					0.7.4-fixed					8dca40eec4e5ff92f5894abe7c1f8e62c51bdf071bc7e91be3e7d9b41d44a8df	ffmbc
-ffmpeg					3.3							561fe50c3171e604854cf200d98ab2c1e5c75543678eeba9cf805fff920bda83	ffmpeg
+ffmpeg					3.3.1							542c0f1139b1cead742734e659a4f31b5d06ed6a3386a45389ed8683dcde6ea2	ffmpeg
 flac					1.3.2						58d9102fff490a7e28723e48f38d9fe2363d6cbe37359743c162533f8975a83b	flac
 FLVExtractCL			1.6.2						39310b01f4f3f80ac68877c8eb5e616b9d33ce886eb0307ec33c709dfd68ebb9	FLVExtractCL
 FrameCounter			20151031					c089e0c502ee660ea375aba4567882f1fa411966d6c3ba4d6958acb340a82937	FrameCounter
