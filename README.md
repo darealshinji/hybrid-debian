@@ -3,7 +3,7 @@ hybrid-debian
 
 Debian packages for Hybrid encoder
 
-Infos: http://forum.selur.de/topic612-hybrid-tools-ubuntu-packages.html
+Infos: https://forum.selur.net/Thread-GUIDE-Ubuntu-repository-maintained-by-djcj
 
 AviSynth extension: https://github.com/darealshinji/hybrid-debian/tree/avisynth-extension
 
