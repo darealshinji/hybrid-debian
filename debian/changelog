@@ -1,3 +1,9 @@
+hybrid (1:0.12.2~trusty) trusty; urgency=low
+
+  * Compatibility with Debian: don't depend on sni-qt, move it to suggested packages
+
+ -- Marshall Banana <djcj@gmx.de>  Tue, 30 May 2017 13:10:59 +0200
+
 hybrid (1:0.12.1~trusty) trusty; urgency=low
 
   * New script to download the source code of Hybrid's tools:

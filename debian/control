@@ -20,14 +20,14 @@ Depends:
  libqt5widgets5 (>= 5.2.0),
  libqt5xml5 (>= 5.0.2),
  libstdc++6 (>= 4.4.0),
- sni-qt,
  wget,
  unzip,
  zenity
 Suggests:
  hybrid-tools,
  hybrid-vapoursynth-extension,
- hybrid-avisynth-extension
+ hybrid-avisynth-extension,
+ sni-qt
 Description: Multi platform Qt based encoding frontend
  It can convert nearly every input to x264/x265/Xvid/VP9/...
  + ac3/ogg/mp3/aac/flac inside an mp4/m2ts/mkv/webm/mov/avi container,
