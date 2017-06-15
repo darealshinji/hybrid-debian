@@ -64,6 +64,13 @@ Package: hybrid-tools
 Architecture: amd64
 Depends:
  ${misc:Depends},
+# Qt libraries requires by some tools
+ libqtcore4,
+ libqtgui4,
+ libqt4-xml,
+ libqt5core5a,
+ libqt5gui5 | libqt5gui5-gles,
+ libqt5widgets5,
  wget,
  xterm
 Suggests:
