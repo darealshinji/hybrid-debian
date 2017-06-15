@@ -17,7 +17,7 @@ gpac					0.7.0						5e5dfc0ca695a863359d30cd33804a0b396c840a41e49fbf52311331420b
 kvazaar					1.1.0						061529c1b7239bcdc17c4d1cd9c0d9a37233a2d495c28e647212f5654ed96a12	kvazaar
 lame					3.99.5						530d24d4b26e04d4f691edf5243932bd48e0b8559e8f2088c4f5c8de6ed492eb	lame
 lsdvd					0.17						9b74f683b26b9369e2f23e814af43c7a726f42f52564a940a2ef8abad3568cc9	lsdvd
-mediainfo				0.7.95						29f08e3fe07905e2b53fbaa22e8e8a9fed63425c4e5542b0ba49c61c321ceebb	mediainfo
+mediainfo				0.7.96						1b227d37e04ce2f44a6c6af3df7327c411ef70a063b2a45cd3148f16c92dc96b	mediainfo
 mkvtoolnix				12.0.0						e0b120b1102442b20dff377488223d22944b2893a8b26e45d6887868e5a39215	mkvextract mkvinfo mkvmerge
 mp4fpsmod				0.25						2def5c2d31e6b5696fe793e642ef96e3ad9056f7a2977fd0dcf3c9b72ad2f7d4	mp4fpsmod
 mplayer					20170505					d4434bfb43d8b3c1fb27c88d3229cb24501b276c4c6a3d81032fed0d83c50c55	mencoder mplayer
