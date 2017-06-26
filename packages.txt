@@ -3,7 +3,7 @@
 # tab-width=4
 <package>				<version>					<sha256sum>															<files>
 aften					0.0.8+git20100105			604b399f1798a6e7d645a0c72339581b594fcea5da9bde376010b83cf3ddd5ea	aften
-aom						20170403					f2ac10e7c2968e4373671003374395a54fa035ca74c5af889f3d28e9ec61304f	aomenc
+aom						20170623					33d760439d37b05ca5db751ba8c5ad462df1783bf6b7cbeaedb0a7baff11cd87	aomenc
 BDSup2SubPlusPlus		1.0.2-patched-20150827		42f2aca906f83bd5737367795a1bd56f19211280b389773152a9c1bb00b2c682	bdsup2sub++
 d2vwitch				deprecated
 dcaenc					2							d88a411e399ed549e4af9eef07f70389fbdd35fe64bc2468a2a089d1aaf88de4	dcaenc
