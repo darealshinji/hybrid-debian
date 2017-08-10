@@ -9,7 +9,7 @@ d2vwitch				deprecated
 dcaenc					2							d88a411e399ed549e4af9eef07f70389fbdd35fe64bc2468a2a089d1aaf88de4	dcaenc
 delaycut				1.4.3.9						eb70cd239b7f8f641c29540164a2eb4def99ba1627be1b57a7596247c840eb1b	delaycut
 ffmbc					0.7.4-fixed					8dca40eec4e5ff92f5894abe7c1f8e62c51bdf071bc7e91be3e7d9b41d44a8df	ffmbc
-ffmpeg					3.3.3						44ccd055e811c276c6a77866ddb74d49c26b2945559e552a7f60a1aaa7e0580c	ffmpeg
+ffmpeg					3.3.3-1						82b0789e10fece46dc704b7e3db7c5e68a0eacddb4444b50ee99fb412d83c32d	ffmpeg
 flac					1.3.2						58d9102fff490a7e28723e48f38d9fe2363d6cbe37359743c162533f8975a83b	flac
 FLVExtractCL			1.6.2						39310b01f4f3f80ac68877c8eb5e616b9d33ce886eb0307ec33c709dfd68ebb9	FLVExtractCL
 FrameCounter			20151031					c089e0c502ee660ea375aba4567882f1fa411966d6c3ba4d6958acb340a82937	FrameCounter
@@ -17,11 +17,11 @@ gpac					0.7.0						5e5dfc0ca695a863359d30cd33804a0b396c840a41e49fbf52311331420b
 kvazaar					1.1.0						061529c1b7239bcdc17c4d1cd9c0d9a37233a2d495c28e647212f5654ed96a12	kvazaar
 lame					3.99.5						530d24d4b26e04d4f691edf5243932bd48e0b8559e8f2088c4f5c8de6ed492eb	lame
 lsdvd					0.17						9b74f683b26b9369e2f23e814af43c7a726f42f52564a940a2ef8abad3568cc9	lsdvd
-mediainfo				0.7.97						56cf75bd7bd8d0d7405f3173a916d284450b1db113ac3ca9d0a0d67b6e6dd884	mediainfo
+mediainfo				0.7.98						251af00f3276f0c8ba26470dabf1def804d3accaa6a2acf2b382713e8d1faf40	mediainfo
 mkvtoolnix				14.0.0						14f0721707d468503c349890852a87417ba0b9c6b67363dc7ffed239e0d9be53	mkvextract mkvinfo mkvmerge
 mp4fpsmod				0.25						2def5c2d31e6b5696fe793e642ef96e3ad9056f7a2977fd0dcf3c9b72ad2f7d4	mp4fpsmod
 mplayer					20170505					d4434bfb43d8b3c1fb27c88d3229cb24501b276c4c6a3d81032fed0d83c50c55	mencoder mplayer
-opus-tools				0.1.9						f3c396f320e76b234e09e920a2672ccc526b9c1d5407bbe63dd2e7530d7e42de	opusenc
+opus-tools				0.1.10						af7b1134ff870d912cb1f45e2fe5931de4eabb25cf2e007e0b79ca236bfac386	opusenc
 sox						14.4.2						8f400a35f07d41ff574526e6b2295e6e15ceac13d6c5cd39e502e7427629751e	sox
 telxcc					2.5.3						0dbc11d36ae7be24115f1b9b5934b549d341dab58a0b1ab7e534c5a3b09c1495	telxcc
 vorbis-tools			1.4.0						d2cf0971524403179d7f4a38ae90c7baa24a3bb3b368c1435490e20682f991a1	oggenc
