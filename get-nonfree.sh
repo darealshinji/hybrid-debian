@@ -147,7 +147,7 @@ if [ "$i386" = "failed" ] && [ "$(uname -m)" = "x86_64" ]; then
   echo "Cannot run one or more of the 32 bit tools."
   echo "Try to install the 32 bit libraries of freetype, zlib, glibc, libgcc and stdc++."
   if [ -n "$(_which dpkg)" ]; then
-    libs="libc6-i386 lib32gcc1 lib32stdc++6 zlib1g:i386"
+    libs="libc6:i386 libgcc1:i386 libstdc++6:i386 libfreetype6:i386 zlib1g:i386"
     if [ -n "$(_which apt)" ]; then
       echo ">> sudo apt install $libs"
     elif [ -n "$(_which apt-get)" ]; then
