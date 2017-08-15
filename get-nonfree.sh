@@ -12,7 +12,7 @@ _which () {
 
 missing="no"
 echo "Check for tools:"
-for cmd in gcc g++ make strip autoreconf git wget unzip; do
+for cmd in gcc g++ make strip autoreconf libtoolize git wget unzip; do
   printf "  $cmd ==> "
   if [ -n "$(_which $cmd)" ]; then
     echo "found"
@@ -25,7 +25,7 @@ if [ "$missing" = "yes" ]; then
   echo ""
   echo "one or more build dependencies not found"
   if [ -n "$(_which dpkg)" ]; then
-    libs="build-essential autoconf git wget unzip"
+    libs="build-essential autoconf libtool git wget unzip"
     if [ -n "$(_which apt)" ]; then
       echo ">> sudo apt install $libs"
     elif [ -n "$(_which apt-get)" ]; then
