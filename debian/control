@@ -80,6 +80,7 @@ Suggests:
  autoconf,
  build-essential,
  git,
+ libtool,
  unzip,
  upx-ucl,
 # non-free runtime dependencies
