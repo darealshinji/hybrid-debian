@@ -67,10 +67,10 @@ if [ -n "$(_which upx)" ]; then
 elif [ -n "$(_which upx-ucl)" ]; then
   upx-ucl -d tsMuxeR
 else
-  $wget "https://github.com/upx/upx/releases/download/v3.93/upx-3.93-amd64_linux.tar.xz"
-  tar xf upx-3.93-amd64_linux.tar.xz
-  upx-3.93-amd64_linux/upx -d tsMuxeR
-  rm -rf upx-3.93-amd64_linux*
+  $wget "https://github.com/upx/upx/releases/download/v3.94/upx-3.94-amd64_linux.tar.xz"
+  tar xf upx-3.94-amd64_linux.tar.xz
+  upx-3.94-amd64_linux/upx -d tsMuxeR
+  rm -rf upx-3.94-amd64_linux*
 fi
 strip tsMuxeR
 rm tsmuxer.tgz
@@ -78,16 +78,16 @@ rm tsmuxer.tgz
 chmod a+x DivX265 neroAacEnc tsMuxeR
 
 # faac
-$wget -O faac-1.28+cvs20151130.tar.xz "http://http.debian.net/debian/pool/non-free/f/faac/faac_1.28+cvs20151130.orig.tar.xz"
-tar xf faac-1.28+cvs20151130.tar.xz
-cd faac-1.28+cvs20151130
+$wget -O faac-1.29.3+git20170724.tar.bz2 "http://http.debian.net/debian/pool/non-free/f/faac/faac_1.29.3+git20170724.orig.tar.bz2"
+tar xf faac-1.29.3+git20170724.tar.bz2
+cd faac-1.29.3+git20170724
 autoreconf -if >/dev/null
 ./configure --disable-shared --with-mp4v2
 make -j`nproc` V=0
 strip frontend/faac
 mv -f frontend/faac ..
 cd ..
-rm -rf faac-1.28+cvs20151130*
+rm -rf faac-1.29.3+git20170724*
 
 # fdk-aac
 $wget -O fdk-aac-0.1.5.tar.gz "https://github.com/mstorsjo/fdk-aac/archive/v0.1.5.tar.gz"
