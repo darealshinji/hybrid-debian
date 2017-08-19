@@ -1,3 +1,5 @@
+Binaries and sources of the encoding tools are on [Sourceforge](https://sourceforge.net/projects/hybrid-tools/).
+
 Don't use the scripts directly but instead always download the latest version from Github.
 
 Usage examples:
