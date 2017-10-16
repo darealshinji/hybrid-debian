@@ -9,7 +9,7 @@ d2vwitch				deprecated
 dcaenc					2							d88a411e399ed549e4af9eef07f70389fbdd35fe64bc2468a2a089d1aaf88de4	dcaenc
 delaycut				1.4.3.9						eb70cd239b7f8f641c29540164a2eb4def99ba1627be1b57a7596247c840eb1b	delaycut
 ffmbc					0.7.4-fixed					8dca40eec4e5ff92f5894abe7c1f8e62c51bdf071bc7e91be3e7d9b41d44a8df	ffmbc
-ffmpeg					3.3.4						4d05463983d38be5bd1b2352ca8c7ea5f80169944fe16708ef542bdd10a5f38d	ffmpeg
+ffmpeg					3.4							d0b58ed2e30b2fced87395c0ab9266e6fbaf0c7c86d3505309229dad78049b0c	ffmpeg
 flac					1.3.2						58d9102fff490a7e28723e48f38d9fe2363d6cbe37359743c162533f8975a83b	flac
 FLVExtractCL			1.6.2						39310b01f4f3f80ac68877c8eb5e616b9d33ce886eb0307ec33c709dfd68ebb9	FLVExtractCL
 FrameCounter			20151031					c089e0c502ee660ea375aba4567882f1fa411966d6c3ba4d6958acb340a82937	FrameCounter
@@ -18,7 +18,7 @@ kvazaar					1.1.0						061529c1b7239bcdc17c4d1cd9c0d9a37233a2d495c28e647212f5654
 lame					3.99.5						530d24d4b26e04d4f691edf5243932bd48e0b8559e8f2088c4f5c8de6ed492eb	lame
 lsdvd					0.17						9b74f683b26b9369e2f23e814af43c7a726f42f52564a940a2ef8abad3568cc9	lsdvd
 mediainfo				0.7.99						5aa533daaaff8a7e079a13e47fd0a67e9374bbc2b3649958ec4022df4d037882	mediainfo
-mkvtoolnix				15.0.0						d604229ab1408e8e8fd6059bad703629f9d47be8863f7f7099b850f7f2bc9c00	mkvextract mkvinfo mkvmerge
+mkvtoolnix				17.0.0						b2e0856063328324f33ee3b018a6646bf0fa0a66a630f3e584a7b10bcbfa598a	mkvextract mkvinfo mkvmerge
 mp4fpsmod				0.25						2def5c2d31e6b5696fe793e642ef96e3ad9056f7a2977fd0dcf3c9b72ad2f7d4	mp4fpsmod
 mplayer					20170505					d4434bfb43d8b3c1fb27c88d3229cb24501b276c4c6a3d81032fed0d83c50c55	mencoder mplayer
 opus-tools				0.1.10						af7b1134ff870d912cb1f45e2fe5931de4eabb25cf2e007e0b79ca236bfac386	opusenc
