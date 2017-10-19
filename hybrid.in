@@ -210,12 +210,9 @@ EOF
         fi
 
         system32="$HOME/.wine/drive_c/windows/system32"
-        syswow64="$HOME/.wine/drive_c/windows/syswow64"
-        mkdir -p "$system32" "$syswow64"
+        mkdir -p "$system32"
         cp -f "$avs_extension_path/avisynthPlugins/avisynth.dll" "$system32"
-        cp -f "$avs_extension_path/avisynthPlugins/avisynth.dll" "$syswow64"
         cp -f "$avs_extension_path/avisynthPlugins/DevIL.dll" "$system32"
-        cp -f "$avs_extension_path/avisynthPlugins/DevIL.dll" "$syswow64"
     fi
 else
     rm -rf "$bin/avisynth" "$bin/avisynthPlugins" "$bin/platforms"
