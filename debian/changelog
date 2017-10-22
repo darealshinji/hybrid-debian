@@ -1,3 +1,9 @@
+hybrid (1:0.12.4~trusty) trusty; urgency=low
+
+  * Fix AviSynth not working
+
+ -- Marshall Banana <djcj@gmx.de>  Sun, 22 Oct 2017 13:37:41 +0200
+
 hybrid (1:0.12.3~trusty) trusty; urgency=low
 
   * hybrid-tools: added libtool to suggested packages (build-dependency for
