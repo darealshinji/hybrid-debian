@@ -21,10 +21,10 @@ mediainfo				17.10						86496d769b33790dca37b0ac7ba3be95b26e8aab0a3c3293087ff3b2
 mkvtoolnix				17.0.0						b2e0856063328324f33ee3b018a6646bf0fa0a66a630f3e584a7b10bcbfa598a	mkvextract mkvinfo mkvmerge
 mp4fpsmod				0.25						2def5c2d31e6b5696fe793e642ef96e3ad9056f7a2977fd0dcf3c9b72ad2f7d4	mp4fpsmod
 mplayer					20170505					d4434bfb43d8b3c1fb27c88d3229cb24501b276c4c6a3d81032fed0d83c50c55	mencoder mplayer
-opus-tools				0.1.10						af7b1134ff870d912cb1f45e2fe5931de4eabb25cf2e007e0b79ca236bfac386	opusenc
+opus-tools				0.1.10-1					80effd07a8d15e9bdf5fb73731a97d10d8720165c9bd0a08197395809793b670	opusenc
 sox						14.4.2						8f400a35f07d41ff574526e6b2295e6e15ceac13d6c5cd39e502e7427629751e	sox
 telxcc					2.5.3						0dbc11d36ae7be24115f1b9b5934b549d341dab58a0b1ab7e534c5a3b09c1495	telxcc
-vorbis-tools			1.4.0-1						76b7601553e3ce65b985bf7b7b728e15f62132d1e8837e3f4d466dce887cf712	oggenc
+vorbis-tools			1.4.0-2						8e0137f48b33000556fdef12f332fda7adec22536d9ffe2f310d3074a633f70c	oggenc
 vpx						1.6.1						25c64cc32f1fb5e77dc43e33ce191afbd40227edab57e95745f3ac2aab8bbae6	vpxenc
 x264					0.152.2851					0a931eb607b6f8994dae9bc6f8e1b5b87ade1729d3f9454bc8bc859575ee1481	x264 x264-10bit
 x265					2.5							ba40a0f7cbad2b1b2b3d22c3bbba98ba0ee8af7650c4655e1876b426c062d511	x265
