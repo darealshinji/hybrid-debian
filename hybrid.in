@@ -1,5 +1,4 @@
-
-# Copyright (C) 2014-2017 djcj <djcj@gmx.de>
+# Copyright (C) 2014-2018 djcj <djcj@gmx.de>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -91,15 +90,16 @@ avs_install_script="$prefix/share/hybrid-avisynth-extension/install-hybrid-avisy
 
 install_hybrid () {
     title=$1
-    version=$2
-
-    YY=$(echo $version | cut -d'.' -f1 | tail -c+3)
-    MM=$(echo $version | cut -d'.' -f2)
-    DD=$(echo $version | cut -d'.' -f3)
-    rev=$(echo $version | cut -d'.' -f4)
-    if [ $rev -lt 2 ] ; then rev=""; fi
-
-    version=$YY$MM$DD$rev
+    YY=$(echo $2 | cut -d'.' -f1 | tail -c+3)
+    MM=$(echo $2 | cut -d'.' -f2)
+    DD=$(echo $2 | cut -d'.' -f3)
+    rev=$(echo $2 | cut -d'.' -f4)
+    if [ $rev -lt 2 ] ; then
+        rev=""
+    else
+        rev="_$rev"
+    fi
+    version="$YY$MM$DD$rev"
 
     #if [ "$(uname -m)" != "x86_64" ] ; then
     #    zenity --warning --text '32 bit GNU/Linux is no longer supported!\nUpgrade your OS.'
@@ -136,9 +136,7 @@ if [ -f "$hybrid" ] ; then
 else
     current_ver=0
 fi
-current_ver_np=$(echo $current_ver | tr -d .)
 available_ver=$(wget -q -t 1 --timeout=2 -O - $url/version.txt)
-available_ver_np=$(echo $available_ver | tr -d .)
 
 
 # Roll back to previous release version
@@ -166,8 +164,11 @@ if [ -f "$hybrid" ] ; then
         if [ -z $available_ver ] ; then
             echo "Couldn't get the version string of the current release."
             echo "Are you connected to the Internet?"
-        elif [ $available_ver_np -gt $current_ver_np ] ; then
-            install_hybrid "Update Hybrid (Qt $QT) to rev $available_ver" $available_ver
+        else
+            newest_ver="$(printf "$available_ver\n$current_ver" | sort -V -r | head -1)"
+            if [ "$newest_ver" = "$available_ver" ]; then
+                install_hybrid "Update Hybrid (Qt $QT) to rev $available_ver" $available_ver
+            fi
         fi
     fi
 else
@@ -196,7 +197,8 @@ if [ -f "$avs_install_script" ] ; then
         fi
 
         # Install/Update AviSynth extension
-        if [ $avs_available_ver -gt $avs_current_ver ] ; then
+        avs_newest_ver="$(printf "$available_ver\n$current_ver" | sort -V -r | head -1)"
+        if [ "$avs_available_ver" = "$avs_newest_ver" ] ; then
             "$avs_install_script" "$avs_title" $avs_available_ver
         fi
 
