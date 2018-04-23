@@ -54,7 +54,7 @@ wget="wget -nv --show-progress -c"
 $wget -O DivX265 "http://download.divx.com/hevc/DivX265_1_5_8"
 
 # neroAac
-$wget "http://ftp6.nero.com/tools/NeroAACCodec-1.5.1.zip"
+$wget "ftp://ftp.slackware.org.uk/slacky/slackware-13.37/multimedia/neroaaccodec/1.5.1/src/NeroAACCodec-1.5.1.zip"
 rm -f neroAacEnc
 unzip -j NeroAACCodec-1.5.1.zip linux/neroAacEnc
 rm NeroAACCodec-1.5.1.zip
@@ -78,7 +78,7 @@ rm tsmuxer.tgz
 chmod a+x DivX265 neroAacEnc tsMuxeR
 
 # faac
-$wget -O faac-1.29.3+git20170724.tar.bz2 "http://http.debian.net/debian/pool/non-free/f/faac/faac_1.29.3+git20170724.orig.tar.bz2"
+$wget -O faac-1.29.3+git20170724.tar.bz2 "http://ftp.ubuntu.com/ubuntu/pool/multiverse/f/faac/faac_1.29.3+git20170724.orig.tar.bz2"
 tar xf faac-1.29.3+git20170724.tar.bz2
 cd faac-1.29.3+git20170724
 autoreconf -if >/dev/null
