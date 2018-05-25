@@ -102,7 +102,7 @@ Depends:
  ${misc:Depends},
  d2vwitch,
  vapoursynth,
- vapoursynth-editor,
+ vapoursynth-viewer,
  vapoursynth-extra-plugins
 Description: Hybrid VapourSynth support
  This metapackage will install all packages required to support VapourSynth
