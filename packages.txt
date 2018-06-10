@@ -18,7 +18,7 @@ kvazaar					1.2.0						f18e6d392469ed6fb30b6888696f827b8e894d8884cc01fad081cc793
 lame					3.99.5						530d24d4b26e04d4f691edf5243932bd48e0b8559e8f2088c4f5c8de6ed492eb	lame
 lsdvd					0.17						9b74f683b26b9369e2f23e814af43c7a726f42f52564a940a2ef8abad3568cc9	lsdvd
 mediainfo				18.05						2d6afb8f7d77a27c79152e54d925b31b18f78dd717b94b252d181babd10068a7	mediainfo
-mkvtoolnix				23.0.0						9aaaeeb82999f46a7652d6321a82dad8fc987c426481486cb8f84faa65c4cbdd    mkvextract mkvinfo mkvmerge
+mkvtoolnix				24.0.0						62e9295f5fd328c31b4c4ecc1935d708fc7857d75e026b8b8e0969d7628c1e51	mkvextract mkvinfo mkvmerge
 mp4fpsmod				0.25						2def5c2d31e6b5696fe793e642ef96e3ad9056f7a2977fd0dcf3c9b72ad2f7d4	mp4fpsmod
 mplayer					20170505					d4434bfb43d8b3c1fb27c88d3229cb24501b276c4c6a3d81032fed0d83c50c55	mencoder mplayer
 opus-tools				0.1.10-1					80effd07a8d15e9bdf5fb73731a97d10d8720165c9bd0a08197395809793b670	opusenc
