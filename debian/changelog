@@ -1,3 +1,9 @@
+hybrid (1:0.12.7~xenial) xenial; urgency=medium
+
+  * Fix downloading releases with revision numbers
+
+ -- Marshall Banana <djcj@gmx.de>  Sun, 17 Jun 2018 00:55:58 +0200
+
 hybrid (1:0.12.6~xenial) xenial; urgency=medium
 
   * hybrid-vapoursynth-extension: change dependency from vapoursynth-editor

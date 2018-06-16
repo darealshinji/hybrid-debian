@@ -94,30 +94,31 @@ install_hybrid () {
     MM=$(echo $2 | cut -d'.' -f2)
     DD=$(echo $2 | cut -d'.' -f3)
     rev=$(echo $2 | cut -d'.' -f4)
-    if [ $rev -lt 2 ] ; then
-        rev=""
-    else
-        rev="_$rev"
-    fi
-    version="$YY$MM$DD$rev"
-
-    #if [ "$(uname -m)" != "x86_64" ] ; then
-    #    zenity --warning --text '32 bit GNU/Linux is no longer supported!\nUpgrade your OS.'
-    #    exit 1
-    #fi
-
-    zip="Hybrid_${version}_64bit_binary_qt${QT}.zip"
+    version="$YY$MM$DD"
 
     mkdir -p "$bin"
     cd "$bin"
 
     # check if the zip is available
-    wget -q -t 1 --timeout=4 --spider $url/$zip
+    if [ $rev -lt 2 ] ; then
+        zip="Hybrid_${version}_64bit_binary_qt${QT}.zip"
+        wget -q -t 1 --timeout=4 --spider $url/$zip
+        [ $? = 0 ] || zip=""
+    else
+        zip="Hybrid_${version}${rev}_64bit_binary_qt${QT}.zip"
+        wget -q -t 1 --timeout=4 --spider $url/$zip
+        if [ $? != 0 ] ; then
+            # try revision with underscore
+            zip="Hybrid_${version}_${rev}_64bit_binary_qt${QT}.zip"
+            wget -q -t 1 --timeout=4 --spider $url/$zip
+            [ $? = 0 ] || zip=""
+        fi
+    fi
 
-    if [ $? = 0 ] ; then
+    if [ "x$zip" != "x" ] ; then
         test -f "Hybrid-$QT" && mv -f "Hybrid-$QT" "Hybrid-$QT.old"
         rm -f *.zip
-        wget $url/$zip 2>&1 | sed -u 's/^[a-zA-Z\-].*//; s/.* \{1,2\}\([0-9]\{1,3\}\)%.*/\1\n#Downloading... \1%/; s/^20[0-9][0-9].*/#Done./' | \
+        wget -c $url/$zip 2>&1 | sed -u 's/^[a-zA-Z\-].*//; s/.* \{1,2\}\([0-9]\{1,3\}\)%.*/\1\n#Downloading... \1%/; s/^20[0-9][0-9].*/#Done./' | \
             zenity --progress \
                    --title="$title" \
                    --text "Wait a few seconds until the download has finished ..." \
@@ -173,6 +174,12 @@ if [ -f "$hybrid" ] ; then
     fi
 else
     install_hybrid "Install Hybrid (Qt $QT) rev $available_ver" $available_ver
+fi
+
+
+if [ ! -f "$hybrid" ] ; then
+  zenity --error --text "Hybrid was not installed"
+  exit
 fi
 
 
