@@ -2,7 +2,7 @@ Source: hybrid
 Priority: optional
 Maintainer: Marshall Banana <djcj@gmx.de>
 Build-Depends: debhelper (>= 9)
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 Section: video
 Homepage: http://www.selur.de
 
@@ -11,14 +11,14 @@ Architecture: amd64
 Depends:
  ${misc:Depends},
  libc6 (>= 2.14),
- libgcc1 (>= 1:4.1.1),
- libqt5core5a (>= 5.2.0),
- libqt5dbus5 (>= 5.0.2),
- libqt5gui5 (>= 5.0.2) | libqt5gui5-gles (>= 5.0.2),
- libqt5multimedia5 (>= 5.0.2),
- libqt5network5 (>= 5.0.2),
- libqt5widgets5 (>= 5.2.0),
- libqt5xml5 (>= 5.0.2),
+ libgcc1 (>= 1:3.0),
+ libqt5core5a (>= 5.5.1),
+ libqt5dbus5 (>= 5.5.1),
+ libqt5gui5 (>= 5.5.1),
+ libqt5multimedia5 (>= 5.5.1),
+ libqt5network5 (>= 5.5.1),
+ libqt5widgets5 (>= 5.5.1),
+ libqt5xml5 (>= 5.5.1),
  libstdc++6 (>= 4.4.0),
  wget,
  unzip,
@@ -64,13 +64,15 @@ Package: hybrid-tools
 Architecture: amd64
 Depends:
  ${misc:Depends},
-# Qt libraries requires by some tools
+ libasound2,
  libqtcore4,
  libqtgui4,
  libqt4-xml,
  libqt5core5a,
  libqt5gui5 | libqt5gui5-gles,
  libqt5widgets5,
+ libvdpau1,
+ libxml2,
  wget,
  xterm
 Suggests:

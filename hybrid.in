@@ -18,7 +18,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-QT=521
+QT=551
 bin="$HOME/.hybrid-bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$bin/dvdcss"
 
@@ -167,7 +167,7 @@ if [ -f "$hybrid" ] ; then
             echo "Are you connected to the Internet?"
         else
             newest_ver="$(printf "$available_ver\n$current_ver" | sort -V -r | head -1)"
-            if [ "$newest_ver" = "$available_ver" ]; then
+            if [ "$newest_ver" != "$current_ver" ]; then
                 install_hybrid "Update Hybrid (Qt $QT) to rev $available_ver" $available_ver
             fi
         fi
