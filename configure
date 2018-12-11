@@ -34,6 +34,7 @@ cat <<EOF > hybrid
 prefix=$prefix
 EOF
 cat hybrid.in >> hybrid
+chmod a+x hybrid
 
 echo "prefix: $prefix"
 echo "Now run 'make install'"
